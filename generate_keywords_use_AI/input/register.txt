@@ -1,0 +1,22 @@
+Chức năng: Đăng ký 
+
+Mô tả:
+Chức năng đăng ký cho phép người dùng tạo tài khoản mới để sử dụng hệ thống.
+
+Luồng chính:
+1. Người dùng mở trang đăng ký.
+2. Người dùng nhập các thông tin bắt buộc như họ tên, email, mật khẩu, xác nhận mật khẩu.
+3. Người dùng nhấn nút "Đăng ký".
+4. Hệ thống kiểm tra tính hợp lệ của dữ liệu.
+5. Nếu dữ liệu hợp lệ, hệ thống tạo tài khoản mới thành công.
+   Nếu dữ liệu không hợp lệ, hệ thống thông báo lỗi.
+
+Trường hợp lỗi:
+- Người dùng nhập thiếu thông tin bắt buộc.
+- Email đã tồn tại trong hệ thống.
+- Mật khẩu và xác nhận mật khẩu không trùng khớp.
+- Mật khẩu không đáp ứng yêu cầu bảo mật.
+
+Kết quả mong đợi:
+- Tạo tài khoản thành công khi thông tin hợp lệ.
+- Hiển thị thông báo lỗi tương ứng khi đăng ký không thành công.

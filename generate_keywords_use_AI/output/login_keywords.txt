@@ -1,0 +1,23 @@
+Here are the list of keywords for automated testing using Robot Framework, grouped by type (Business and UI):
+
+**Business Keywords**
+
+* Log In Successfully
+* Invalid Credentials
+* Empty Username Or Password
+* Account Locked Or Not Activated
+
+These keywords represent high-level business actions that can be used in test cases to describe the expected behavior of the login functionality.
+
+**UI Keywords**
+
+* Open Login Page
+* Enter Username
+* Enter Password
+* Click Login Button
+* Verify Successful Login
+* Verify Error Message Displayed
+
+These keywords represent UI-level actions that can be reused across multiple features and functions. They are independent of business logic and do not contain specific data or locators.
+
+Note: I've followed the naming convention recommended by Robot Framework, using camelCase with spaces separating words.

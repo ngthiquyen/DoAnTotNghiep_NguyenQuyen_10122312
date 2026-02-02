@@ -1,0 +1,24 @@
+Here is the list of keywords for the registration functionality:
+
+**Business Keywords**
+
+1. Go To Registration Page
+2. Fill In Required Information
+3. Submit Registration Form
+4. Verify Account Creation Success
+5. Verify Error Message For Missing Information
+6. Verify Error Message For Existing Email
+7. Verify Error Message For Non-Matching Passwords
+8. Verify Error Message For Weak Password
+
+**UI Keywords**
+
+1. Click On Register Button
+2. Enter User Information
+3. Fill Out Registration Form
+4. Select From Drop Down List (if applicable)
+5. Check Box (if applicable)
+6. Click On Submit Button
+7. Wait For Page To Load (if applicable)
+
+Note: These keywords are designed to be reusable across multiple test cases and scenarios, while also being independent of the specific logic or data involved in the registration process.

@@ -1,0 +1,25 @@
+Chức năng: Đặt hàng
+
+Mô tả:
+Chức năng đặt hàng cho phép người dùng mua sản phẩm trên hệ thống thông qua giỏ hàng.
+
+Luồng chính:
+1. Người dùng chọn sản phẩm.
+2. Người dùng thêm sản phẩm vào giỏ hàng.
+3. Người dùng mở trang giỏ hàng.
+4. Người dùng kiểm tra thông tin sản phẩm và số lượng.
+5. Người dùng nhấn nút "Đặt hàng" hoặc "Thanh toán".
+6. Người dùng nhập thông tin giao hàng.
+7. Người dùng xác nhận đơn hàng.
+8. Hệ thống tạo đơn hàng thành công.
+
+
+Trường hợp lỗi:
+- Giỏ hàng trống.
+- Người dùng chưa đăng nhập.
+- Thông tin giao hàng không đầy đủ hoặc không hợp lệ.
+- Sản phẩm hết hàng.
+
+Kết quả mong đợi:
+- Đơn hàng được tạo thành công.
+- Hiển thị thông báo lỗi phù hợp nếu đặt hàng thất bại.

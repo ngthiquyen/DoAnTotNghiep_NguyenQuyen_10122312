@@ -1,0 +1,22 @@
+Chức năng: Đăng nhập
+
+Mô tả:
+Chức năng đăng nhập cho phép người dùng truy cập vào hệ thống bằng tài khoản đã đăng ký trước đó.
+
+Luồng chính:
+1. Người dùng mở trang đăng nhập.
+2. Người dùng nhập tên đăng nhập hoặc email.
+3. Người dùng nhập mật khẩu.
+4. Người dùng nhấn nút "Đăng nhập".
+5. Hệ thống kiểm tra thông tin đăng nhập.
+6. Nếu thông tin hợp lệ, hệ thống đăng nhập thành công và chuyển đến trang chủ.
+    Nếu thông tin không hợp lệ, hệ thống thông báo lỗi. (ngoại lệ)
+
+Trường hợp lỗi (ngoại lệ):
+- Người dùng để trống tên đăng nhập hoặc mật khẩu.
+- Tên đăng nhập hoặc mật khẩu không đúng.
+- Tài khoản bị khóa hoặc chưa được kích hoạt.
+
+Kết quả mong đợi:
+- Người dùng đăng nhập thành công khi nhập đúng thông tin.
+- Hiển thị thông báo lỗi phù hợp khi đăng nhập thất bại.

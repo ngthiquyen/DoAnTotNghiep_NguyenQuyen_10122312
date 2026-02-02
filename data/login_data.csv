@@ -1,0 +1,10 @@
+username,password,expected
+,,Bạn chưa nhập email
+tuyetmai99@gmail.com,,Bạn chưa nhập Mật khẩu
+,tuyetmai99,Bạn chưa nhập email
+tuyetmai99@gmail.com,tuyetmai,Tên đăng nhập hoặc mật khẩu không chính xác
+tuyetmai@gmail.com,tuyetmai99,Tên đăng nhập hoặc mật khẩu không chính xác
+tuyetmai99gmail.com,tuyetmai99,Tên đăng nhập hoặc mật khẩu không chính xác
+tuyetmai99@.com,tuyetmai99,Tên đăng nhập hoặc mật khẩu không chính xác
+tuyetmai@gmail,tuyetmai99,Tên đăng nhập hoặc mật khẩu không chính xác
+tuyetmai99@gmail.com,tuyetmai99,Email

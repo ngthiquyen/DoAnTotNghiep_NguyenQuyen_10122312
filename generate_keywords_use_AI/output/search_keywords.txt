@@ -1,0 +1,17 @@
+Here is the list of keywords for testing the "Search Product" function:
+
+**Business Keywords**
+
+1. Enter Search Query
+2. Submit Search Request
+3. Verify Search Results Exist
+4. Verify No Search Results Exist When Query Is Empty
+5. Verify No Search Results Exist When No Products Found
+
+**UI Keywords**
+
+1. Navigate To Search Bar
+2. Input Search Query
+3. Click Search Button
+4. Verify Search Result List Exists
+5. Verify No Search Results Message Appears

@@ -1,0 +1,26 @@
+As a robotic process automation (RPA) expert with deep experience in Robot Framework and Keyword-Driven Framework, I'm happy to help you create a list of reusable keywords for testing the "Order" feature. Here are the keywords grouped into two categories: Business Keywords and UI Keywords:
+
+**Business Keywords**
+
+* GO TO ORDER PAGE
+* ADD ITEM TO CART
+* VIEW CART CONTENTS
+* PLACE ORDER
+* CONFIRM ORDER
+
+These business-level keywords represent high-level user actions that can be reused across multiple test cases, without considering specific UI interactions.
+
+**UI Keywords**
+
+* CLICK ON PRODUCT
+* SELECT PRODUCT OPTION
+* ADD PRODUCT TO CART
+* OPEN CART PAGE
+* CHECK CART CONTENTS
+* CLICK PLACE ORDER BUTTON
+* ENTER SHIPPING INFORMATION
+* CONFIRM SHIPPING DETAILS
+
+These UI-level keywords represent basic UI actions that can be reused across multiple features, without being tied to specific business logic or data.
+
+Remember to follow the Robot Framework naming convention (write in title case with spaces between words) and avoid creating locators, generating code, or writing test cases. These keywords are designed for reuse and flexibility in testing the "Order" feature.

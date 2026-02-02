@@ -1,0 +1,4 @@
+- Các từ khóa làm rõ so với từ khóa gốc (selenium) có khác gì? khả năng tái sử dụng như nào
+- Phạm vi sử dụng của từ khóa đó (ứng dụng hay sd lại được trong web nói chung)
+- Viết prompt (keyword có tham số đầu vào hay không, nếu có là bn tham số và tham số gì?)
+- Các bước thự hiện trong keyword đó

@@ -1,28 +1,54 @@
-Bạn đóng vai trò là một chuyên gia tự động hóa kiểm thử có kinh nghiệm chuyên sâu về Robot Framework và Keyword-Driven Framework.
+Bạn đóng vai trò là một chuyên gia tự động hóa kiểm thử có kinh nghiệm chuyên sâu về 
+Robot Framework và mô hình Keyword-Driven Testing.
 
-Dựa trên mô tả tính năng sau đây, hãy tạo danh sách các từ khóa tự động hóa kiểm thử theo hướng tái sử dụng.
+Dựa trên mô tả tính năng dưới đây, hãy thiết kế danh sách các từ khóa tự động hóa kiểm thử 
+theo hướng tái sử dụng, phân tầng rõ ràng và phù hợp để xây dựng framework kiểm thử.
 
-Yêu cầu:
+YÊU CẦU CHUNG:
+- Các từ khóa phải phục vụ cho mô hình Keyword-Driven Testing
+- Từ khóa được thiết kế để sử dụng lâu dài, không phụ thuộc chức năng cụ thể
+- Không sinh mã nguồn, không tạo test case, không tạo locator
 
-1. Từ khóa nghiệp vụ (Business Keywords):
+--------------------------------------------------
+
+1. TỪ KHÓA NGHIỆP VỤ (Business Keywords)
+
 - Đại diện cho các hành động người dùng ở mức nghiệp vụ
-- Mang ý nghĩa nghiệp vụ rõ ràng
+- Phản ánh đúng luồng nghiệp vụ của chức năng
 - Được sử dụng trực tiếp trong các test case Robot Framework
-- Không chứa chi tiết thao tác giao diện
+- Không chứa chi tiết thao tác giao diện (click, input, wait…)
+- Có thể gọi các UI Keywords bên trong
+- Không gắn với dữ liệu kiểm thử cụ thể
 
-2. Từ khóa giao diện người dùng (UI Keywords):
+Với MỖI Business Keyword, hãy chỉ rõ:
+- Tên keyword
+- Có tham số đầu vào hay không (Có / Không)
+- Nếu có: liệt kê tên các tham số đầu vào (chỉ tên, không gán giá trị)
+
+--------------------------------------------------
+
+2. TỪ KHÓA GIAO DIỆN NGƯỜI DÙNG (UI Keywords)
+
 - Đại diện cho các thao tác giao diện cơ bản
-- Có thể tái sử dụng cho nhiều chức năng khác nhau
-- Độc lập với logic nghiệp vụ
-- Không gắn với dữ liệu cụ thể
+- Mang tính kỹ thuật thấp, không gắn với nghiệp vụ cụ thể
+- Có khả năng tái sử dụng cho nhiều chức năng và nhiều ứng dụng web
+- Độc lập với dữ liệu kiểm thử
+- Là lớp nền được gọi bởi Business Keywords
 
-Quy tắc:
-- Tuân thủ quy ước đặt tên của Robot Framework (viết hoa chữ cái đầu, cách nhau bằng khoảng trắng)
-- Không tạo bộ định vị (locator)
-- Không sinh mã nguồn
-- Không tạo test case
-- Chỉ liệt kê tên các từ khóa
-- Nhóm từ khóa rõ ràng theo từng loại (Business / UI)
+Với MỖI UI Keyword, hãy chỉ rõ:
+- Tên keyword
+- Có tham số đầu vào hay không (Có / Không)
+- Nếu có: liệt kê tên các tham số đầu vào (chỉ tên, không gán giá trị)
 
-Mô tả tính năng:
+--------------------------------------------------
+
+QUY TẮC TRÌNH BÀY:
+- Tuân thủ quy ước đặt tên của Robot Framework 
+  (viết hoa chữ cái đầu, các từ cách nhau bằng khoảng trắng)
+- Chỉ liệt kê danh sách từ khóa
+- Nhóm rõ ràng theo từng loại:
+  + Business Keywords
+  + UI Keywords
+
+MÔ TẢ TÍNH NĂNG:
 {{FEATURE}}

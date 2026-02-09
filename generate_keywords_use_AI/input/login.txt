@@ -1,22 +1,38 @@
 Chức năng: Đăng nhập
 
 Mô tả:
-Chức năng đăng nhập cho phép người dùng truy cập vào hệ thống bằng tài khoản đã đăng ký trước đó.
+Chức năng đăng nhập phép người dùng truy cập vào hệ thống bằng cách xác thực thông tin đăng nhập đã được lưu trữ trong cơ sở dữ liệu.
 
-Luồng chính:
-1. Người dùng mở trang đăng nhập.
-2. Người dùng nhập tên đăng nhập hoặc email.
-3. Người dùng nhập mật khẩu.
-4. Người dùng nhấn nút "Đăng nhập".
-5. Hệ thống kiểm tra thông tin đăng nhập.
-6. Nếu thông tin hợp lệ, hệ thống đăng nhập thành công và chuyển đến trang chủ.
-    Nếu thông tin không hợp lệ, hệ thống thông báo lỗi. (ngoại lệ)
+Luồng chính (Main Flows ):
+1. Người dùng truy cập trang đăng nhập.
+2. Hệ thống hiển thị form đăng nhập.
+3. Người dùng nhập tên đăng nhập hoặc email.
+4. Người dùng nhập mật khẩu.
+5. Người dùng nhấn nút Đăng nhập.
+6. Hệ thống kiểm tra:
+    - Thông tin đăng nhập có tồn tại trong cơ sở dữ liệu.
+    - Mật khẩu có khớp với tài khoản tương ứng.
+    - Trạng thái tài khoản hợp lệ.
+7. Hệ thống xác thực thành công.
+8. Hệ thống đăng nhập người dùng và chuyển hướng đến trang chủ.
 
-Trường hợp lỗi (ngoại lệ):
-- Người dùng để trống tên đăng nhập hoặc mật khẩu.
-- Tên đăng nhập hoặc mật khẩu không đúng.
-- Tài khoản bị khóa hoặc chưa được kích hoạt.
+Luồng ngoại lệ (Alternate Flows):
+1. A1 – Dữ liệu đăng nhập bị bỏ trống
+    Tại bước 5, nếu người dùng không nhập tên đăng nhập/email hoặc mật khẩu
+    → Hệ thống hiển thị thông báo lỗi yêu cầu nhập đầy đủ thông tin
+    
+2. A2 – Tài khoản không tồn tại trong cơ sở dữ liệu
+    Tại bước 6, nếu hệ thống không tìm thấy tài khoản tương ứng
+    → Hệ thống hiển thị thông báo lỗi: “Tài khoản không tồn tại”
+    
+3. A3 – Mật khẩu không đúng
+    Tại bước 6, nếu mật khẩu không khớp
+    → Hệ thống hiển thị thông báo lỗi: “Tên đăng nhập hoặc mật khẩu không đúng”
 
-Kết quả mong đợi:
+4. A4 – Tài khoản bị khóa hoặc chưa kích hoạt
+    Tại bước 6, nếu tài khoản ở trạng thái không hợp lệ
+    → Hệ thống hiển thị thông báo lỗi phù hợp
+
+Kết quả mong đợi (Expected):
 - Người dùng đăng nhập thành công khi nhập đúng thông tin.
 - Hiển thị thông báo lỗi phù hợp khi đăng nhập thất bại.

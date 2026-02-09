@@ -3,20 +3,32 @@ Chức năng: Đăng ký
 Mô tả:
 Chức năng đăng ký cho phép người dùng tạo tài khoản mới để sử dụng hệ thống.
 
-Luồng chính:
-1. Người dùng mở trang đăng ký.
-2. Người dùng nhập các thông tin bắt buộc như họ tên, email, mật khẩu, xác nhận mật khẩu.
-3. Người dùng nhấn nút "Đăng ký".
-4. Hệ thống kiểm tra tính hợp lệ của dữ liệu.
-5. Nếu dữ liệu hợp lệ, hệ thống tạo tài khoản mới thành công.
-   Nếu dữ liệu không hợp lệ, hệ thống thông báo lỗi.
+Luồng chính (Main Flows):
+1. Người dùng truy cập trang đăng ký.
+2  Hệ thống hiển thị giao diện đăng ký tài khoản.
+3. Người dùng nhập các thông tin bắt buộc gồm: họ tên, email, mật khẩu và xác nhận mật khẩu.
+4. Người dùng nhấn nút “Đăng ký”.
+5. Hệ thống kiểm tra tính hợp lệ của các thông tin đã nhập.
+6. Hệ thống lưu thông tin tài khoản mới vào cơ sở dữ liệu.
+7. Hệ thống thông báo đăng ký thành công cho người dùng.
 
-Trường hợp lỗi:
-- Người dùng nhập thiếu thông tin bắt buộc.
-- Email đã tồn tại trong hệ thống.
-- Mật khẩu và xác nhận mật khẩu không trùng khớp.
-- Mật khẩu không đáp ứng yêu cầu bảo mật.
+Luồng ngoại lệ (Alternate Flows):
+1. A1. Thiếu thông tin bắt buộc
+   5a. Nếu người dùng không nhập đầy đủ các thông tin bắt buộc
+   → Hệ thống hiển thị thông báo yêu cầu nhập đầy đủ thông tin.
 
-Kết quả mong đợi:
+2. A2. Email đã tồn tại
+   5b. Nếu email đã tồn tại trong cơ sở dữ liệu
+   → Hệ thống hiển thị thông báo email đã được sử dụng.
+
+3. A3. Mật khẩu không hợp lệ
+   5c. Nếu mật khẩu không đáp ứng yêu cầu bảo mật
+   → Hệ thống hiển thị thông báo lỗi về mật khẩu.
+
+4. A4. Mật khẩu xác nhận không khớp
+   5d. Nếu mật khẩu và xác nhận mật khẩu không trùng khớp
+   → Hệ thống hiển thị thông báo lỗi tương ứng.
+
+Kết quả mong đợi (Expected):
 - Tạo tài khoản thành công khi thông tin hợp lệ.
 - Hiển thị thông báo lỗi tương ứng khi đăng ký không thành công.

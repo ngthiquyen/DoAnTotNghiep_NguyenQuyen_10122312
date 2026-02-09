@@ -1,25 +1,45 @@
 Chức năng: Đặt hàng
 
 Mô tả:
-Chức năng đặt hàng cho phép người dùng mua sản phẩm trên hệ thống thông qua giỏ hàng.
+Chức năng đặt hàng cho phép người dùng tạo đơn hàng bằng cách lựa chọn sản phẩm,
+thêm vào giỏ hàng và thực hiện thanh toán với thông tin giao hàng hợp lệ.
 
-Luồng chính:
-1. Người dùng chọn sản phẩm.
-2. Người dùng thêm sản phẩm vào giỏ hàng.
-3. Người dùng mở trang giỏ hàng.
-4. Người dùng kiểm tra thông tin sản phẩm và số lượng.
-5. Người dùng nhấn nút "Đặt hàng" hoặc "Thanh toán".
-6. Người dùng nhập thông tin giao hàng.
-7. Người dùng xác nhận đơn hàng.
-8. Hệ thống tạo đơn hàng thành công.
+Luồng chính (Main Flows):
+1. Người dùng chọn sản phẩm trên hệ thống.
+2. Hệ thống hiển thị thông tin chi tiết của sản phẩm.
+3. Người dùng thêm sản phẩm vào giỏ hàng.
+4. Hệ thống cập nhật giỏ hàng.
+5. Người dùng mở trang giỏ hàng.
+6. Hệ thống hiển thị danh sách sản phẩm trong giỏ hàng.
+7. Người dùng kiểm tra thông tin sản phẩm và số lượng.
+8. Người dùng nhấn nút Đặt hàng / Thanh toán.
+9. Hệ thống hiển thị form nhập thông tin giao hàng.
+10. Người dùng nhập thông tin giao hàng.
+11. Người dùng xác nhận đặt hàng.
+12. Hệ thống kiểm tra:
+    - Tính hợp lệ của thông tin giao hàng
+    - Tình trạng tồn kho của sản phẩm
+13. Hệ thống tạo đơn hàng thành công.
+14. Hệ thống hiển thị thông báo đặt hàng thành công.
 
 
-Trường hợp lỗi:
-- Giỏ hàng trống.
-- Người dùng chưa đăng nhập.
-- Thông tin giao hàng không đầy đủ hoặc không hợp lệ.
-- Sản phẩm hết hàng.
+Luồng ngoại lệ (Alternate Flows):
+1. A1 – Người dùng chưa đăng nhập
+    Tại bước 8, nếu người dùng chưa đăng nhập
+    → Hệ thống yêu cầu người dùng đăng nhập
 
-Kết quả mong đợi:
+2. A2 – Giỏ hàng trống
+    Tại bước 6, nếu giỏ hàng không có sản phẩm
+    → Hệ thống hiển thị thông báo: “Giỏ hàng trống”
+
+3. A3 – Thông tin giao hàng không hợp lệ
+    Tại bước 12, nếu thông tin giao hàng thiếu hoặc sai định dạng
+    → Hệ thống hiển thị thông báo lỗi yêu cầu nhập lại
+
+4. A4 – Sản phẩm hết hàng
+    Tại bước 12, nếu một hoặc nhiều sản phẩm không còn tồn kho
+    → Hệ thống hiển thị thông báo: “Sản phẩm đã hết hàng”
+
+Kết quả mong đợi (Expected):
 - Đơn hàng được tạo thành công.
 - Hiển thị thông báo lỗi phù hợp nếu đặt hàng thất bại.

@@ -7,9 +7,9 @@ import requests
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "llama3"
 
-INPUT_DIR = "ai/input"
-OUTPUT_DIR = "ai/output"
-PROMPT_FILE = "ai/prompt/generate_keyword_prompt.txt"
+INPUT_DIR = "generate_keywords_use_AI/input"
+OUTPUT_DIR = "generate_keywords_use_AI/output"
+PROMPT_FILE = "generate_keywords_use_AI/prompt/generate_keyword_prompt.txt"
 
 def read_file(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -67,7 +67,7 @@ def generate_for_features(feature_name: str):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Vui lòng cung cấp tên feature để generate keywords.")
-        print("Cách sử dụng: python ai/generate_keyword.py <feature_name>")
+        print("Cách sử dụng: python generate_keywords_use_AI/generate_keyword.py <feature_name>")
         sys.exit(1)
 
     feature_name = sys.argv[1]

@@ -1,23 +1,42 @@
-Here are the list of keywords for automated testing using Robot Framework, grouped by type (Business and UI):
+As a robotics expert with experience in Robot Framework and keyword-driven testing, I will design a list of keywords that meet the requirements for long-term use, not dependent on specific functions, and suitable for building a framework for testing.
 
 **Business Keywords**
 
-* Log In Successfully
-* Invalid Credentials
-* Empty Username Or Password
-* Account Locked Or Not Activated
+These keywords represent high-level user actions at the business level, reflecting the main flows and alternate flows of the system. They can be used directly in test cases with Robot Framework and do not contain details about interface operations (e.g., click, input, wait...).
 
-These keywords represent high-level business actions that can be used in test cases to describe the expected behavior of the login functionality.
+1. **Login**
+	* No parameters
+2. **Verify Login Successful**
+	* No parameters
+3. **Validate User Information**
+	* No parameters
+4. **Fail to Login**
+	* No parameters
 
 **UI Keywords**
 
-* Open Login Page
-* Enter Username
-* Enter Password
-* Click Login Button
-* Verify Successful Login
-* Verify Error Message Displayed
+These keywords represent basic interface operations that can be reused across many functions and web applications. They are independent of test data and serve as a foundation for calling Business Keywords.
 
-These keywords represent UI-level actions that can be reused across multiple features and functions. They are independent of business logic and do not contain specific data or locators.
+1. **Enter Text**
+	* Parameters: text_to_enter
+2. **Click Button**
+	* Parameter: button_name
+3. **Wait for Element**
+	* Parameters: element_name, timeout
+4. **Verify Text Present**
+	* Parameter: expected_text
 
-Note: I've followed the naming convention recommended by Robot Framework, using camelCase with spaces separating words.
+**UI Keywords (continued)**
+
+5. **Select Option from List**
+	* Parameters: option_to_select, list_name
+6. **Click Link**
+	* Parameter: link_name
+7. **Submit Form**
+	* No parameters
+8. **Get Attribute of Element**
+	* Parameters: element_name, attribute_name
+
+Note that the Business Keywords do not contain details about interface operations, while the UI Keywords focus on low-level technical operations that can be reused across many functions and web applications.
+
+This framework is designed to allow for easy extension and modification as new features are added or changed. The Business Keywords provide a high-level representation of user actions, while the UI Keywords provide the underlying foundation for those actions.

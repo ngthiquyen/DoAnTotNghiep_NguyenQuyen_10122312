@@ -25,3 +25,18 @@ Current URL Should Be
 Verify Page Contains Text
     [Arguments]    ${message}
     Page Should Contain    ${message}
+
+
+
+Verify Element Is Visible
+    [Documentation]    Verifies an element is visible
+    # TODO: Implement
+
+Verify Text Is Present
+    [Documentation]    Verifies text is present
+    # TODO: Implement
+
+Verify Page Loaded
+    [Documentation]    Verifies the page is loaded
+    # TODO: Implement
+

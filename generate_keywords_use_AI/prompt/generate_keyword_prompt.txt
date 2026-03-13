@@ -1,54 +1,176 @@
-Bạn đóng vai trò là một chuyên gia tự động hóa kiểm thử có kinh nghiệm chuyên sâu về 
-Robot Framework và mô hình Keyword-Driven Testing.
+You are a Senior Automation Architect designing a reusable Keyword-Driven Testing architecture using Robot Framework.
 
-Dựa trên mô tả tính năng dưới đây, hãy thiết kế danh sách các từ khóa tự động hóa kiểm thử 
-theo hướng tái sử dụng, phân tầng rõ ràng và phù hợp để xây dựng framework kiểm thử.
+Your task is to generate reusable keywords for the given feature using exactly three layers.
 
-YÊU CẦU CHUNG:
-- Các từ khóa phải phục vụ cho mô hình Keyword-Driven Testing
-- Từ khóa được thiết kế để sử dụng lâu dài, không phụ thuộc chức năng cụ thể
-- Không sinh mã nguồn, không tạo test case, không tạo locator
+Do not provide explanations. Output tables only.
 
 --------------------------------------------------
 
-1. TỪ KHÓA NGHIỆP VỤ (Business Keywords)
+ARCHITECTURE
 
-- Đại diện cho các hành động người dùng ở mức nghiệp vụ
-- Phản ánh đúng luồng nghiệp vụ của chức năng
-- Được sử dụng trực tiếp trong các test case Robot Framework
-- Không chứa chi tiết thao tác giao diện (click, input, wait…)
-- Có thể gọi các UI Keywords bên trong
-- Không gắn với dữ liệu kiểm thử cụ thể
-
-Với MỖI Business Keyword, hãy chỉ rõ:
-- Tên keyword
-- Có tham số đầu vào hay không (Có / Không)
-- Nếu có: liệt kê tên các tham số đầu vào (chỉ tên, không gán giá trị)
+Use exactly these layers:
+1. Business Layer
+2. UI Action Layer
+3. Verification Layer
 
 --------------------------------------------------
 
-2. TỪ KHÓA GIAO DIỆN NGƯỜI DÙNG (UI Keywords)
+GLOBAL RULES
 
-- Đại diện cho các thao tác giao diện cơ bản
-- Mang tính kỹ thuật thấp, không gắn với nghiệp vụ cụ thể
-- Có khả năng tái sử dụng cho nhiều chức năng và nhiều ứng dụng web
-- Độc lập với dữ liệu kiểm thử
-- Là lớp nền được gọi bởi Business Keywords
+Do NOT generate:
+- test cases
+- automation code
+- locators
+- example values
 
-Với MỖI UI Keyword, hãy chỉ rõ:
-- Tên keyword
-- Có tham số đầu vào hay không (Có / Không)
-- Nếu có: liệt kê tên các tham số đầu vào (chỉ tên, không gán giá trị)
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Keywords must be reusable, generic, and data-independent.
 
 --------------------------------------------------
 
-QUY TẮC TRÌNH BÀY:
-- Tuân thủ quy ước đặt tên của Robot Framework 
-  (viết hoa chữ cái đầu, các từ cách nhau bằng khoảng trắng)
-- Chỉ liệt kê danh sách từ khóa
-- Nhóm rõ ràng theo từng loại:
-  + Business Keywords
-  + UI Keywords
+FEATURE WORDS ARE STRICTLY FORBIDDEN
 
-MÔ TẢ TÍNH NĂNG:
+The following words must NEVER appear in UI Action or Verification keyword names:
+
+Login
+Username
+Password
+Account
+User
+Search
+Cart
+Checkout
+Order
+Product
+Email
+Address
+Authentication
+
+If any of these words appear in UI or Verification keywords → regenerate the keyword.
+
+--------------------------------------------------
+
+GENERIC UI VOCABULARY
+
+Allowed generic UI element terms:
+
+Element  
+Field  
+Text  
+Input Field  
+Button  
+Dropdown  
+Checkbox  
+Radio Button  
+Link  
+Page  
+Section  
+
+Allowed generic UI actions:
+
+Click  
+Enter  
+Input  
+Clear  
+Select  
+Wait Until  
+Scroll To  
+Hover Over  
+
+--------------------------------------------------
+
+LAYER DESIGN
+
+BUSINESS
+    - Represent user actions or business workflows
+    - May orchestrate UI and Verification keywords
+    - Must NOT contain UI verbs (Click, Input, Select, Wait)
+    - Must NOT contain validation logic
+
+    STRICTLY FORBIDDEN WORDS in Business keywords: Click, Input, Enter, Select, Wait, Verify, Check, Validate  
+
+    BUSINESS KEYWORD PATTERN: <Action> <Business Goal>
+
+UI ACTION
+    - Generic UI operations only
+    - Must be reusable across features
+    - Avoid feature words such as Login, Username, Password, Cart, Search, etc.
+    - Must map to SeleniumLibrary built-in keywords
+    - Prefer abstract UI patterns over feature-specific actions
+    - Use abstract action naming (e.g., actions related to entering text, clicking elements, waiting for elements, selecting options)
+    - Must map to real SeleniumLibrary built-in keywords
+
+    Absolutely NO feature-specific words such as: Login, Username, Password, Search, Cart, Product  
+
+    UI KEYWORD PATTERN: <Action> <Generic UI Target>
+
+    Examples of GOOD UI Action keywords: Click Element, Input Text Into Field, eg.
+    Examples of BAD UI Action keywords (DO NOT GENERATE): Enter Username, Click Login Button, eg.  
+
+VERIFICATION
+    - Generic validation keywords
+    - Validate text, element state, navigation, or page content
+    - Must map to SeleniumLibrary built-in keywords
+    - Avoid words derived from the feature description
+    - Use abstract validation naming
+
+    VERIFICATION KEYWORD PATTERN: Verify <Generic Condition>
+
+    Examples of GOOD Verification keywords: Verify Element Is Visible, Verify Element Is Enabled, eg.
+    Examples of BAD Verification keywords: Verify Login Successful, Verify Username Error, eg. 
+
+
+--------------------------------------------------
+
+OUTPUT FORMAT (STRICT)
+
+[BUSINESS KEYWORDS]
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| ... | Yes/No | parameter names or None | Yes/No | short purpose |
+
+Rules: business actions only, no UI verbs, no validation terms.
+
+
+[UI ACTION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | generic UI action |
+
+Rules: Must be generic UI operations such as Input Text Into Field, Click On Element, eg.
+
+
+[VERIFICATION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | validation purpose |
+
+Rules: generic validation such as Verify Element Is Visible or Verify Text Is Present, eg.
+
+--------------------------------------------------
+
+SELF VALIDATION (MANDATORY)
+
+Before producing the final tables, verify that:
+
+1. Business keywords contain NO UI verbs.
+2. Business keywords contain NO verification words.
+3. UI keywords contain NO feature-specific words.
+4. Verification keywords contain NO feature-specific words.
+5. All keywords follow Robot Framework naming conventions.
+6. All UI and Verification keywords map to real SeleniumLibrary built-in keywords.
+
+If any rule is violated → regenerate the keyword list.
+
+--------------------------------------------------
+
+FEATURE DESCRIPTION
 {{FEATURE}}

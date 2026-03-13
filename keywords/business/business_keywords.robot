@@ -54,3 +54,13 @@ Verify Business Result
     [Arguments]    ${expected_result}
     Verify Page Contains Text    ${expected_result}
 
+
+
+
+Sign In User
+    [Documentation]    Sign in a user
+    # TODO: Implement
+
+Sign Out User
+    [Documentation]    Sign out a user
+    # TODO: Implement

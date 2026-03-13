@@ -1,6 +1,5 @@
 import os
 import sys
-from click import prompt
 import requests
 
 # ===== CẤU HÌNH =====
@@ -11,6 +10,51 @@ INPUT_DIR = "generate_keywords_use_AI/input"
 OUTPUT_DIR = "generate_keywords_use_AI/output"
 PROMPT_FILE = "generate_keywords_use_AI/prompt/generate_keyword_prompt.txt"
 
+# ===== MAP TỚI FRAMEWORK =====
+FILE_MAPPING = {
+    "BUSINESS": "keywords/business/business_keywords.robot",
+    "UI": "keywords/ui/common_keywords.robot",
+    "VERIFY": "keywords/verify/verify.robot"
+}
+
+# ===== ACTION SYNONYMS (normalize action meaning) =====
+ACTION_SYNONYMS = {
+    "enter": "input",
+    "type": "input",
+    "fill": "input",
+
+    "press": "click",
+    "tap": "click"
+}
+
+# ===== CAPABILITY MAP =====
+def detect_capability(keyword_name: str):
+
+    name = keyword_name.lower()
+
+    if "input" in name or "enter" in name:
+        return "input_text"
+
+    if "click" in name or "press" in name:
+        return "click_element"
+
+    if "wait" in name and "visible" in name:
+        return "wait_visible"
+
+    if "wait" in name and "page" in name:
+        return "wait_page"
+
+    if "scroll" in name:
+        return "scroll"
+
+    if "select" in name:
+        return "select_option"
+
+    if "verify" in name:
+        return "verification"
+
+    return "other"
+
 def read_file(path):
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
@@ -19,13 +63,173 @@ def call_ollama(prompt: str) -> str:
     payload = {
         "model": MODEL,
         "prompt": prompt,
-        "stream": False
+        "stream": False,
+        "options": {
+        "temperature": 0.2,
+        "num_predict": 600
+        }
     }
 
     response = requests.post(OLLAMA_URL, json=payload)
     response.raise_for_status()
 
     return response.json()["response"]
+
+# ===== NORMALIZE KEYWORD =====
+def normalize_keyword(name: str):
+
+    words = name.lower().split()
+
+    normalized_words = []
+
+    for w in words:
+        if w in ACTION_SYNONYMS:
+            normalized_words.append(ACTION_SYNONYMS[w])
+        else:
+            normalized_words.append(w)
+
+    return " ".join(normalized_words)
+
+# ===== PARSE AI RESPONSE =====
+def parse_keywords(response_text: str):
+    sections = {
+        "BUSINESS": [],
+        "UI": [],
+        "VERIFY": []
+    }
+
+    current_section = None
+
+    for line in response_text.splitlines():
+        line = line.strip()
+
+        if "BUSINESS KEYWORDS" in line:
+            current_section = "BUSINESS"
+            continue
+        elif "UI ACTION KEYWORDS" in line:
+            current_section = "UI"
+            continue
+        elif "VERIFICATION KEYWORDS" in line:
+            current_section = "VERIFY"
+            continue
+            
+        # Skip table headers/separators
+        if line.startswith("| Keyword Name") or line.startswith("|--------------"):
+            continue
+
+        # Parse table rows
+        if line.startswith("|") and current_section:
+            parts = [p.strip() for p in line.split("|")]
+
+            # parts example:
+            # ['', 'Enter Text Into Field', 'Yes', 'locator, text', 'Input Text', 'Enter text...', '']
+            if len(parts) >= 6:
+                keyword_name = parts[1]
+                description = parts[-2]
+
+                if keyword_name and keyword_name != "...":
+                    sections[current_section].append({
+                        "name": keyword_name,
+                        "description": description,
+                        "normalized": normalize_keyword(keyword_name),
+                        "capability": detect_capability(keyword_name)
+                    })
+
+    return sections
+
+
+# ===== LẤY KEYWORD ĐÃ TỒN TẠI =====
+def get_existing_keywords(file_path: str):
+    names = set()
+    normalized = set()
+    capabilities = set()
+    if not os.path.exists(file_path):
+        return names, normalized, capabilities
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        for line in f:
+            stripped = line.strip()
+
+            # Bỏ qua dòng rỗng và dòng indent (TODO)
+            if stripped and not line.startswith("    "):
+                names.add(stripped)
+                normalized.add(normalize_keyword(stripped))
+                capabilities.add(detect_capability(stripped))
+
+    return names, normalized, capabilities
+
+# ===== APPEND KEYWORD MỚI =====
+def append_keywords(file_path: str, new_keywords: list):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+    with open(file_path, "a", encoding="utf-8") as f:
+        for kw in new_keywords:
+            f.write(f"\n{kw['name']}\n")
+
+            if kw["description"]:
+                f.write(f"    [Documentation]    {kw['description']}\n")
+
+            f.write("    # TODO: Implement\n")
+            
+# ===== FILTER DUPLICATE KEYWORDS =====
+def filter_keywords(keywords, existing_names, existing_normalized, existing_capabilities):
+
+    new_keywords = []
+
+    for kw in keywords:
+
+        name = kw["name"]
+        normalized = kw["normalized"]
+        capability = kw["capability"]
+
+        # duplicate name
+        if name in existing_names:
+            print(f"Skip duplicate name: {name}")
+            continue
+
+        # duplicate normalized text
+        if normalized in existing_normalized:
+            print(f"Skip semantic duplicate: {name}")
+            continue
+
+        # duplicate capability
+        if capability in existing_capabilities and capability != "other":
+            print(f"Reuse existing capability ({capability}) for: {name}")
+            continue
+
+        new_keywords.append(kw)
+
+        existing_names.add(name)
+        existing_normalized.add(normalized)
+        existing_capabilities.add(capability)
+
+    return new_keywords
+
+# ===== GHI VÀO FRAMEWORK (CHỈ KEYWORD MỚI) =====
+def write_to_framework(parsed_sections: dict):
+    summary = {}
+
+    for section, keywords in parsed_sections.items():
+        file_path = FILE_MAPPING[section]
+
+        existing_names, existing_normalized, existing_capabilities = get_existing_keywords(file_path)
+
+        new_keywords = filter_keywords(
+            keywords,
+            existing_names,
+            existing_normalized,
+            existing_capabilities
+        )
+
+        if new_keywords:
+            append_keywords(file_path, new_keywords)
+
+        summary[section] = {
+            "total_generated": len(keywords),
+            "new_added": len(new_keywords)
+        }
+
+    return summary
 
 def generate_for_features(feature_name: str):
     input_file = os.path.join(INPUT_DIR, f"{feature_name}.txt")
@@ -62,7 +266,29 @@ def generate_for_features(feature_name: str):
         f.write(result)
 
     print(f"Generated keywords for: {feature_name}")
+    
+    # ===== LƯU OUTPUT GỐC =====
+    print(f"Đã lưu kết quả AI vào: {output_path}")
 
+    # ===== PARSE VÀ INJECT =====
+    parsed_sections = parse_keywords(result)
+    if not any(parsed_sections.values()):
+        print("⚠ AI output không đúng format. Không inject vào framework.")
+        return
+
+    summary = write_to_framework(parsed_sections)
+
+    print("\n===== SUMMARY =====")
+    for section, data in summary.items():
+        if data["new_added"] == 0:
+            print(f"{section}: No new keywords.")
+        else:
+            print(
+                f"{section}: Generated={data['total_generated']} | "
+                f"New Added={data['new_added']}"
+            )
+
+    print("\nHoàn tất inject keyword vào framework.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

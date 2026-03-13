@@ -21,7 +21,7 @@ Input Text To Element
     Clear Element Text    ${locator}
     Input Text    ${locator}    ${text}
 
-Click Element
+Click On Element
     [Arguments]    ${locator}
     Log    Click element ${locator}
     Wait Until Element Is Visible    ${locator}    10s
@@ -38,4 +38,15 @@ Select Dropdown By Value
     Log    Select dropdown ${locator} by value ${value}
     Wait Until Element Is Visible    ${locator}    10s
     Select From List By Value    ${locator}    ${value}
+    
 
+
+
+
+Wait Until Element Is Visible
+    [Documentation]    Wait until an element is visible
+    # TODO: Implement
+
+Scroll To Element
+    [Documentation]    Scroll to an element
+    # TODO: Implement

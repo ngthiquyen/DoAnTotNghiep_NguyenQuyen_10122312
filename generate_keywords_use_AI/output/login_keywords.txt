@@ -1,42 +1,25 @@
-As a robotics expert with experience in Robot Framework and keyword-driven testing, I will design a list of keywords that meet the requirements for long-term use, not dependent on specific functions, and suitable for building a framework for testing.
+Here are the output tables:
 
-**Business Keywords**
+**BUSINESS KEYWORDS**
 
-These keywords represent high-level user actions at the business level, reflecting the main flows and alternate flows of the system. They can be used directly in test cases with Robot Framework and do not contain details about interface operations (e.g., click, input, wait...).
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Sign In User | Yes | username, password | None | Sign in a user |
+| Sign Out User | Yes | username | None | Sign out a user |
 
-1. **Login**
-	* No parameters
-2. **Verify Login Successful**
-	* No parameters
-3. **Validate User Information**
-	* No parameters
-4. **Fail to Login**
-	* No parameters
+**UI ACTION KEYWORDS**
 
-**UI Keywords**
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Input Text Into Field | Yes | text, field | Input Text | Input text into a field |
+| Click On Element | Yes | element | Click Element | Click on an element |
+| Wait Until Element Is Visible | Yes | element | Wait Until Element Is Visible | Wait until an element is visible |
+| Scroll To Element | Yes | element | Scroll To Element | Scroll to an element |
 
-These keywords represent basic interface operations that can be reused across many functions and web applications. They are independent of test data and serve as a foundation for calling Business Keywords.
+**VERIFICATION KEYWORDS**
 
-1. **Enter Text**
-	* Parameters: text_to_enter
-2. **Click Button**
-	* Parameter: button_name
-3. **Wait for Element**
-	* Parameters: element_name, timeout
-4. **Verify Text Present**
-	* Parameter: expected_text
-
-**UI Keywords (continued)**
-
-5. **Select Option from List**
-	* Parameters: option_to_select, list_name
-6. **Click Link**
-	* Parameter: link_name
-7. **Submit Form**
-	* No parameters
-8. **Get Attribute of Element**
-	* Parameters: element_name, attribute_name
-
-Note that the Business Keywords do not contain details about interface operations, while the UI Keywords focus on low-level technical operations that can be reused across many functions and web applications.
-
-This framework is designed to allow for easy extension and modification as new features are added or changed. The Business Keywords provide a high-level representation of user actions, while the UI Keywords provide the underlying foundation for those actions.
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Element Is Visible | Yes | element | Element Should Be Visible | Verify an element is visible |
+| Verify Text Is Present | Yes | text | Text Should Be Present | Verify text is present |
+| Verify Element Is Enabled | Yes | element | Element Should Be Enabled | Verify an element is enabled |

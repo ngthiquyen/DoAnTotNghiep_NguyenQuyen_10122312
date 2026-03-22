@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.12 on win32)" generated="2026-03-22T16:36:13.294218" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Search" source="D:\DoAnTotNghiep_NguyenQuyen_10122312\tests\test_search.robot">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-03-22T16:36:13.661890" elapsed="0.000559"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-22T16:36:13.662954" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-22T16:36:13.662743" elapsed="1.367908"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.033577" elapsed="0.032744"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-03-22T16:36:15.067507" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-03-22T16:36:15.066641" elapsed="0.000981"/>
+</kw>
+<arg>Search Feature</arg>
+<status status="PASS" start="2026-03-22T16:36:13.660896" elapsed="1.408596"/>
+</kw>
+<test id="s1-t1" name="Search Test" line="17">
+<kw name="Execute Search Test">
+<msg time="2026-03-22T16:36:15.073283" level="FAIL">Variable '${TC}' not found.</msg>
+<arg>${TC}</arg>
+<arg>${product}</arg>
+<arg>${expected}</arg>
+<status status="FAIL" start="2026-03-22T16:36:15.072353" elapsed="0.001042">Variable '${TC}' not found.</status>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
+<kw name="Handle Test Failure" owner="base_test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T16:36:15.083608" level="INFO">❌ Test failed: Search Test</msg>
+<arg>❌ Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.081946" elapsed="0.001767"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-03-22T16:36:15.085737" level="INFO">${timestamp} = 20260322_163615</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.085291" elapsed="0.000487"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-03-22T16:36:15.089751" level="INFO">${clean_test_name} = Search_Test</msg>
+<var>${clean_test_name}</var>
+<arg>${TEST NAME}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.089019" elapsed="0.000804"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-03-22T16:36:15.095011" level="INFO">${clean_test_name} = Search_Test</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>:</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.093196" elapsed="0.001925"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-03-22T16:36:15.098740" level="INFO">${clean_test_name} = Search_Test</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>/</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.098321" elapsed="0.000461"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-03-22T16:36:15.101594" level="INFO">${clean_test_name} = Search_Test</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>\\</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.101069" elapsed="0.000581"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-22T16:36:15.105379" level="INFO">${dir} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\screenshots</msg>
+<var>${dir}</var>
+<arg>${OUTPUT DIR}${/}screenshots</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.104315" elapsed="0.001184"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-03-22T16:36:15.108732" level="INFO" html="true">Directory '&lt;a href="file://D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\screenshots"&gt;D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${dir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.108101" elapsed="0.000775"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-22T16:36:15.112140" level="INFO">${path} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\screenshots\Search_Test_20260322_163615.png</msg>
+<var>${path}</var>
+<arg>${dir}${/}${clean_test_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.111311" elapsed="0.000887"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-03-22T16:36:15.224843" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/Search_Test_20260322_163615.png"&gt;&lt;img src="screenshots/Search_Test_20260322_163615.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${path}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.113959" elapsed="0.111142"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T16:36:15.227268" level="INFO">Screenshot saved at: D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\screenshots\Search_Test_20260322_163615.png</msg>
+<arg>Screenshot saved at: ${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.226861" elapsed="0.000476"/>
+</kw>
+<status status="PASS" start="2026-03-22T16:36:15.081192" elapsed="0.147309"/>
+</kw>
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.079739" elapsed="0.148936"/>
+</kw>
+<status status="FAIL" start="2026-03-22T16:36:15.069738" elapsed="0.159188">Variable '${TC}' not found.</status>
+</test>
+<kw name="Close Browser Suite" owner="base_test" type="TEARDOWN">
+<kw name="Log Info" owner="logger">
+<msg time="2026-03-22T16:36:15.235126" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-03-22T16:36:15.234722" elapsed="0.000491"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-03-22T16:36:15.236608" elapsed="2.301881"/>
+</kw>
+<status status="PASS" start="2026-03-22T16:36:15.234393" elapsed="2.304926"/>
+</kw>
+<status status="FAIL" start="2026-03-22T16:36:13.349331" elapsed="4.190289"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Search" id="s1" pass="0" fail="1" skip="0">Test Search</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-03-22T16:36:13.283404" level="ERROR">Executing model modifier 'module' failed: AttributeError: module 'mini_datadriver' has no attribute 'visit_suite'
+Traceback (most recent call last):
+  None
+AttributeError: module 'mini_datadriver' has no attribute 'visit_suite'</msg>
+<msg time="2026-03-22T16:36:13.643436" level="WARN">Error in file 'D:\DoAnTotNghiep_NguyenQuyen_10122312\keywords\business\business_keywords.robot' on line 2: Suite 'Test Search' has already imported library 'SeleniumLibrary' with different arguments. This import is ignored.</msg>
+<msg time="2026-03-22T16:36:13.647936" level="WARN">Error in file 'D:\DoAnTotNghiep_NguyenQuyen_10122312\keywords\ui\common_keywords.robot' on line 2: Suite 'Test Search' has already imported library 'SeleniumLibrary' with different arguments. This import is ignored.</msg>
+<msg time="2026-03-22T16:36:13.653547" level="WARN">Error in file 'D:\DoAnTotNghiep_NguyenQuyen_10122312\keywords\verify\verify.robot' on line 2: Suite 'Test Search' has already imported library 'SeleniumLibrary' with different arguments. This import is ignored.</msg>
+<msg time="2026-03-22T16:36:13.656318" level="ERROR">Error in file 'D:\DoAnTotNghiep_NguyenQuyen_10122312\keywords\verify\verify.robot' on line 4: Importing library '..keywords/ui/common_keywords.robot' failed: ModuleNotFoundError: No module named '.'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  D:\DoAnTotNghiep_NguyenQuyen_10122312
+  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\python313.zip
+  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\DLLs
+  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\Lib
+  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0
+  D:\DoAnTotNghiep_NguyenQuyen_10122312\.venv
+  D:\DoAnTotNghiep_NguyenQuyen_10122312\.venv\Lib\site-packages</msg>
+</errors>
+</robot>

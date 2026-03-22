@@ -1,11 +1,7 @@
-from selenium.webdriver.common.by import By
+URL = "https://ella.vn/"
+LOGIN_URL = "xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]"
+EMAIL = "name:t_email"
+PASSWORD = "name:t_matkhau"
+LOGIN_BTN = "xpath://button[contains(text(),'Đăng nhập')]"
+ACCOUNT_NAME = "xpath://div[@class='i bold bluecolor']"
 
-class LoginPage:
-    URL = "https://debac.vn/user/signin"
-
-    USERNAME = "id:username"
-    PASSWORD = "id:password"
-    LOGIN_BTN = "id:btnSubmit"
-    ERROR_MESSAGE = "xpath://ul[contains(@class,'errors')]/li"
-    SUCCESS_MESSAGE = "xpath://p[span[normalize-space(.)='Email']]"
-    ACCOUNT_ICON = "css:i.fa.fa-user-o"  # icon tài khoản

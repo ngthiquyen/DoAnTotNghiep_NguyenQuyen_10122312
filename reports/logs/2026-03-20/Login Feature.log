@@ -1,0 +1,63 @@
+2026-03-20 17:02:22,794 - INFO - Browser opened
+2026-03-20 17:02:22,804 - INFO - Close browser
+2026-03-20 17:08:41,231 - INFO - Browser opened
+2026-03-20 17:08:41,244 - INFO - Close browser
+2026-03-20 17:09:27,307 - INFO - Browser opened
+2026-03-20 17:09:27,316 - INFO - Close browser
+2026-03-20 17:12:12,324 - INFO - Browser opened
+2026-03-20 17:12:12,330 - INFO - Close browser
+2026-03-20 17:12:39,004 - INFO - Browser opened
+2026-03-20 17:12:39,011 - INFO - Close browser
+2026-03-20 17:14:21,887 - INFO - Browser opened
+2026-03-20 17:14:21,896 - INFO - Close browser
+2026-03-20 17:19:18,911 - INFO - Browser opened
+2026-03-20 17:19:18,919 - INFO - Close browser
+2026-03-20 17:21:58,916 - INFO - Browser opened
+2026-03-20 17:21:58,928 - INFO - Close browser
+2026-03-20 17:29:48,677 - INFO - Browser opened
+2026-03-20 17:29:48,689 - INFO - Close browser
+2026-03-20 17:47:10,175 - INFO - Browser opened
+2026-03-20 17:47:10,187 - INFO - Close browser
+2026-03-20 17:54:16,658 - INFO - Browser opened
+2026-03-20 17:54:16,674 - INFO - Close browser
+2026-03-20 17:59:04,271 - INFO - Browser opened
+2026-03-20 17:59:04,288 - INFO - Close browser
+2026-03-20 18:12:37,597 - INFO - Browser opened
+2026-03-20 18:12:37,608 - INFO - Close browser
+2026-03-20 18:13:44,209 - INFO - Browser opened
+2026-03-20 18:13:44,226 - INFO - Close browser
+2026-03-20 22:53:54,977 - INFO - Browser opened
+2026-03-20 22:53:54,990 - INFO - Close browser
+2026-03-20 22:54:49,872 - INFO - Browser opened
+2026-03-20 22:54:49,886 - INFO - Close browser
+2026-03-20 23:01:17,141 - INFO - Browser opened
+2026-03-20 23:01:17,172 - INFO - Close browser
+2026-03-20 23:06:04,129 - INFO - Browser opened
+2026-03-20 23:06:04,149 - INFO - Close browser
+2026-03-20 23:15:28,355 - INFO - Browser opened
+2026-03-20 23:15:28,383 - INFO - Close browser
+2026-03-20 23:18:41,744 - INFO - Browser opened
+2026-03-20 23:18:41,753 - INFO - Close browser
+2026-03-20 23:22:28,557 - INFO - Browser opened
+2026-03-20 23:22:28,806 - INFO - Close browser
+2026-03-20 23:24:33,732 - INFO - Browser opened
+2026-03-20 23:24:33,743 - INFO - Close browser
+2026-03-20 23:27:34,259 - INFO - Browser opened
+2026-03-20 23:27:34,270 - INFO - Close browser
+2026-03-20 23:32:08,733 - INFO - Browser opened
+2026-03-20 23:32:08,764 - INFO - Close browser
+2026-03-20 23:41:57,818 - INFO - Browser opened
+2026-03-20 23:41:57,830 - INFO - Close browser
+2026-03-20 23:47:58,932 - INFO - Browser opened
+2026-03-20 23:47:58,940 - INFO - Close browser
+2026-03-20 23:53:00,677 - INFO - Browser opened
+2026-03-20 23:53:00,716 - ERROR - Test failed: Login Test
+2026-03-20 23:53:01,332 - ERROR - Test failed: Login Test
+2026-03-20 23:53:01,458 - ERROR - Test failed: Login Test
+2026-03-20 23:53:01,598 - ERROR - Test failed: Login Test
+2026-03-20 23:53:01,742 - ERROR - Test failed: Login Test
+2026-03-20 23:53:01,856 - ERROR - Test failed: Login Test
+2026-03-20 23:53:02,005 - ERROR - Test failed: Login Test
+2026-03-20 23:53:02,112 - ERROR - Test failed: Login Test
+2026-03-20 23:53:02,248 - ERROR - Test failed: Login Test
+2026-03-20 23:53:02,358 - INFO - Close browser

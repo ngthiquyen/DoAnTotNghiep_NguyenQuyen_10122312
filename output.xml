@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.12 on win32)" generated="2026-03-22T19:22:17.832900" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Search" source="D:\DoAnTotNghiep_NguyenQuyen_10122312\tests\test_search.robot">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-03-22T19:22:18.297557" elapsed="0.000639"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-22T19:22:18.298651" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-22T19:22:18.298425" elapsed="1.798436"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.097566" elapsed="0.065141"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-03-22T19:22:20.165075" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-03-22T19:22:20.163242" elapsed="0.002399"/>
+</kw>
+<arg>Search Feature</arg>
+<status status="PASS" start="2026-03-22T19:22:18.296609" elapsed="1.869409"/>
+</kw>
+<test id="s1-t1" name="Search01">
+<kw name="Execute Search Test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:20.179408" level="INFO">product= | expected=Vui lòng điền vào trường này</msg>
+<arg>product=${product} | expected=${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.173626" elapsed="0.006232"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2026-03-22T19:22:20.183461" level="INFO">${product} = </msg>
+<var>${product}</var>
+<arg>${product}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.181156" elapsed="0.002401"/>
+</kw>
+<kw name="Set Test Documentation" owner="BuiltIn">
+<msg time="2026-03-22T19:22:20.184752" level="INFO">Set test documentation to:
+Search with query: </msg>
+<arg>Search with query: ${product}</arg>
+<doc>Sets documentation for the current test case.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.183987" elapsed="0.000937"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:20.186014" level="INFO">===== START TEST =====</msg>
+<arg>===== START TEST =====</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.185372" elapsed="0.001653"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:20.189096" level="INFO">Search Query: </msg>
+<arg>Search Query: ${product}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.188147" elapsed="0.001844"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:20.191950" level="INFO">Expected: Vui lòng điền vào trường này</msg>
+<arg>Expected: ${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.190714" elapsed="0.004174"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:20.196556" level="INFO">[STEP] Navigate to search page</msg>
+<arg>[STEP] Navigate to search page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.195702" elapsed="0.001036"/>
+</kw>
+<kw name="Navigate To Page" owner="business_keywords">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:20.203982" level="INFO">Opening page: https://ella.vn/</msg>
+<arg>Opening page: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.201174" elapsed="0.002983"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-03-22T19:22:20.204878" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-03-22T19:22:20.204618" elapsed="2.159574"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.364592" elapsed="0.041954"/>
+</kw>
+<arg>${url}</arg>
+<status status="PASS" start="2026-03-22T19:22:20.200391" elapsed="2.206389"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2026-03-22T19:22:20.199057" elapsed="2.207880"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.407847" level="INFO">[STEP] Input search query</msg>
+<arg>[STEP] Input search query</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.407293" elapsed="0.000662"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${product}' != ''</arg>
+<arg>Input Text To Element</arg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.408239" elapsed="0.000989"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.410920" level="INFO">[STEP] Submit search form</msg>
+<arg>[STEP] Submit search form</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.410329" elapsed="0.000706"/>
+</kw>
+<kw name="Submit Form" owner="business_keywords">
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.413223" level="INFO">Click element xpath://button[@aria-label='Search']</msg>
+<arg>Click element ${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.412657" elapsed="0.000678"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="common_keywords">
+<msg time="2026-03-22T19:22:22.413694" level="FAIL">User keyword cannot be empty.</msg>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until an element is visible</doc>
+<status status="FAIL" start="2026-03-22T19:22:22.413609" elapsed="0.000169">User keyword cannot be empty.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:22.414070" elapsed="0.000061"/>
+</kw>
+<arg>${submit_button_locator}</arg>
+<status status="FAIL" start="2026-03-22T19:22:22.412004" elapsed="0.002402">User keyword cannot be empty.</status>
+</kw>
+<arg>${SEARCH_BTN}</arg>
+<status status="FAIL" start="2026-03-22T19:22:22.411388" elapsed="0.003230">User keyword cannot be empty.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Verify search results</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:22.414844" elapsed="0.000057"/>
+</kw>
+<if>
+<branch type="IF" condition="'${product}' == '' or '${product}' == 'None'">
+<kw name="Verify Required Field Message" owner="verify">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:22.415400" elapsed="0.000064"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:22.415083" elapsed="0.000469"/>
+</branch>
+<branch type="ELSE IF" condition="'${expected}' == 'Has_result'">
+<kw name="Verify Page Contains Element" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:22.415890" elapsed="0.000059"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:22.415645" elapsed="0.000383"/>
+</branch>
+<branch type="ELSE">
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:22.416371" elapsed="0.000055"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:22.416118" elapsed="0.000624"/>
+</branch>
+<status status="NOT RUN" start="2026-03-22T19:22:22.415029" elapsed="0.001806"/>
+</if>
+<arg>Vui lòng điền vào trường này</arg>
+<status status="FAIL" start="2026-03-22T19:22:20.172183" elapsed="2.244820">User keyword cannot be empty.</status>
+</kw>
+<doc>Search with query: </doc>
+<status status="FAIL" start="2026-03-22T19:22:20.166350" elapsed="2.251185">User keyword cannot be empty.</status>
+</test>
+<test id="s1-t2" name="Search02">
+<kw name="Execute Search Test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.424315" level="INFO">product=5cm | expected=5cm</msg>
+<arg>product=${product} | expected=${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.423691" elapsed="0.000747"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2026-03-22T19:22:22.425110" level="INFO">${product} = 5cm</msg>
+<var>${product}</var>
+<arg>${product}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.424698" elapsed="0.000499"/>
+</kw>
+<kw name="Set Test Documentation" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.426205" level="INFO">Set test documentation to:
+Search with query: 5cm</msg>
+<arg>Search with query: ${product}</arg>
+<doc>Sets documentation for the current test case.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.425456" elapsed="0.001070"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.427557" level="INFO">===== START TEST =====</msg>
+<arg>===== START TEST =====</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.426826" elapsed="0.000862"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.428569" level="INFO">Search Query: 5cm</msg>
+<arg>Search Query: ${product}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.428017" elapsed="0.000655"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.429644" level="INFO">Expected: 5cm</msg>
+<arg>Expected: ${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.429077" elapsed="0.000679"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.430837" level="INFO">[STEP] Navigate to search page</msg>
+<arg>[STEP] Navigate to search page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.430172" elapsed="0.000802"/>
+</kw>
+<kw name="Navigate To Page" owner="business_keywords">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:22.433442" level="INFO">Opening page: https://ella.vn/</msg>
+<arg>Opening page: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.432968" elapsed="0.000572"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-03-22T19:22:22.434301" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-03-22T19:22:22.433993" elapsed="0.778296"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.212711" elapsed="0.017451"/>
+</kw>
+<arg>${url}</arg>
+<status status="PASS" start="2026-03-22T19:22:22.432437" elapsed="0.797941"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2026-03-22T19:22:22.431623" elapsed="0.798893"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:23.231273" level="INFO">[STEP] Input search query</msg>
+<arg>[STEP] Input search query</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.230787" elapsed="0.000583"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:23.233846" level="INFO">Input text "5cm" to element id:ese-id0_d0cap6e325k0_vhhomg4j2g4</msg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.233226" elapsed="0.000737"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="common_keywords">
+<msg time="2026-03-22T19:22:23.234461" level="FAIL">User keyword cannot be empty.</msg>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until an element is visible</doc>
+<status status="FAIL" start="2026-03-22T19:22:23.234361" elapsed="0.000188">User keyword cannot be empty.</status>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:23.234827" elapsed="0.000059"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:23.235097" elapsed="0.000055"/>
+</kw>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<status status="FAIL" start="2026-03-22T19:22:23.232599" elapsed="0.002757">User keyword cannot be empty.</status>
+</kw>
+<arg>'${product}' != ''</arg>
+<arg>Input Text To Element</arg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2026-03-22T19:22:23.231624" elapsed="0.003851">User keyword cannot be empty.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Submit search form</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:23.235723" elapsed="0.000064"/>
+</kw>
+<kw name="Submit Form" owner="business_keywords">
+<arg>${SEARCH_BTN}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:23.236139" elapsed="0.000086"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Verify search results</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:23.236458" elapsed="0.000061"/>
+</kw>
+<if>
+<branch type="IF" condition="'${product}' == '' or '${product}' == 'None'">
+<kw name="Verify Required Field Message" owner="verify">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:23.236984" elapsed="0.000062"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:23.236690" elapsed="0.000443"/>
+</branch>
+<branch type="ELSE IF" condition="'${expected}' == 'Has_result'">
+<kw name="Verify Page Contains Element" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:23.237443" elapsed="0.000056"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:23.237212" elapsed="0.000364"/>
+</branch>
+<branch type="ELSE">
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:23.238032" elapsed="0.000084"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:23.237649" elapsed="0.000571"/>
+</branch>
+<status status="NOT RUN" start="2026-03-22T19:22:23.236648" elapsed="0.001650"/>
+</if>
+<arg>5cm</arg>
+<arg>5cm</arg>
+<status status="FAIL" start="2026-03-22T19:22:22.423092" elapsed="0.815377">User keyword cannot be empty.</status>
+</kw>
+<doc>Search with query: 5cm</doc>
+<status status="FAIL" start="2026-03-22T19:22:22.418629" elapsed="0.820487">User keyword cannot be empty.</status>
+</test>
+<test id="s1-t3" name="Search03">
+<kw name="Execute Search Test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:23.242316" level="INFO">product=@ | expected=Has_result</msg>
+<arg>product=${product} | expected=${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.241460" elapsed="0.001064"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2026-03-22T19:22:23.243402" level="INFO">${product} = @</msg>
+<var>${product}</var>
+<arg>${product}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.242835" elapsed="0.000673"/>
+</kw>
+<kw name="Set Test Documentation" owner="BuiltIn">
+<msg time="2026-03-22T19:22:23.244927" level="INFO">Set test documentation to:
+Search with query: @</msg>
+<arg>Search with query: ${product}</arg>
+<doc>Sets documentation for the current test case.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.243852" elapsed="0.001250"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:23.246120" level="INFO">===== START TEST =====</msg>
+<arg>===== START TEST =====</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.245487" elapsed="0.000760"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:23.247110" level="INFO">Search Query: @</msg>
+<arg>Search Query: ${product}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.246562" elapsed="0.000664"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:23.247951" level="INFO">Expected: Has_result</msg>
+<arg>Expected: ${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.247477" elapsed="0.000576"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:23.248795" level="INFO">[STEP] Navigate to search page</msg>
+<arg>[STEP] Navigate to search page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.248326" elapsed="0.000568"/>
+</kw>
+<kw name="Navigate To Page" owner="business_keywords">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:23.250544" level="INFO">Opening page: https://ella.vn/</msg>
+<arg>Opening page: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.250133" elapsed="0.000499"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-03-22T19:22:23.251083" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-03-22T19:22:23.250877" elapsed="4.766857"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.018358" elapsed="0.024612"/>
+</kw>
+<arg>${url}</arg>
+<status status="PASS" start="2026-03-22T19:22:23.249698" elapsed="4.793647"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2026-03-22T19:22:23.249174" elapsed="4.794402"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:28.045512" level="INFO">[STEP] Input search query</msg>
+<arg>[STEP] Input search query</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.044075" elapsed="0.001675"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:28.050453" level="INFO">Input text "@" to element id:ese-id0_d0cap6e325k0_vhhomg4j2g4</msg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.049439" elapsed="0.001211"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="common_keywords">
+<msg time="2026-03-22T19:22:28.051308" level="FAIL">User keyword cannot be empty.</msg>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until an element is visible</doc>
+<status status="FAIL" start="2026-03-22T19:22:28.051159" elapsed="0.000314">User keyword cannot be empty.</status>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:28.051970" elapsed="0.000165"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:28.052518" elapsed="0.000095"/>
+</kw>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<status status="FAIL" start="2026-03-22T19:22:28.048190" elapsed="0.004783">User keyword cannot be empty.</status>
+</kw>
+<arg>'${product}' != ''</arg>
+<arg>Input Text To Element</arg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2026-03-22T19:22:28.046306" elapsed="0.006886">User keyword cannot be empty.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Submit search form</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:28.053630" elapsed="0.000097"/>
+</kw>
+<kw name="Submit Form" owner="business_keywords">
+<arg>${SEARCH_BTN}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:28.054231" elapsed="0.000107"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Verify search results</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:28.054682" elapsed="0.000092"/>
+</kw>
+<if>
+<branch type="IF" condition="'${product}' == '' or '${product}' == 'None'">
+<kw name="Verify Required Field Message" owner="verify">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:28.055561" elapsed="0.000107"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:28.055040" elapsed="0.000777"/>
+</branch>
+<branch type="ELSE IF" condition="'${expected}' == 'Has_result'">
+<kw name="Verify Page Contains Element" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:28.056341" elapsed="0.000096"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:28.055947" elapsed="0.000645"/>
+</branch>
+<branch type="ELSE">
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:28.057159" elapsed="0.000097"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:28.056729" elapsed="0.000668"/>
+</branch>
+<status status="NOT RUN" start="2026-03-22T19:22:28.054974" elapsed="0.002561"/>
+</if>
+<arg>@</arg>
+<arg>Has_result</arg>
+<status status="FAIL" start="2026-03-22T19:22:23.240944" elapsed="4.816873">User keyword cannot be empty.</status>
+</kw>
+<doc>Search with query: @</doc>
+<status status="FAIL" start="2026-03-22T19:22:23.240092" elapsed="4.818603">User keyword cannot be empty.</status>
+</test>
+<test id="s1-t4" name="Search04">
+<kw name="Execute Search Test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:28.064629" level="INFO">product=giày sandal | expected=Giày sandal</msg>
+<arg>product=${product} | expected=${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.063560" elapsed="0.001254"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2026-03-22T19:22:28.065888" level="INFO">${product} = giày sandal</msg>
+<var>${product}</var>
+<arg>${product}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.065235" elapsed="0.000759"/>
+</kw>
+<kw name="Set Test Documentation" owner="BuiltIn">
+<msg time="2026-03-22T19:22:28.068297" level="INFO">Set test documentation to:
+Search with query: giày sandal</msg>
+<arg>Search with query: ${product}</arg>
+<doc>Sets documentation for the current test case.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.067148" elapsed="0.001376"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:28.069783" level="INFO">===== START TEST =====</msg>
+<arg>===== START TEST =====</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.069005" elapsed="0.000953"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:28.071094" level="INFO">Search Query: giày sandal</msg>
+<arg>Search Query: ${product}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.070348" elapsed="0.000930"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:28.072497" level="INFO">Expected: Giày sandal</msg>
+<arg>Expected: ${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.071692" elapsed="0.000974"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:28.073735" level="INFO">[STEP] Navigate to search page</msg>
+<arg>[STEP] Navigate to search page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.073084" elapsed="0.000810"/>
+</kw>
+<kw name="Navigate To Page" owner="business_keywords">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:28.077425" level="INFO">Opening page: https://ella.vn/</msg>
+<arg>Opening page: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.076615" elapsed="0.000933"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-03-22T19:22:28.078350" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-03-22T19:22:28.077933" elapsed="2.405614"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.483805" elapsed="0.008061"/>
+</kw>
+<arg>${url}</arg>
+<status status="PASS" start="2026-03-22T19:22:28.075460" elapsed="2.416566"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2026-03-22T19:22:28.074444" elapsed="2.417676"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:30.492727" level="INFO">[STEP] Input search query</msg>
+<arg>[STEP] Input search query</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.492327" elapsed="0.000511"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:30.495490" level="INFO">Input text "giày sandal" to element id:ese-id0_d0cap6e325k0_vhhomg4j2g4</msg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.494866" elapsed="0.000744"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="common_keywords">
+<msg time="2026-03-22T19:22:30.496051" level="FAIL">User keyword cannot be empty.</msg>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until an element is visible</doc>
+<status status="FAIL" start="2026-03-22T19:22:30.495948" elapsed="0.000198">User keyword cannot be empty.</status>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:30.496474" elapsed="0.000053"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:30.496690" elapsed="0.000040"/>
+</kw>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<status status="FAIL" start="2026-03-22T19:22:30.494149" elapsed="0.002737">User keyword cannot be empty.</status>
+</kw>
+<arg>'${product}' != ''</arg>
+<arg>Input Text To Element</arg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2026-03-22T19:22:30.493112" elapsed="0.003873">User keyword cannot be empty.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Submit search form</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:30.497179" elapsed="0.000054"/>
+</kw>
+<kw name="Submit Form" owner="business_keywords">
+<arg>${SEARCH_BTN}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:30.497430" elapsed="0.000042"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Verify search results</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:30.497613" elapsed="0.000037"/>
+</kw>
+<if>
+<branch type="IF" condition="'${product}' == '' or '${product}' == 'None'">
+<kw name="Verify Required Field Message" owner="verify">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:30.497974" elapsed="0.000040"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:30.497772" elapsed="0.000306"/>
+</branch>
+<branch type="ELSE IF" condition="'${expected}' == 'Has_result'">
+<kw name="Verify Page Contains Element" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:30.498289" elapsed="0.000038"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:30.498133" elapsed="0.000247"/>
+</branch>
+<branch type="ELSE">
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:30.498603" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:30.498432" elapsed="0.000267"/>
+</branch>
+<status status="NOT RUN" start="2026-03-22T19:22:30.497744" elapsed="0.001005"/>
+</if>
+<arg>giày sandal</arg>
+<arg>Giày sandal</arg>
+<status status="FAIL" start="2026-03-22T19:22:28.062723" elapsed="2.436163">User keyword cannot be empty.</status>
+</kw>
+<doc>Search with query: giày sandal</doc>
+<status status="FAIL" start="2026-03-22T19:22:28.060348" elapsed="2.438950">User keyword cannot be empty.</status>
+</test>
+<test id="s1-t5" name="Search05">
+<kw name="Execute Search Test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:30.502828" level="INFO">product=ELA618 | expected=ELA618</msg>
+<arg>product=${product} | expected=${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.502405" elapsed="0.000495"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2026-03-22T19:22:30.503302" level="INFO">${product} = ELA618</msg>
+<var>${product}</var>
+<arg>${product}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.503063" elapsed="0.000278"/>
+</kw>
+<kw name="Set Test Documentation" owner="BuiltIn">
+<msg time="2026-03-22T19:22:30.503862" level="INFO">Set test documentation to:
+Search with query: ELA618</msg>
+<arg>Search with query: ${product}</arg>
+<doc>Sets documentation for the current test case.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.503496" elapsed="0.000432"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:30.504357" level="INFO">===== START TEST =====</msg>
+<arg>===== START TEST =====</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.504080" elapsed="0.000340"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:30.505075" level="INFO">Search Query: ELA618</msg>
+<arg>Search Query: ${product}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.504758" elapsed="0.000380"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:30.505579" level="INFO">Expected: ELA618</msg>
+<arg>Expected: ${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.505289" elapsed="0.000351"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:30.506026" level="INFO">[STEP] Navigate to search page</msg>
+<arg>[STEP] Navigate to search page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.505786" elapsed="0.000303"/>
+</kw>
+<kw name="Navigate To Page" owner="business_keywords">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:30.507252" level="INFO">Opening page: https://ella.vn/</msg>
+<arg>Opening page: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.506962" elapsed="0.000354"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-03-22T19:22:30.507627" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-03-22T19:22:30.507470" elapsed="7.583775"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.091555" elapsed="0.008313"/>
+</kw>
+<arg>${url}</arg>
+<status status="PASS" start="2026-03-22T19:22:30.506645" elapsed="7.593388"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2026-03-22T19:22:30.506266" elapsed="7.593870"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:38.100726" level="INFO">[STEP] Input search query</msg>
+<arg>[STEP] Input search query</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.100350" elapsed="0.000454"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:38.102781" level="INFO">Input text "ELA618" to element id:ese-id0_d0cap6e325k0_vhhomg4j2g4</msg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.102321" elapsed="0.000550"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="common_keywords">
+<msg time="2026-03-22T19:22:38.103173" level="FAIL">User keyword cannot be empty.</msg>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until an element is visible</doc>
+<status status="FAIL" start="2026-03-22T19:22:38.103109" elapsed="0.000127">User keyword cannot be empty.</status>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:38.103460" elapsed="0.000055"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:38.103851" elapsed="0.000096"/>
+</kw>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<status status="FAIL" start="2026-03-22T19:22:38.101724" elapsed="0.002410">User keyword cannot be empty.</status>
+</kw>
+<arg>'${product}' != ''</arg>
+<arg>Input Text To Element</arg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2026-03-22T19:22:38.100997" elapsed="0.003250">User keyword cannot be empty.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Submit search form</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:38.104511" elapsed="0.000088"/>
+</kw>
+<kw name="Submit Form" owner="business_keywords">
+<arg>${SEARCH_BTN}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:38.104911" elapsed="0.000060"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Verify search results</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:38.105233" elapsed="0.000190"/>
+</kw>
+<if>
+<branch type="IF" condition="'${product}' == '' or '${product}' == 'None'">
+<kw name="Verify Required Field Message" owner="verify">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:38.105943" elapsed="0.000166"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:38.105672" elapsed="0.000550"/>
+</branch>
+<branch type="ELSE IF" condition="'${expected}' == 'Has_result'">
+<kw name="Verify Page Contains Element" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:38.106644" elapsed="0.000063"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:38.106287" elapsed="0.000534"/>
+</branch>
+<branch type="ELSE">
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:38.107132" elapsed="0.000051"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:38.106898" elapsed="0.000356"/>
+</branch>
+<status status="NOT RUN" start="2026-03-22T19:22:38.105623" elapsed="0.001687"/>
+</if>
+<arg>ELA618</arg>
+<arg>ELA618</arg>
+<status status="FAIL" start="2026-03-22T19:22:30.501226" elapsed="7.606224">User keyword cannot be empty.</status>
+</kw>
+<doc>Search with query: ELA618</doc>
+<status status="FAIL" start="2026-03-22T19:22:30.500250" elapsed="7.607651">User keyword cannot be empty.</status>
+</test>
+<test id="s1-t6" name="Search06">
+<kw name="Execute Search Test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:38.111210" level="INFO">product=Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662 | expected=Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662</msg>
+<arg>product=${product} | expected=${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.110748" elapsed="0.000582"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2026-03-22T19:22:38.112608" level="INFO">${product} = Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662</msg>
+<var>${product}</var>
+<arg>${product}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.112035" elapsed="0.000734"/>
+</kw>
+<kw name="Set Test Documentation" owner="BuiltIn">
+<msg time="2026-03-22T19:22:38.113889" level="INFO">Set test documentation to:
+Search with query: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662</msg>
+<arg>Search with query: ${product}</arg>
+<doc>Sets documentation for the current test case.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.113021" elapsed="0.001008"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:38.114951" level="INFO">===== START TEST =====</msg>
+<arg>===== START TEST =====</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.114291" elapsed="0.000753"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:38.115647" level="INFO">Search Query: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662</msg>
+<arg>Search Query: ${product}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.115270" elapsed="0.000453"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:38.116332" level="INFO">Expected: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662</msg>
+<arg>Expected: ${expected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.115988" elapsed="0.000485"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:38.117035" level="INFO">[STEP] Navigate to search page</msg>
+<arg>[STEP] Navigate to search page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.116678" elapsed="0.000465"/>
+</kw>
+<kw name="Navigate To Page" owner="business_keywords">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:38.119498" level="INFO">Opening page: https://ella.vn/</msg>
+<arg>Opening page: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.118656" elapsed="0.001232"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-03-22T19:22:38.120543" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-03-22T19:22:38.120195" elapsed="3.399355"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-03-22T19:22:41.519832" elapsed="0.008600"/>
+</kw>
+<arg>${url}</arg>
+<status status="PASS" start="2026-03-22T19:22:38.117878" elapsed="3.410717"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2026-03-22T19:22:38.117396" elapsed="3.411292"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:41.529246" level="INFO">[STEP] Input search query</msg>
+<arg>[STEP] Input search query</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:41.528878" elapsed="0.000440"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-22T19:22:41.530960" level="INFO">Input text "Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662" to element id:ese-id0_d0cap6e325k0_vhhomg4j2g4</msg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-22T19:22:41.530620" elapsed="0.000409"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="common_keywords">
+<msg time="2026-03-22T19:22:41.531340" level="FAIL">User keyword cannot be empty.</msg>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until an element is visible</doc>
+<status status="FAIL" start="2026-03-22T19:22:41.531271" elapsed="0.000128">User keyword cannot be empty.</status>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:41.531619" elapsed="0.000042"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:41.531806" elapsed="0.000036"/>
+</kw>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<status status="FAIL" start="2026-03-22T19:22:41.530201" elapsed="0.001792">User keyword cannot be empty.</status>
+</kw>
+<arg>'${product}' != ''</arg>
+<arg>Input Text To Element</arg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2026-03-22T19:22:41.529496" elapsed="0.002578">User keyword cannot be empty.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Submit search form</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:41.532238" elapsed="0.000037"/>
+</kw>
+<kw name="Submit Form" owner="business_keywords">
+<arg>${SEARCH_BTN}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:41.532437" elapsed="0.000038"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>[STEP] Verify search results</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-22T19:22:41.532617" elapsed="0.000035"/>
+</kw>
+<if>
+<branch type="IF" condition="'${product}' == '' or '${product}' == 'None'">
+<kw name="Verify Required Field Message" owner="verify">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:41.532938" elapsed="0.000038"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:41.532752" elapsed="0.000281"/>
+</branch>
+<branch type="ELSE IF" condition="'${expected}' == 'Has_result'">
+<kw name="Verify Page Contains Element" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:41.533227" elapsed="0.000035"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:41.533083" elapsed="0.000227"/>
+</branch>
+<branch type="ELSE">
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${PRODUCT_NAME}</arg>
+<arg>${expected}</arg>
+<status status="NOT RUN" start="2026-03-22T19:22:41.533507" elapsed="0.000033"/>
+</kw>
+<status status="NOT RUN" start="2026-03-22T19:22:41.533355" elapsed="0.000237"/>
+</branch>
+<status status="NOT RUN" start="2026-03-22T19:22:41.532727" elapsed="0.000909"/>
+</if>
+<arg>Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662</arg>
+<arg>Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662</arg>
+<status status="FAIL" start="2026-03-22T19:22:38.110286" elapsed="3.423447">User keyword cannot be empty.</status>
+</kw>
+<doc>Search with query: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662</doc>
+<status status="FAIL" start="2026-03-22T19:22:38.109466" elapsed="3.424656">User keyword cannot be empty.</status>
+</test>
+<kw name="Close Browser Suite" owner="base_test" type="TEARDOWN">
+<kw name="Log Info" owner="logger">
+<msg time="2026-03-22T19:22:41.536211" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-03-22T19:22:41.535567" elapsed="0.000733"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-03-22T19:22:41.536458" elapsed="2.237152"/>
+</kw>
+<status status="PASS" start="2026-03-22T19:22:41.535330" elapsed="2.238398"/>
+</kw>
+<status status="FAIL" start="2026-03-22T19:22:17.835824" elapsed="25.937937"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="6" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Search" id="s1" pass="0" fail="6" skip="0">Test Search</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-03-22T19:22:18.280027" level="WARN">Error in file 'D:\DoAnTotNghiep_NguyenQuyen_10122312\keywords\business\business_keywords.robot' on line 2: Suite 'Test Search' has already imported library 'SeleniumLibrary' with different arguments. This import is ignored.</msg>
+<msg time="2026-03-22T19:22:18.284184" level="WARN">Error in file 'D:\DoAnTotNghiep_NguyenQuyen_10122312\keywords\ui\common_keywords.robot' on line 2: Suite 'Test Search' has already imported library 'SeleniumLibrary' with different arguments. This import is ignored.</msg>
+<msg time="2026-03-22T19:22:18.290107" level="WARN">Error in file 'D:\DoAnTotNghiep_NguyenQuyen_10122312\keywords\verify\verify.robot' on line 2: Suite 'Test Search' has already imported library 'SeleniumLibrary' with different arguments. This import is ignored.</msg>
+</errors>
+</robot>

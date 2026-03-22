@@ -1,10 +1,11 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library    SeleniumLibrary  run_on_failure=None
 Library    ../utils/logger.py
 Library    ../utils/screenshot.py
-Library    AllureLibrary
+Library    allure_robotframework
 Library    OperatingSystem
 Library    String
+Library    DateTime
 
 
 *** Keywords ***
@@ -24,15 +25,26 @@ Close Browser Suite
 Test Teardown    Run Keyword If Test Failed    Handle Test Failure
 
 Handle Test Failure
-    Log Error    Test failed: ${TEST NAME}
+    Log    ❌ Test failed: ${TEST NAME}
 
-    ${safe_test_name}=    Replace String    ${TEST NAME}    ${SPACE}    _
-    ${screenshot_dir}=    Set Variable    ${OUTPUT DIR}/screenshots
-    Create Directory    ${screenshot_dir}
+    # 1. Timestamp chuẩn
+    ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
 
-    ${path}=    Capture Page Screenshot
-    ...    ${screenshot_dir}/${safe_test_name}.png
+    # 2. Clean test name (dùng TC cho gọn)
+    ${clean_test_name}=    Replace String    ${TEST NAME}    ${SPACE}    _
+    ${clean_test_name}=    Replace String    ${clean_test_name}    :    _
+    ${clean_test_name}=    Replace String    ${clean_test_name}    /    _
+    ${clean_test_name}=    Replace String    ${clean_test_name}    \\    _
 
-    AllureLibrary.Attach File    ${path}    Screenshot    image/png
+    # 3. Folder
+    ${dir}=    Set Variable    ${OUTPUT DIR}${/}screenshots
+    Create Directory    ${dir}
 
+    # 4. Path
+    ${path}=    Set Variable    ${dir}${/}${clean_test_name}_${timestamp}.png
+
+    # 5. Screenshot
+    Capture Page Screenshot    ${path}
+
+    Log    Screenshot saved at: ${path}
 

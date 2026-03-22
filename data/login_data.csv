@@ -1,10 +1,10 @@
-username,password,expected
-,,Bạn chưa nhập email
-tuyetmai99@gmail.com,,Bạn chưa nhập Mật khẩu
-,tuyetmai99,Bạn chưa nhập email
-tuyetmai99@gmail.com,tuyetmai,Tên đăng nhập hoặc mật khẩu không chính xác
-tuyetmai@gmail.com,tuyetmai99,Tên đăng nhập hoặc mật khẩu không chính xác
-tuyetmai99gmail.com,tuyetmai99,Tên đăng nhập hoặc mật khẩu không chính xác
-tuyetmai99@.com,tuyetmai99,Tên đăng nhập hoặc mật khẩu không chính xác
-tuyetmai@gmail,tuyetmai99,Tên đăng nhập hoặc mật khẩu không chính xác
-tuyetmai99@gmail.com,tuyetmai99,Email
+*** Test Cases ***,email,password,expected
+Login - 01,,,Vui lòng điền vào trường này.
+Login - 02,tuyetmai99@gmail.com,,Vui lòng điền vào trường này.
+Login - 03,,tuyetmai99,Vui lòng điền vào trường này.
+Login - 04,tuyetmai99@gmail.com,tuyetmai,Tài khoản hoặc mật khẩu không chính xác
+Login - 05,tuyetmai@gmail.com,tuyetmai99,Tài khoản hoặc mật khẩu không chính xác
+Login - 06,tuyetmai99gmail.com,tuyetmai99,Tài khoản hoặc mật khẩu không chính xác
+Login - 07,tuyetmai99@.com,tuyetmai99,Tài khoản hoặc mật khẩu không chính xác
+Login - 08,tuyetmai@gmail,tuyetmai99,Tài khoản hoặc mật khẩu không chính xác
+Login - 09,tuyetmai99@gmail.com,tuyetmai99,tuyetmai99@gmail.com

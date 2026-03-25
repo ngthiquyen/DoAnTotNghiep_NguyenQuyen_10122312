@@ -37,19 +37,12 @@ FEATURE WORDS ARE STRICTLY FORBIDDEN
 
 The following words must NEVER appear in UI Action or Verification keyword names:
 
-Login
 Username
 Password
-Account
 User
-Search
-Cart
-Checkout
-Order
 Product
 Email
 Address
-Authentication
 
 If any of these words appear in UI or Verification keywords → regenerate the keyword.
 

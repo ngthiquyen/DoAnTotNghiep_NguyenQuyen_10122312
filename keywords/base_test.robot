@@ -15,11 +15,12 @@ Open Browser Suite
 
     Open Browser    about:blank    chrome
     Maximize Browser Window
-
+    Log Info    ================================
     Log Info    Browser opened
 
 Close Browser Suite
     Log Info    Close browser
+    Log Info    ================================
     Close All Browsers
 
 Test Teardown    Run Keyword If Test Failed    Handle Test Failure

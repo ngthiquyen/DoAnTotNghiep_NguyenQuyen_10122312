@@ -1,7 +1,8 @@
 *** Settings ***
-Library    SeleniumLibrary
-Resource   ../keywords/ui/common_keywords.robot
-Resource   ../keywords/verify/verify.robot
+Resource   ../ui/common_keywords.robot
+Resource   ../verify/verify.robot
+Library    allure_robotframework
+Library     String
 
 *** Keywords ***
 
@@ -38,15 +39,3 @@ Confirm Action
     [Arguments]    ${confirm_button_locator}
     Click On Element    ${confirm_button_locator}
 
-
-
-
-
-
-Sign In User
-    [Documentation]    Sign in a user
-    # TODO: Implement
-
-Sign Out User
-    [Documentation]    Sign out a user
-    # TODO: Implement

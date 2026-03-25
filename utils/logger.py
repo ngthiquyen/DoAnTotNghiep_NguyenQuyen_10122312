@@ -1,7 +1,7 @@
-from asyncio.log import logger
 import logging
 import os
 from datetime import datetime
+from robot.api import logger as robot_logger
 
 BASE_REPORT_DIR = "reports"
 LOGGER = None   # biến global để Robot dùng
@@ -29,8 +29,25 @@ def Init_Logger(feature_name):
     return logger
 # === KEYWORDS CHO ROBOT ===
 
-def log_info(msg):
-    LOGGER.info(msg)
+def _safe_to_string(arg):
+    try:
+        # Nếu là WebElement → tránh lỗi
+        if hasattr(arg, "tag_name"):
+            return f"[WebElement: {arg.tag_name}]"
+        return str(arg)
+    except Exception:
+        return "[Unprintable Object]"
+    
+def log_info(*args):
+    message = " ".join(_safe_to_string(a) for a in args)
 
-def log_error(msg):
-    LOGGER.error(msg)
+    # 1. Ghi file
+    LOGGER.info(message)
+
+    # 2. Ghi vào Robot (=> log.html + Allure)
+    robot_logger.info(message)
+
+def log_error(*args):
+    message = " ".join(_safe_to_string(a) for a in args)
+    LOGGER.error(message)
+    robot_logger.error(message)

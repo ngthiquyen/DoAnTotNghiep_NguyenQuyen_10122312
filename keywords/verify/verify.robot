@@ -1,6 +1,5 @@
 *** Settings ***
 Library    ../utils/logger.py
-Library   allure_robotframework
 
 *** Keywords ***
 
@@ -73,5 +72,40 @@ Verify Required Field Message
         Should Contain    ${message}    ${expected}
     END    
     Log Info    =====================================
-    
+
+#Xác minh thông báo lỗi hoặc thành công (có thể là message hoặc text trên page)
+Verify Message Or Page
+    [Arguments]       ${locator}   ${expected}
+    # ===== 1. CHECK TOAST / ERROR MESSAGE =====
+    ${error_present}=    Run Keyword And Return Status
+    ...    Element Should Be Visible    ${locator}
+
+    IF    ${error_present}
+        ${text}=    Get Text    ${locator}
+
+        Log Info    [STEP] Error message: ${text}
+        Log Info    [STEP]    Expected: ${expected}
+        Should Contain    ${text}    ${expected}
+        Log Info    =====================================
+
+    ELSE
+        # ===== 2. CHECK SUCCESS =====
+        Reload Current Page 
+        ${is_success}=    Run Keyword And Return Status
+        ...    Element Should Be Visible    ${LOGOUT_BTN}
+
+        IF    ${is_success}
+            Element Should Be Visible    ${LOGOUT_BTN}
+            Log Info   =====================================
+
+        ELSE
+        # ===== 3. CHECK PAGE TEXT =====
+            Log Info    [STEP]    No message found → verify page
+            Page Should Contain    ${expected}
+            Log Info    [STEP]    Page contains expected text: ${expected}
+            Log Info    =====================================
+        END
+    END
+
+
 

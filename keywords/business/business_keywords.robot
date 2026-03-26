@@ -1,7 +1,6 @@
 *** Settings ***
 Resource   ../ui/common_keywords.robot
 Resource   ../verify/verify.robot
-Library    allure_robotframework
 Library     String
 
 *** Keywords ***

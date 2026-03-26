@@ -2,7 +2,6 @@
 Library    SeleniumLibrary  run_on_failure=None
 Library    ../utils/logger.py
 Library    ../utils/screenshot.py
-Library    allure_robotframework
 Library    OperatingSystem
 Library    String
 Library    DateTime
@@ -26,7 +25,7 @@ Close Browser Suite
 Test Teardown    Run Keyword If Test Failed    Handle Test Failure
 
 Handle Test Failure
-    Log    ❌ Test failed: ${TEST NAME}
+    Log    Test failed: ${TEST NAME}
 
     # 1. Timestamp chuẩn
     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S

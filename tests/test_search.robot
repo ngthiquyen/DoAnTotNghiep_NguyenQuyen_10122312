@@ -1,57 +1,34 @@
 *** Settings ***
-Resource    ../keywords/base_test.robot
+Resource   ../keywords/base_test.robot
 Resource   ../keywords/ui/common_keywords.robot
 Resource   ../keywords/verify/verify.robot
 Resource   ../keywords/business/business_keywords.robot
-#Resource    ../keywords/business/search_product.robot
-Library    allure_robotframework
-Library    DataDriver   ../data/data1.xlsx   sheet_name=Search
-Variables    ../pages/search_page.py
-Library     String 
+Library   DataDriver    ../data/data_test.xlsx    sheet_name=Search
+
+
+Variables  ../pages/locators_page.py
 
 Suite Setup     Open Browser Suite    Search Feature
 Suite Teardown  Close Browser Suite
 Test Teardown    Run Keyword If Test Failed    Handle Test Failure
+
 Test Template    Search Test
 
-*** Test Cases ***
-Using data driven testing using ${product} and ${expected}  
-
+*** Test Cases ***      
+Search Test with ${product} and ${expected}
+    
 *** Keywords ***
 Search Test
     [Arguments]    ${product}   ${expected}
-    Log    product=${product} | expected=${expected}
-    # Chống lỗi nếu ô Excel bị rỗng (None)
-    ${product}=    Convert To String    ${product}
-    ${expected}=   Convert To String    ${expected}
-    ${product}=    Strip String    ${product}
-
-    #========= Allure ==================
-    #Set Test Documentation    ${TC}
-    Set Test Documentation    Search with query: ${product}
-    Log    ===== START TEST =====
-    Log    Search Query: ${product}
-    Log    Expected: ${expected}
-    # ===== STEP 1 =====
-    Log    [STEP] Navigate to search page
-    #Allure Step    Navigate to search page
     Navigate To Page    ${URL}
-    # ===== STEP 2 + STEP 3 =====
-    Log   [STEP] Input search query
-    IF    '${product}' != ''
-        Input Text To Element    ${SEARCH_INPUT}    ${product}
-        Submit Form   ${SEARCH_BTN}
-        Log   [STEP] Submit search form
-    ELSE
-        Log   [STEP] Submit empty search    
-        Submit Form   ${SEARCH_BTN}
-    END
-    # ===== STEP 4 =====
-    Log   [STEP] Verify search results
+    Click On Element    ${SEARCH_INPUT}
+    Input Text To Element    ${SEARCH_INPUT}    ${product}
+    Click On Element    ${SEARCH_BTN}
     IF     '${product}' == '' 
-        Verify Required Field Message    ${SEARCH_INPUT}    ${expected}
+        Verify Required Field Message       ${expected}
     ELSE IF    '${expected}' == 'Has_result'
         Verify Page Contains Element    ${PRODUCTS_NAME}
     ELSE
         Verify Element Text Contains    ${PRODUCTS_NAME}    ${expected}
     END
+

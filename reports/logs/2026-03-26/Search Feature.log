@@ -1,0 +1,90 @@
+2026-03-26 15:25:09,067 - INFO - ================================
+2026-03-26 15:25:09,071 - INFO - Browser opened
+2026-03-26 15:25:09,080 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:25:12,957 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:25:13,115 - INFO - [STEP] Input text "" to element css:input[name='q']
+2026-03-26 15:25:13,277 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:25:13,470 - INFO - [STEP] Actual validation message: Please fill out this field.
+2026-03-26 15:25:13,477 - INFO - [STEP] Expected validation message: Please fill out this field.
+2026-03-26 15:25:13,487 - INFO - =====================================
+2026-03-26 15:25:13,515 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:25:14,351 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:25:14,626 - INFO - [STEP] Input text "5cm" to element css:input[name='q']
+2026-03-26 15:25:14,961 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:25:18,587 - INFO - [STEP] Actual text: Giày cao gót công sở ELLA 5cm - 7cm gót đắp mica tráng gương tinh tế, quyến rũ ELA682
+2026-03-26 15:25:18,593 - INFO - [STEP] Expected text: 5cm
+2026-03-26 15:25:18,599 - INFO - =====================================
+2026-03-26 15:25:18,647 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:25:19,311 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:25:19,514 - INFO - [STEP] Input text "@" to element css:input[name='q']
+2026-03-26 15:25:19,840 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:25:23,008 - INFO - [STEP] Element located by: xpath:(//div[@class='thread-list-title text-center']) is present on the page.
+2026-03-26 15:25:23,010 - INFO - =====================================
+2026-03-26 15:25:23,029 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:25:23,418 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:25:23,568 - INFO - [STEP] Input text "giày sandal" to element css:input[name='q']
+2026-03-26 15:25:23,738 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:25:26,541 - INFO - [STEP] Actual text: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662
+2026-03-26 15:25:26,548 - INFO - [STEP] Expected text: Giày sandal
+2026-03-26 15:25:26,554 - INFO - =====================================
+2026-03-26 15:25:26,598 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:25:27,005 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:25:27,117 - INFO - [STEP] Input text "ELA618" to element css:input[name='q']
+2026-03-26 15:25:27,411 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:25:30,192 - INFO - [STEP] Actual text: Giày sandal công sở ELLA 7cm da bóng họa tiết CC dập chìm sang trọng ELA618
+2026-03-26 15:25:30,197 - INFO - [STEP] Expected text: ELA618
+2026-03-26 15:25:30,200 - INFO - =====================================
+2026-03-26 15:25:30,223 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:25:30,607 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:25:30,751 - INFO - [STEP] Input text "Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662" to element css:input[name='q']
+2026-03-26 15:25:31,141 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:25:33,918 - INFO - [STEP] Actual text: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662
+2026-03-26 15:25:33,922 - INFO - [STEP] Expected text: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662
+2026-03-26 15:25:33,926 - INFO - =====================================
+2026-03-26 15:25:33,945 - INFO - Close browser
+2026-03-26 15:25:33,949 - INFO - ================================
+2026-03-26 15:42:15,779 - INFO - ================================
+2026-03-26 15:42:15,782 - INFO - Browser opened
+2026-03-26 15:42:15,791 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:42:20,430 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:42:20,627 - INFO - [STEP] Input text "" to element css:input[name='q']
+2026-03-26 15:42:20,792 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:42:21,000 - INFO - [STEP] Actual validation message: Please fill out this field.
+2026-03-26 15:42:21,004 - INFO - [STEP] Expected validation message: Please fill out this field.
+2026-03-26 15:42:21,015 - INFO - =====================================
+2026-03-26 15:42:21,048 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:42:21,687 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:42:21,917 - INFO - [STEP] Input text "5cm" to element css:input[name='q']
+2026-03-26 15:42:22,197 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:42:25,417 - INFO - [STEP] Actual text: Giày cao gót công sở ELLA 5cm - 7cm gót đắp mica tráng gương tinh tế, quyến rũ ELA682
+2026-03-26 15:42:25,419 - INFO - [STEP] Expected text: 5cm
+2026-03-26 15:42:25,421 - INFO - =====================================
+2026-03-26 15:42:25,438 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:42:25,864 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:42:26,021 - INFO - [STEP] Input text "@" to element css:input[name='q']
+2026-03-26 15:42:26,215 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:42:29,622 - INFO - [STEP] Element located by: xpath:(//div[@class='thread-list-title text-center']) is present on the page.
+2026-03-26 15:42:29,624 - INFO - =====================================
+2026-03-26 15:42:29,639 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:42:30,404 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:42:30,680 - INFO - [STEP] Input text "giày sandal" to element css:input[name='q']
+2026-03-26 15:42:31,026 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:42:33,978 - INFO - [STEP] Actual text: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662
+2026-03-26 15:42:33,982 - INFO - [STEP] Expected text: Giày sandal
+2026-03-26 15:42:33,986 - INFO - =====================================
+2026-03-26 15:42:34,011 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:42:34,448 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:42:34,593 - INFO - [STEP] Input text "ELA618" to element css:input[name='q']
+2026-03-26 15:42:34,776 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:42:38,022 - INFO - [STEP] Actual text: Giày sandal công sở ELLA 7cm da bóng họa tiết CC dập chìm sang trọng ELA618
+2026-03-26 15:42:38,023 - INFO - [STEP] Expected text: ELA618
+2026-03-26 15:42:38,025 - INFO - =====================================
+2026-03-26 15:42:38,043 - INFO - [STEP] Opening page: https://ella.vn/
+2026-03-26 15:42:38,456 - INFO - [STEP] Click element css:input[name='q']
+2026-03-26 15:42:38,660 - INFO - [STEP] Input text "Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662" to element css:input[name='q']
+2026-03-26 15:42:38,917 - INFO - [STEP] Click element css:button[type='submit']
+2026-03-26 15:42:41,689 - INFO - [STEP] Actual text: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662
+2026-03-26 15:42:41,690 - INFO - [STEP] Expected text: Giày sandal công sở ELLA 7cm thanh lịch cuốn hút ELA662
+2026-03-26 15:42:41,692 - INFO - =====================================
+2026-03-26 15:42:41,702 - INFO - Close browser
+2026-03-26 15:42:41,704 - INFO - ================================

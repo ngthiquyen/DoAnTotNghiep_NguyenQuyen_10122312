@@ -1,0 +1,29 @@
+# ===== PYTHON =====
+.venv/
+__pycache__/
+*.pyc
+
+# ===== ROBOT REPORT =====
+reports/robot/
+reports/logs/
+
+# ===== ALLURE =====
+reports/allure/results/
+reports/allure/report/
+
+# ===== SCREENSHOT =====
+reports/robot/screenshots/
+*.png
+
+# ===== OUTPUT FILES =====
+output/
+log.html
+report.html
+output.xml
+
+# ===== LOG =====
+*.log
+
+# ===== OS =====
+.DS_Store
+Thumbs.db

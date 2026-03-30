@@ -25,3 +25,20 @@ LOGOUT_BTN="xpath://div[@class='lf']//span[contains(text(),'Thoát')]"
 SEARCH_INPUT = "css:input[name='q']"  
 SEARCH_BTN = "css:button[type='submit']"
 PRODUCTS_NAME="xpath:(//div[@class='thread-list-title text-center'])"
+PRODUCT_ITEMS = "css:li.hide-if-gia-zero a.WGR-fixed-atag"
+
+#ORDER PAGE
+ADD_TO_CART_BTN="xpath://div[@class='detail-muangay-button detail-muangay-center detail-muangay-topcenter details-ankhi-hethang d-none fullsize-if-mobile']//div//button[@type='button'][contains(text(),'Cho vào giỏ hàng')]"
+CART_ICON="css:a[title='Giỏ hàng']"
+CHECKOUT_BTN="xpath://button[contains(text(),'Thanh toán')]"
+SUBMIT_ORDER="xpath://button[@id='sb_submit_cart']"
+NAME_INPUT="id:t_ten"
+PHONE_INPUT="id:t_dienthoai"
+EMAIL_INPUT_ORDER="id:t_email"
+ADDRESS_INPUT="id:t_diachi"
+NOTE_INPUT="id:t_ghichu"
+PAYMENT_METHOD = "css:.cart-paymethod-{}"
+ORDER_ERROR_MSG="css:div[id='WGR_html_alert'] div"
+ORDER_SUCCESS_MSG="css:.big.text-center.upper"
+
+

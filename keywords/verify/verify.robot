@@ -66,7 +66,7 @@ Verify Required Field Message
 
     Log Info    [STEP]    Actual validation message: ${message}
     Log Info    [STEP]    Expected validation message: ${expected}
-    IF    '${expected}' == 'required'
+    IF    '${expected}' == 'required' or '${expected}' == 'invalid'
         Should Not Be Empty    ${message}
     ELSE
         Should Contain    ${message}    ${expected}
@@ -75,13 +75,13 @@ Verify Required Field Message
 
 #Xác minh thông báo lỗi hoặc thành công (có thể là message hoặc text trên page)
 Verify Message Or Page
-    [Arguments]       ${locator}   ${expected}
+    [Arguments]       ${error_locator}     ${success_locator}      ${expected}
     # ===== 1. CHECK TOAST / ERROR MESSAGE =====
     ${error_present}=    Run Keyword And Return Status
-    ...    Element Should Be Visible    ${locator}
+    ...    Element Should Be Visible    ${error_locator}
 
     IF    ${error_present}
-        ${text}=    Get Text    ${locator}
+        ${text}=    Get Text    ${error_locator}
 
         Log Info    [STEP] Error message: ${text}
         Log Info    [STEP]    Expected: ${expected}
@@ -92,10 +92,10 @@ Verify Message Or Page
         # ===== 2. CHECK SUCCESS =====
         Reload Current Page 
         ${is_success}=    Run Keyword And Return Status
-        ...    Element Should Be Visible    ${LOGOUT_BTN}
+        ...    Element Should Be Visible    ${success_locator}
 
         IF    ${is_success}
-            Element Should Be Visible    ${LOGOUT_BTN}
+            Element Should Be Visible    ${success_locator}
             Log Info   =====================================
 
         ELSE

@@ -30,7 +30,7 @@ Execute Login Test
         Verify Required Field Message       ${expected}
     # ===== 2. CHECK ALERT OR SUCCESS =====
     ELSE
-        Verify Message Or Page    ${ERROR_MSG}    ${expected}
+        Verify Message Or Page    ${ERROR_MSG}    ${LOGOUT_BTN}    ${expected}
     END
     
 

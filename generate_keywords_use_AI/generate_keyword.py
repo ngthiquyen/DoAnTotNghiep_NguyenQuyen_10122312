@@ -1,10 +1,12 @@
 import os
 import sys
 import requests
+import re
 
 # ===== CẤU HÌNH =====
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL = "llama3"
+#MODEL = "llama3"
+MODEL = "phi3"
 
 INPUT_DIR = "generate_keywords_use_AI/input"
 OUTPUT_DIR = "generate_keywords_use_AI/output"
@@ -38,9 +40,6 @@ def detect_capability(keyword_name: str):
     if "click" in name or "press" in name:
         return "click_element"
 
-    if "wait" in name and "visible" in name:
-        return "wait_visible"
-
     if "wait" in name and "page" in name:
         return "wait_page"
 
@@ -66,7 +65,7 @@ def call_ollama(prompt: str) -> str:
         "stream": False,
         "options": {
         "temperature": 0.2,
-        "num_predict": 600
+        "num_predict": 300
         }
     }
 
@@ -137,7 +136,80 @@ def parse_keywords(response_text: str):
 
     return sections
 
+def build_keyword_context(parsed_sections):
+    lines = []
 
+    for section, keywords in parsed_sections.items():
+        lines.append(f"\n[{section}]")
+
+        for kw in keywords:
+            lines.append(f"- {kw['name']}")
+
+    return "\n".join(lines)
+
+def generate_business_flow(feature_name, parsed_sections, use_case_text):
+
+    prompt_template = read_file("generate_keywords_use_AI/prompt/generate_flow_prompt.txt")
+
+    keyword_context = build_keyword_context(parsed_sections)
+
+    prompt = prompt_template \
+        .replace("{{KEYWORDS}}", keyword_context) \
+        .replace("{{USE_CASE}}", use_case_text)
+
+    print(" Generating business flow...")
+
+    result = call_ollama(prompt)
+
+    output_path = os.path.join(
+        OUTPUT_DIR, f"{feature_name}_flow.txt"
+    )
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(result)
+
+    print(f" Saved flow to: {output_path}")
+
+    return result
+
+
+
+def parse_flow(flow_text: str):
+    steps = []
+
+    for line in flow_text.splitlines():
+        line = line.strip()
+
+        match = re.match(r"^\d+\.\s+(.*)", line)
+        if match:
+            steps.append(match.group(1))
+
+    return steps
+
+def generate_robot_test(feature_name, flow_text):
+
+    steps = parse_flow(flow_text)
+
+    output_path = f"tests/{feature_name}_auto.robot"
+    os.makedirs("tests", exist_ok=True)
+
+    business_file = f"../keywords/business/{feature_name}_business.robot"
+
+    with open(output_path, "w", encoding="utf-8") as f:
+
+        f.write("*** Settings ***\n")
+        f.write(f"Resource    {business_file}\n")
+        f.write("Resource    ../keywords/ui/common_keywords.robot\n")
+        f.write("Resource    ../keywords/verify/verify.robot\n\n")
+
+        f.write("*** Test Cases ***\n")
+        f.write(f"{feature_name} Auto Test\n")
+
+        for step in steps:
+            f.write(f"    {step}\n")
+
+    print(f" Robot test generated: {output_path}")
+    
 # ===== LẤY KEYWORD ĐÃ TỒN TẠI =====
 def get_existing_keywords(file_path: str):
     names = set()
@@ -206,11 +278,19 @@ def filter_keywords(keywords, existing_names, existing_normalized, existing_capa
     return new_keywords
 
 # ===== GHI VÀO FRAMEWORK (CHỈ KEYWORD MỚI) =====
-def write_to_framework(parsed_sections: dict):
+def write_to_framework(parsed_sections: dict, feature_name: str):
     summary = {}
 
     for section, keywords in parsed_sections.items():
-        file_path = FILE_MAPPING[section]
+        if section == "BUSINESS":
+            file_path = f"keywords/business/{feature_name}_business.robot"
+            #nếu chưa có file thì tạo mới
+            if not os.path.exists(file_path):
+                os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                with open(file_path, "w", encoding="utf-8") as f:
+                    f.write("*** Settings ***\n\n*** Keywords ***\n")
+        else:
+            file_path = FILE_MAPPING[section]
 
         existing_names, existing_normalized, existing_capabilities = get_existing_keywords(file_path)
 
@@ -276,7 +356,13 @@ def generate_for_features(feature_name: str):
         print("⚠ AI output không đúng format. Không inject vào framework.")
         return
 
-    summary = write_to_framework(parsed_sections)
+    summary = write_to_framework(parsed_sections, feature_name)
+    
+    # ===== NEW: GENERATE FLOW =====
+    flow_text = generate_business_flow(feature_name, parsed_sections, feature_content)
+
+    # ===== NEW: GENERATE ROBOT TEST =====
+    generate_robot_test(feature_name, flow_text)
 
     print("\n===== SUMMARY =====")
     for section, data in summary.items():
@@ -289,6 +375,7 @@ def generate_for_features(feature_name: str):
             )
 
     print("\nHoàn tất inject keyword vào framework.")
+    
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

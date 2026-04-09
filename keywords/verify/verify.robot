@@ -9,19 +9,19 @@ Verify Business Result
     Verify Page Contains Text    ${expected_result}
 
 #Xác minh phần tử hiển thị
-Element Should Be Visible
+Verify Element Should Be Visible
     [Arguments]    ${locator}
     Wait Until Element Is Visible    ${locator}    10s
     Log Info    [STEP]    Element located by: ${locator} is visible on the page.
 
 #Xác minh phần tử không hiển thị (có thể tồn tại trong DOM nhưng ẩn)
-Element Should Not Be Visible
+Verify Element Should Not Be Visible
     [Arguments]    ${locator}
     Wait Until Element Is Not Visible    ${locator}    10s
     Log Info    [STEP]    Element located by: ${locator} is not visible on the page.
 
 #Xác minh URL hiện tại
-Current URL Should Be
+Verify Current URL Should Be
     [Arguments]    ${expected_url}
     ${current}=    Get Location
     Should Be Equal    ${current}    ${expected_url}
@@ -109,3 +109,7 @@ Verify Message Or Page
 
 
 
+
+Verify Product List Is Present
+    [Documentation]    Verify that the list of products is present on the page.
+    # TODO: Implement

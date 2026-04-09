@@ -44,3 +44,7 @@ Search Flow
     Input Search Keyword    ${product}
     Submit Search
     Search Result    ${product}    ${expected}
+    
+Search Product
+    [Documentation]    Perform search for a product
+    # TODO: Implement

@@ -1,44 +1,25 @@
-You are a Test Automation Architect.
+ROLE: Senior Automation Architect
 
-Your task is to construct BUSINESS FLOWS using existing keywords.
+TASK:
+Generate ONE Happy Path Main Business Flow.
 
-IMPORTANT RULES:
-- Use ONLY the provided keywords
-- DO NOT create new keywords
-- DO NOT add test data
-- DO NOT add conditions
-- DO NOT add expected results
+RULES:
+- Use ONLY the Business and Verification keywords listed below
+- Use EXACT keyword names
+- Do NOT invent new keywords
+- No UI actions (click, input, etc.)
+- Use placeholders ${VAR} for inputs
+- Keep steps in logical order
 
---------------------------------------------------
-
-[AVAILABLE KEYWORDS]
-
+AVAILABLE KEYWORDS:
 {{KEYWORDS}}
 
---------------------------------------------------
-
-[USE CASE]
-
+USE CASE:
 {{USE_CASE}}
 
---------------------------------------------------
+OUTPUT:
+[Main Flow Name]
 
-OUTPUT FORMAT:
-
-[BUSINESS FLOWS]
-
-Flow Name: <Flow Name>
-
-Steps:
-1. <Keyword>
-2. <Keyword>
-3. <Keyword>
-
---------------------------------------------------
-
-REQUIREMENTS:
-
-- Steps must follow correct logical order
-- Prefer Business keywords
-- First step must be navigation
-- Last step must be result handling
+1. <Business Keyword> | ${data}
+2. <Business Keyword>
+3. <Verification Keyword> | ${expected}

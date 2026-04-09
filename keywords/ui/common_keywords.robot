@@ -39,3 +39,7 @@ Select Dropdown By Value
     Select From List By Value    ${locator}    ${value}
     
 
+
+Wait Until Search Results Are Available
+    [Documentation]    Wait until search results are available
+    # TODO: Implement

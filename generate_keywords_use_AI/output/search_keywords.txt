@@ -1,17 +1,24 @@
-Here is the list of keywords for testing the "Search Product" function:
+Here is the output:
 
-**Business Keywords**
+**BUSINESS KEYWORDS**
 
-1. Enter Search Query
-2. Submit Search Request
-3. Verify Search Results Exist
-4. Verify No Search Results Exist When Query Is Empty
-5. Verify No Search Results Exist When No Products Found
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Search Product | Yes | product_name |  | Perform search for a product |
+| Enter Search Term | Yes | search_term |  | Enter the search term |
 
-**UI Keywords**
+**UI ACTION KEYWORDS**
 
-1. Navigate To Search Bar
-2. Input Search Query
-3. Click Search Button
-4. Verify Search Result List Exists
-5. Verify No Search Results Message Appears
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Input Search Term Into Field | Yes | search_field | Input Text | Input the search term into the field |
+| Click On Search Button | No |  | Click Element | Click on the search button |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Product List Is Present | Yes | product_list | Page Should Contain | Verify that the product list is present |
+| Verify No Result Message Is Present | Yes | no_result_message | Page Should Contain | Verify that the no result message is present |
+
+Note: I've followed the rules and guidelines provided to generate reusable keywords for the given feature.

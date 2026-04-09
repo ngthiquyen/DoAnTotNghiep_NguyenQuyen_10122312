@@ -5,8 +5,8 @@ import re
 
 # ===== CẤU HÌNH =====
 OLLAMA_URL = "http://localhost:11434/api/generate"
-#MODEL = "llama3"
-MODEL = "phi3"
+MODEL = "llama3"
+
 
 INPUT_DIR = "generate_keywords_use_AI/input"
 OUTPUT_DIR = "generate_keywords_use_AI/output"
@@ -50,7 +50,26 @@ def detect_capability(keyword_name: str):
         return "select_option"
 
     if "verify" in name:
-        return "verification"
+
+        if "visible" in name:
+            return "verify_visible"
+
+        if "enabled" in name:
+            return "verify_enabled"
+
+        if "disabled" in name:
+            return "verify_disabled"
+
+        if "contain" in name:
+            return "verify_contains"
+
+        if "present" in name:
+            return "verify_present"
+
+        if "not" in name:
+            return "verify_not"
+
+        return "verify_generic"
 
     return "other"
 
@@ -64,8 +83,9 @@ def call_ollama(prompt: str) -> str:
         "prompt": prompt,
         "stream": False,
         "options": {
-        "temperature": 0.2,
-        "num_predict": 300
+        "temperature": 0.1,
+        "num_predict": 301,
+        "top_p": 0.9
         }
     }
 
@@ -140,12 +160,57 @@ def build_keyword_context(parsed_sections):
     lines = []
 
     for section, keywords in parsed_sections.items():
-        lines.append(f"\n[{section}]")
+
+        lines.append(f"\n{section} KEYWORDS:")
 
         for kw in keywords:
-            lines.append(f"- {kw['name']}")
+            lines.append(f"{kw['name']}")
 
     return "\n".join(lines)
+
+def load_framework_keywords(feature_name):
+    sections = {
+        "BUSINESS": [],
+        "UI": [],
+        "VERIFY": []
+    }
+
+    files = {
+        "BUSINESS": f"keywords/business/{feature_name}_business.robot",
+        "UI": "keywords/ui/common_keywords.robot",
+        "VERIFY": "keywords/verify/verify.robot"
+    }
+
+    for section, file_path in files.items():
+
+        if not os.path.exists(file_path):
+            continue
+
+        inside_keyword_block = False
+
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.rstrip()
+
+                # detect keyword section
+                if line.startswith("*** Keywords"):
+                    inside_keyword_block = True
+                    continue
+
+                if line.startswith("***"):
+                    inside_keyword_block = False
+                    continue
+
+                if not inside_keyword_block:
+                    continue
+
+                # keyword = dòng không indent
+                if line and not line.startswith(" "):
+                    sections[section].append({
+                        "name": line
+                    })
+
+    return sections
 
 def generate_business_flow(feature_name, parsed_sections, use_case_text):
 
@@ -182,7 +247,8 @@ def parse_flow(flow_text: str):
 
         match = re.match(r"^\d+\.\s+(.*)", line)
         if match:
-            steps.append(match.group(1))
+            step = match.group(1).strip()
+            steps.append(step)
 
     return steps
 
@@ -196,7 +262,6 @@ def generate_robot_test(feature_name, flow_text):
     business_file = f"../keywords/business/{feature_name}_business.robot"
 
     with open(output_path, "w", encoding="utf-8") as f:
-
         f.write("*** Settings ***\n")
         f.write(f"Resource    {business_file}\n")
         f.write("Resource    ../keywords/ui/common_keywords.robot\n")
@@ -204,11 +269,12 @@ def generate_robot_test(feature_name, flow_text):
 
         f.write("*** Test Cases ***\n")
         f.write(f"{feature_name} Auto Test\n")
+        f.write("    [Documentation]    Auto generated from AI flow\n\n")
 
         for step in steps:
             f.write(f"    {step}\n")
 
-    print(f" Robot test generated: {output_path}")
+    print(f"Robot test generated: {output_path}")
     
 # ===== LẤY KEYWORD ĐÃ TỒN TẠI =====
 def get_existing_keywords(file_path: str):
@@ -359,7 +425,13 @@ def generate_for_features(feature_name: str):
     summary = write_to_framework(parsed_sections, feature_name)
     
     # ===== NEW: GENERATE FLOW =====
-    flow_text = generate_business_flow(feature_name, parsed_sections, feature_content)
+    framework_keywords = load_framework_keywords(feature_name)
+
+    flow_text = generate_business_flow(
+        feature_name,
+        framework_keywords,
+        feature_content
+    )
 
     # ===== NEW: GENERATE ROBOT TEST =====
     generate_robot_test(feature_name, flow_text)

@@ -1,25 +1,25 @@
-Here are the output tables:
+Here is the output in the required format:
 
 **BUSINESS KEYWORDS**
 
 | Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
 |--------------|-----------------|---------------------|---------------------|-------------|
-| Sign In User | Yes | username, password | None | Sign in a user |
-| Sign Out User | Yes | username | None | Sign out a user |
+| Login To System | Yes | username, password | None | Perform login action |
+| Enter Credentials | Yes | username, password | None | Enter credentials for login |
 
 **UI ACTION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Input Text Into Field | Yes | text, field | Input Text | Input text into a field |
-| Click On Element | Yes | element | Click Element | Click on an element |
-| Wait Until Element Is Visible | Yes | element | Wait Until Element Is Visible | Wait until an element is visible |
-| Scroll To Element | Yes | element | Scroll To Element | Scroll to an element |
+| Input Username | Yes | username | Input Text Into Field | Input username into field |
+| Input Password | Yes | password | Input Text Into Field | Input password into field |
+| Click On Login Button | No | None | Click Element | Click on login button |
 
 **VERIFICATION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Verify Element Is Visible | Yes | element | Element Should Be Visible | Verify an element is visible |
-| Verify Text Is Present | Yes | text | Text Should Be Present | Verify text is present |
-| Verify Element Is Enabled | Yes | element | Element Should Be Enabled | Verify an element is enabled |
+| Verify Login Successful | Yes | None | Page Should Contain | Verify login is successful |
+| Verify Error Message | Yes | error_message | Element Should Contain | Verify error message |
+
+Note: I've followed the rules and guidelines provided to generate reusable keywords for the given feature.

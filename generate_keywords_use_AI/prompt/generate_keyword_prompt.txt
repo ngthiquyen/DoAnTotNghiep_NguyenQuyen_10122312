@@ -33,50 +33,6 @@ Keywords must be reusable, generic, and data-independent.
 
 --------------------------------------------------
 
-FEATURE WORDS ARE STRICTLY FORBIDDEN
-
-The following words must NEVER appear in UI Action or Verification keyword names:
-
-Username
-Password
-User
-Product
-Email
-Address
-
-If any of these words appear in UI or Verification keywords → regenerate the keyword.
-
---------------------------------------------------
-
-GENERIC UI VOCABULARY
-
-Allowed generic UI element terms:
-
-Element  
-Field  
-Text  
-Input Field  
-Button  
-Dropdown  
-Checkbox  
-Radio Button  
-Link  
-Page  
-Section  
-
-Allowed generic UI actions:
-
-Click  
-Enter  
-Input  
-Clear  
-Select  
-Wait Until  
-Scroll To  
-Hover Over  
-
---------------------------------------------------
-
 LAYER DESIGN
 
 BUSINESS
@@ -85,25 +41,27 @@ BUSINESS
     - Must NOT contain UI verbs (Click, Input, Select, Wait)
     - Must NOT contain validation logic
 
-    STRICTLY FORBIDDEN WORDS in Business keywords: Click, Input, Enter, Select, Wait, Verify, Check, Validate  
-
     BUSINESS KEYWORD PATTERN: <Action> <Business Goal>
 
 UI ACTION
     - Generic UI operations only
-    - Must be reusable across features
-    - Avoid feature words such as Login, Username, Password, Cart, Search, etc.
-    - Must map to SeleniumLibrary built-in keywords
-    - Prefer abstract UI patterns over feature-specific actions
-    - Use abstract action naming (e.g., actions related to entering text, clicking elements, waiting for elements, selecting options)
-    - Must map to real SeleniumLibrary built-in keywords
-
-    Absolutely NO feature-specific words such as: Login, Username, Password, Search, Cart, Product  
+    - Must NOT contain feature-specific words
+    - Must map to SeleniumLibrary keywords
 
     UI KEYWORD PATTERN: <Action> <Generic UI Target>
 
-    Examples of GOOD UI Action keywords: Click Element, Input Text Into Field, eg.
-    Examples of BAD UI Action keywords (DO NOT GENERATE): Enter Username, Click Login Button, eg.  
+    Allowed SeleniumLibrary Keywords:
+        - Input Text
+        - Click Element
+        - Wait Until Element Is Visible
+        - Element Should Be Visible
+        - Element Should Contain
+        - Page Should Contain
+        - Get WebElements
+        - Scroll Element Into View
+
+        Derived From SeleniumLibrary Keyword MUST be chosen from the list above.
+        Do NOT invent Selenium keywords.
 
 VERIFICATION
     - Generic validation keywords
@@ -114,9 +72,9 @@ VERIFICATION
 
     VERIFICATION KEYWORD PATTERN: Verify <Generic Condition>
 
-    Examples of GOOD Verification keywords: Verify Element Is Visible, Verify Element Is Enabled, eg.
-    Examples of BAD Verification keywords: Verify Login Successful, Verify Username Error, eg. 
+    Good: Verify Element Is Visible, Verify Text Is Present
 
+    Bad: Verify Login Success, Verify Search Result 
 
 --------------------------------------------------
 
@@ -152,14 +110,13 @@ Rules: generic validation such as Verify Element Is Visible or Verify Text Is Pr
 
 SELF VALIDATION (MANDATORY)
 
-Before producing the final tables, verify that:
-
-1. Business keywords contain NO UI verbs.
-2. Business keywords contain NO verification words.
-3. UI keywords contain NO feature-specific words.
-4. Verification keywords contain NO feature-specific words.
-5. All keywords follow Robot Framework naming conventions.
-6. All UI and Verification keywords map to real SeleniumLibrary built-in keywords.
+Before output:
+- No UI verbs in Business
+- No verification logic in Business
+- No feature words in UI
+- No feature words in Verification
+- Selenium keyword must be from allowed list
+- All UI and Verification keywords map to real SeleniumLibrary built-in keywords.
 
 If any rule is violated → regenerate the keyword list.
 

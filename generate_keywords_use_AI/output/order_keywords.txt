@@ -1,26 +1,27 @@
-As a robotic process automation (RPA) expert with deep experience in Robot Framework and Keyword-Driven Framework, I'm happy to help you create a list of reusable keywords for testing the "Order" feature. Here are the keywords grouped into two categories: Business Keywords and UI Keywords:
+Here is the output:
 
-**Business Keywords**
+**BUSINESS KEYWORDS**
 
-* GO TO ORDER PAGE
-* ADD ITEM TO CART
-* VIEW CART CONTENTS
-* PLACE ORDER
-* CONFIRM ORDER
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Place Order  | Yes            | Product, Quantity   | None               | Create an order |
+| Add To Cart | Yes            | Product           | None               | Add product to cart |
+| View Cart   | No             | None              | None               | Display cart contents |
 
-These business-level keywords represent high-level user actions that can be reused across multiple test cases, without considering specific UI interactions.
+**UI ACTION KEYWORDS**
 
-**UI Keywords**
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Click On Product | Yes          | Product    | Click Element                  | Select a product |
+| Add To Cart Button | Yes         | None       | Click Element                  | Add product to cart |
+| View Cart Link   | No           | None       | Click Element                  | Display cart contents |
 
-* CLICK ON PRODUCT
-* SELECT PRODUCT OPTION
-* ADD PRODUCT TO CART
-* OPEN CART PAGE
-* CHECK CART CONTENTS
-* CLICK PLACE ORDER BUTTON
-* ENTER SHIPPING INFORMATION
-* CONFIRM SHIPPING DETAILS
+**VERIFICATION KEYWORDS**
 
-These UI-level keywords represent basic UI actions that can be reused across multiple features, without being tied to specific business logic or data.
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Product Is Added To Cart | Yes          | Product    | Element Should Contain         | Validate product added to cart |
+| Verify Cart Is Empty        | No           | None       | Page Should Not Contain         | Validate empty cart |
+| Verify Order Placement Success | Yes          | None       | Element Should Be Visible      | Validate order placement success |
 
-Remember to follow the Robot Framework naming convention (write in title case with spaces between words) and avoid creating locators, generating code, or writing test cases. These keywords are designed for reuse and flexibility in testing the "Order" feature.
+Note:

@@ -51,3 +51,14 @@ Place Order From Search
     Click On Element    ${ADD_TO_CART_BTN}
 
     Order Flow    ${name}    ${phone}    ${email}    ${address}    ${note}    ${method}    ${expected}
+Place Order
+    [Documentation]    Create an order
+    # TODO: Implement
+
+Add To Cart
+    [Documentation]    Add product to cart
+    # TODO: Implement
+
+View Cart
+    [Documentation]    Display cart contents
+    # TODO: Implement

@@ -43,3 +43,15 @@ Select Dropdown By Value
 Wait Until Search Results Are Available
     [Documentation]    Wait until search results are available
     # TODO: Implement
+
+Fill Out Required Fields
+    [Documentation]    Enter required information for registration.
+    # TODO: Implement
+
+Add To Cart Button
+    [Documentation]    Add product to cart
+    # TODO: Implement
+
+View Cart Link
+    [Documentation]    Display cart contents
+    # TODO: Implement

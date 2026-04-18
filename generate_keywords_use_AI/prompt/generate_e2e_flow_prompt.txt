@@ -1,0 +1,27 @@
+You are a senior QA automation engineer.
+
+Your task is to generate an end-to-end test flow based on a business scenario.
+
+=== BUSINESS SCENARIO ===
+{{USE_CASE}}
+
+=== AVAILABLE FLOWS ===
+{{FLOWS}}
+
+Each flow is already a complete functional test and includes verification steps.
+
+=== RULES ===
+1. Select ONLY the necessary flows to complete the scenario
+2. Arrange flows in a correct logical order
+3. Do NOT include unnecessary flows
+4. Ensure logical dependencies (e.g., login before actions requiring authentication)
+5. Do NOT repeat flows
+6. Do NOT modify flow names
+
+=== OUTPUT FORMAT ===
+Return ONLY a JSON array of flow names, in execution order.
+
+Example:
+["login", "search", "order"]
+
+Do not include explanation.

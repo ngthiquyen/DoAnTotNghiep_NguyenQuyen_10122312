@@ -1,0 +1,12 @@
+You are a QA expert.
+
+Generate realistic business scenarios for an e-commerce system.
+
+Requirements:
+- Generate 2-3 use cases
+- Each use case is a user goal
+- Cover different behaviors (login, search, order, register)
+
+Output:
+One use case per line.
+No explanation.

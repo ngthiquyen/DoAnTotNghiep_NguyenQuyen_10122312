@@ -1,24 +1,25 @@
-Here is the list of keywords for the registration functionality:
+Here is the output:
 
-**Business Keywords**
+**BUSINESS KEYWORDS**
 
-1. Go To Registration Page
-2. Fill In Required Information
-3. Submit Registration Form
-4. Verify Account Creation Success
-5. Verify Error Message For Missing Information
-6. Verify Error Message For Existing Email
-7. Verify Error Message For Non-Matching Passwords
-8. Verify Error Message For Weak Password
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Register User | Yes | username, password | None | Create a new user account. |
+| Fill Out Registration Form | Yes | None | None | Enter required information for registration. |
 
-**UI Keywords**
+**UI ACTION KEYWORDS**
 
-1. Click On Register Button
-2. Enter User Information
-3. Fill Out Registration Form
-4. Select From Drop Down List (if applicable)
-5. Check Box (if applicable)
-6. Click On Submit Button
-7. Wait For Page To Load (if applicable)
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Input Username Into Field | Yes | username, field_name | Input Text | Enter username into the specified field. |
+| Click On Register Button | No | None | Click Element | Click the register button. |
+| Fill Out Required Fields | Yes | fields_to_fill, values_to_enter | Get WebElements | Enter required information for registration. |
 
-Note: These keywords are designed to be reusable across multiple test cases and scenarios, while also being independent of the specific logic or data involved in the registration process.
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Registration Form Is Visible | No | None | Element Should Be Visible | Validate the registration form is visible. |
+| Verify Success Message Is Present | No | None | Page Should Contain | Validate the success message is present after successful registration. |
+
+Note: I've followed the architecture and naming conventions provided, and ensured that all keywords are reusable, generic, and data-independent.

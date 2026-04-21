@@ -2,6 +2,7 @@ import os
 import sys
 import requests
 import re
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 # ===== CẤU HÌNH =====
 OLLAMA_URL = "http://localhost:11434/api/generate"
@@ -34,7 +35,7 @@ def detect_capability(keyword_name: str):
 
     name = keyword_name.lower()
 
-    if "input" in name or "enter" in name:
+    if "input" in name or "enter" in name or "type" in name or "fill" in name:
         return "input_text"
 
     if "click" in name or "press" in name:
@@ -42,7 +43,13 @@ def detect_capability(keyword_name: str):
 
     if "wait" in name and "page" in name:
         return "wait_page"
-
+    
+    if "wait" in name:
+        return "wait_element"
+    
+    if "open" in name or "navigate" in name or "go to" in name or "view" in name or "place" in name:
+        return "open_page"
+    
     if "scroll" in name:
         return "scroll"
 
@@ -238,7 +245,6 @@ def generate_business_flow(feature_name, parsed_sections, use_case_text):
     return result
 
 
-
 def parse_flow(flow_text: str):
     steps = []
 
@@ -248,6 +254,13 @@ def parse_flow(flow_text: str):
         match = re.match(r"^\d+\.\s+(.*)", line)
         if match:
             step = match.group(1).strip()
+
+            # remove markdown
+            step = re.sub(r"\*\*(.*?)\*\*", r"\1", step)
+
+            # fix Robot syntax
+            step = step.replace("|", "    ")
+
             steps.append(step)
 
     return steps

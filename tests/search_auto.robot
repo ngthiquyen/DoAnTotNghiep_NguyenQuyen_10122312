@@ -7,7 +7,9 @@ Resource    ../keywords/verify/verify.robot
 search Auto Test
     [Documentation]    Auto generated from AI flow
 
-    **Open Search Page**
-    **Input Search Keyword** | ${searchKeyword}
-    **Submit Search**
-    **Verify Business Result** | ${expectedProductList}
+    Open Search Page
+    Input Search Keyword      ${searchKeyword}
+    Submit Search
+    Verify Business Result      "Search Result"
+    Select Product From Result
+    Verify Business Result      "Product List Is Present"

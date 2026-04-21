@@ -7,9 +7,10 @@ Resource    ../keywords/verify/verify.robot
 login Auto Test
     [Documentation]    Auto generated from AI flow
 
-    **Open Login Page**
-    **Fill Login Form** | ${username}
-    **Submit Login Form**
-    **Verify Business Result** | "Login successful"
-    **Verify Current URL Should Be** | "${expected_url}"
-    **Verify Page Contains Text** | "Welcome, ${username}"
+    Open Login Page
+    Fill Login Form      ${username}
+    Submit Login Form
+    Verify Business Result      "Login successful"
+    Login User
+    Verify Current URL Should Be      "${expected_url}"
+    Verify Page Contains Text      "Welcome, ${username}"

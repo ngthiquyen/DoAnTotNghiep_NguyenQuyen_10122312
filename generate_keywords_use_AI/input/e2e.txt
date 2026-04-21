@@ -1,0 +1,35 @@
+Chức năng: Mua hàng hoàn chỉnh (End-to-End Purchase Flow)
+
+Mô tả:
+Luồng này mô tả toàn bộ hành vi của người dùng từ khi đăng nhập vào hệ thống cho đến khi tìm kiếm sản phẩm và hoàn tất việc đặt hàng.
+
+Luồng chính (Main Flow):
+
+1. Người dùng truy cập vào hệ thống.
+2. Người dùng mở trang đăng nhập.
+3. Người dùng nhập username và password hợp lệ.
+4. Người dùng nhấn nút đăng nhập.
+5. Hệ thống xác thực và đăng nhập thành công.
+6. Hệ thống hiển thị trang chủ sau khi đăng nhập.
+
+
+7. Người dùng nhập từ khóa tìm kiếm.
+8. Người dùng nhấn nút tìm kiếm.
+9. Hệ thống hiển thị danh sách sản phẩm phù hợp.
+
+10. Người dùng chọn một sản phẩm từ danh sách.
+11. Người dùng thêm sản phẩm vào giỏ hàng.
+12. Người dùng ấn xem giỏ hàng.
+13. Hệ thống hiển thị đúng sản phẩm đã thêm.
+
+
+14. Người dùng nhập thông tin khách hàng
+15. Người dùng nhấn nút đặt hàng.
+16. Hệ thống xử lý đơn hàng thành công.
+
+Kết quả mong đợi (Expected):
+
+- Người dùng đăng nhập thành công.
+- Kết quả tìm kiếm hiển thị chính xác.
+- Sản phẩm được thêm vào giỏ hàng thành công.
+- Đơn hàng được tạo thành công.

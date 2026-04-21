@@ -38,20 +38,8 @@ Select Dropdown By Value
     Wait Until Element Is Visible    ${locator}    10s
     Select From List By Value    ${locator}    ${value}
     
+Wait Until Element Is Visible
+    [Arguments]    ${locator}    ${timeout}=10s
+    Log Info    [STEP]  Wait until element ${locator} is visible with timeout ${timeout}
+    Wait Until Element Is Visible    ${locator}    ${timeout}
 
-
-Wait Until Search Results Are Available
-    [Documentation]    Wait until search results are available
-    # TODO: Implement
-
-Fill Out Required Fields
-    [Documentation]    Enter required information for registration.
-    # TODO: Implement
-
-Add To Cart Button
-    [Documentation]    Add product to cart
-    # TODO: Implement
-
-View Cart Link
-    [Documentation]    Display cart contents
-    # TODO: Implement

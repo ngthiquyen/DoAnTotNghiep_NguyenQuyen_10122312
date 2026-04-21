@@ -7,14 +7,12 @@ Resource    ../keywords/verify/verify.robot
 order Auto Test
     [Documentation]    Auto generated from AI flow
 
-    Open Cart Page | ${data}
-    Place Order
-    Verify Current URL Should Be | "cart"
-    Verify Page Contains Text | "Your cart is empty."
-    Add To Cart Button
-    View Cart Link
-    Fill Shipping Information | ${data}
-    Select Payment Method
+    Open Cart Page      ${data}
+    Add To Cart      ${product}
+    Update Cart
+    Open Checkout Page
+    Fill Shipping Information      ${shipping_info}
+    Select Payment Method      ${payment_method}
     Submit Order
-    Order Result
-    Verify Business Result | "Order placed successfully."
+    Verify Order Result      "Order placed successfully"
+    Verify Business Result      "Order flow completed"

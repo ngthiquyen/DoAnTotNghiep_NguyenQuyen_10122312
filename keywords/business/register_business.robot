@@ -37,10 +37,8 @@ Register Flow
     Fill Register Form    ${email}    ${password}    ${re_password}
     Submit Register Form
     Register Result    ${email}    ${password}    ${re_password}    ${expected}
+
+
 Register User
     [Documentation]    Create a new user account.
-    # TODO: Implement
-
-Fill Out Registration Form
-    [Documentation]    Enter required information for registration.
     # TODO: Implement

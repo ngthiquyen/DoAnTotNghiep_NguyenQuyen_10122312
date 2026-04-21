@@ -4,24 +4,23 @@ Here is the output:
 
 | Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
 |--------------|-----------------|---------------------|---------------------|-------------|
-| Place Order  | Yes            | Product, Quantity   | None               | Create an order |
-| Add To Cart | Yes            | Product           | None               | Add product to cart |
-| View Cart   | No             | None              | None               | Display cart contents |
+| Place Order  | Yes             | Product ID, Quantity | None               | Create an order |
+| Update Cart | Yes             | Product ID, Quantity | None               | Update cart contents |
+| Review Order| Yes             | Order Details      | None               | Review order details |
 
 **UI ACTION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Click On Product | Yes          | Product    | Click Element                  | Select a product |
-| Add To Cart Button | Yes         | None       | Click Element                  | Add product to cart |
-| View Cart Link   | No           | None       | Click Element                  | Display cart contents |
+| Click On Product| Yes            | Product Element | Click Element                | Select a product |
+| Add To Cart    | Yes            | Product Element | Input Text Into Field        | Add product to cart |
+| Open Cart     | Yes            | Cart Page       | Get WebElements              | Open the cart page |
+| View Order    | Yes            | Order Details   | Page Should Contain          | View order details |
 
 **VERIFICATION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Verify Product Is Added To Cart | Yes          | Product    | Element Should Contain         | Validate product added to cart |
-| Verify Cart Is Empty        | No           | None       | Page Should Not Contain         | Validate empty cart |
-| Verify Order Placement Success | Yes          | None       | Element Should Be Visible      | Validate order placement success |
-
-Note:
+| Verify Product Added | Yes           | Product ID  | Element Should Be Visible      | Verify product added to cart |
+| Verify Cart Contents | Yes           | Cart Contents| Page Should Contain          | Verify cart contents |
+| Verify Order Details

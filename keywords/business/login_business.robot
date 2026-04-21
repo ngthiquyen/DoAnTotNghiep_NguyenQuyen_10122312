@@ -32,10 +32,10 @@ Login Flow
     Submit Login Form
     Login Result    ${email}    ${password}    ${expected}
     
-Login To System
-    [Documentation]    Perform login action
+Logout User
+    [Documentation]    Perform logout action
     # TODO: Implement
 
-Enter Credentials
-    [Documentation]    Enter credentials for login
+Login User
+    [Documentation]    Perform login action
     # TODO: Implement

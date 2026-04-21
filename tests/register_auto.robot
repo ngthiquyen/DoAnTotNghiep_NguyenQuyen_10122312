@@ -7,8 +7,8 @@ Resource    ../keywords/verify/verify.robot
 register Auto Test
     [Documentation]    Auto generated from AI flow
 
-    **Open Register Page** | ${url}
-    **Fill Out Registration Form**
-    **Submit Register Form**
-    **Verify Business Result** | "Register Result" contains "Register User"
-    **Verify Current URL Should Be** | "${url}/register-success"
+    Open Register Page      ${data}
+    Fill Register Form
+    Verify Element Should Be Visible      ${expected} (Registration form is visible)
+    Submit Register Form
+    Verify Business Result      ${expected} (Registration successful)

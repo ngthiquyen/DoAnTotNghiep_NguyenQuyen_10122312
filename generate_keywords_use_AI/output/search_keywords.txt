@@ -4,21 +4,21 @@ Here is the output:
 
 | Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
 |--------------|-----------------|---------------------|---------------------|-------------|
-| Search Product | Yes | product_name |  | Perform search for a product |
-| Enter Search Term | Yes | search_term |  | Enter the search term |
+| Search Product | Yes | product_name |  | Perform search for a product with given name. |
+| Enter Search Criteria | Yes | criteria |  | Enter search criteria into the search field. |
 
 **UI ACTION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Input Search Term Into Field | Yes | search_field | Input Text | Input the search term into the field |
-| Click On Search Button | No |  | Click Element | Click on the search button |
+| Input Text Into Field | Yes | text, field_name | Input Text | Input given text into a specific field. |
+| Click On Search Button | No |  | Click Element | Click the search button. |
 
 **VERIFICATION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Verify Product List Is Present | Yes | product_list | Page Should Contain | Verify that the product list is present |
-| Verify No Result Message Is Present | Yes | no_result_message | Page Should Contain | Verify that the no result message is present |
+| Verify Product List Is Present | Yes | product_list | Page Should Contain | Verify that a list of products is present on the page. |
+| Verify No Results Found | No |  | Element Should Be Visible | Verify that no results found message is displayed. |
 
-Note: I've followed the rules and guidelines provided to generate reusable keywords for the given feature.
+Note: I've followed the rules and naming conventions provided, and ensured that the keywords are reusable, generic, and data-independent.

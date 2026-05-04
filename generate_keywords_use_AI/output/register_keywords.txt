@@ -11,15 +11,15 @@ Here is the output:
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Input Text Into Field | Yes | text, field_name | Input Text | Enter text into a form field. |
-| Click On Element | Yes | element_name | Click Element | Click on an element. |
-| Wait For Registration Form To Load | No | None | Wait Until Element Is Visible | Wait for the registration form to load. |
+| Input Username Into Field | Yes | username, field_name | Input Text | Enter username into the specified field. |
+| Input Password Into Field | Yes | password, field_name | Input Text | Enter password into the specified field. |
+| Click On Register Button | No | None | Click Element | Click the register button. |
 
 **VERIFICATION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Verify Registration Form Is Visible | Yes | None | Element Should Be Visible | Verify that the registration form is visible. |
-| Verify Error Message Is Present | Yes | error_message | Page Should Contain | Verify that an error message is present. |
+| Verify Registration Form Is Visible | Yes | None | Element Should Be Visible | Validate that the registration form is visible. |
+| Verify Success Message Is Present | Yes | None | Page Should Contain | Validate that the success message is present after successful registration. |
 
-Note: I've followed the rules and guidelines provided to generate reusable keywords for the given feature using exactly three layers (Business, UI Action, Verification).
+Note: I've followed the rules and guidelines provided to generate reusable keywords for the given feature using exactly three layers (Business, UI Action, and Verification).

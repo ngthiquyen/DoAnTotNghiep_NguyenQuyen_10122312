@@ -3,11 +3,6 @@ Library    ../utils/logger.py
 
 *** Keywords ***
 
-#Dùng cho mọi case, không phụ thuộc thành công hay thất bại
-Verify Business Result
-    [Arguments]    ${expected_result}
-    Verify Page Contains Text    ${expected_result}
-
 #Xác minh phần tử hiển thị
 Verify Element Should Be Visible
     [Arguments]    ${locator}
@@ -41,18 +36,6 @@ Verify Page Contains Element
     Log Info    [STEP]    Element located by: ${locator} is present on the page.
     Log Info  =====================================
 
-#Xác minh văn bản phần tử có chứa một chuỗi con
-Verify Element Text Contains
-    [Arguments]    ${locator}    ${expected_text}
-    Wait Until Element Is Visible    ${locator}    10s
-    Wait Until Element Contains    ${locator}    ${expected_text}    10s
-    ${actual_text}=    Get Text    ${locator}
-    Should Not Be Empty    ${actual_text}
-    Log Info    [STEP]    Actual text: ${actual_text}
-    Log Info    [STEP]    Expected text: ${expected_text}
-    Log Info     =====================================
-    Should Contain    ${actual_text}    ${expected_text}
-
 #Xác minh thông báo trường bắt buộc (validation message)
 Verify Required Field Message
     [Arguments]        ${expected}
@@ -74,7 +57,7 @@ Verify Required Field Message
     Log Info    =====================================
 
 #Xác minh thông báo lỗi hoặc thành công (có thể là message hoặc text trên page)
-Verify Message Or Page
+Verify Element Text Contains
     [Arguments]       ${error_locator}     ${success_locator}      ${expected}
     # ===== 1. CHECK TOAST / ERROR MESSAGE =====
     ${error_present}=    Run Keyword And Return Status
@@ -96,6 +79,10 @@ Verify Message Or Page
 
         IF    ${is_success}
             Element Should Be Visible    ${success_locator}
+            ${text}=    Get Text    ${success_locator}
+            Log Info    [STEP] Success message: ${text}
+            Log Info    [STEP]    Expected: ${expected}
+            Should Contain    ${text}    ${expected}
             Log Info   =====================================
 
         ELSE
@@ -108,8 +95,10 @@ Verify Message Or Page
     END
 
 
-
-
-Verify Product List Is Present
-    [Documentation]    Verify that the list of products is present on the page.
+Verify Element Is Present
+    [Documentation]    Verify that element is present on the page.
     # TODO: Implement
+    [Arguments]    ${locator}
+    Wait Until Page Contains Element    ${locator}    10s
+    Log Info    [STEP]    Element located by: ${locator} is present on the page.
+    

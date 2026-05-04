@@ -16,19 +16,6 @@ Input Search Keyword
 Submit Search
     Click On Element    ${SEARCH_BTN}
 
-Search Result
-    [Arguments]    ${product}    ${expected}
-
-    IF    '${product}' == ''
-        Verify Required Field Message    ${expected}
-
-    ELSE IF    '${expected}' == 'Has_result'
-        Verify Page Contains Element    ${PRODUCTS_NAME}
-
-    ELSE
-        Verify Element Text Contains    ${PRODUCTS_NAME}    ${expected}
-    END
-
 Select Product From Result
     [Arguments]     ${index}
     ${elements}=    Get WebElements    ${PRODUCT_ITEMS}
@@ -37,14 +24,10 @@ Select Product From Result
     Click Element              ${elements}[${index}]
     Click On Element    ${elements}[0]
 
-Search Flow
-    [Arguments]    ${product}    ${expected}
 
-    Open Search Page
-    Input Search Keyword    ${product}
-    Submit Search
-    Search Result    ${product}    ${expected}
-    
 Search Product
-    [Documentation]    Perform search for a product
+    [Documentation]    Perform search for a product with given name.
     # TODO: Implement
+    Open Search Page
+    Input Search Keyword
+    Submit Search

@@ -15,27 +15,15 @@ Fill Login Form
 Submit Login Form
     Click On Element    ${LOGIN_BTN}
 
-Login Result
-    [Arguments]    ${email}    ${password}    ${expected}
-
-    IF    '${email}' == '' or '${password}' == ''
-        Verify Required Field Message       ${expected}
-
-    ELSE
-        Verify Message Or Page    ${ERROR_MSG}    ${LOGOUT_BTN}    ${expected}
-    END
-
-Login Flow
-    [Arguments]    ${email}    ${password}    ${expected}
-    Open Login Page
-    Fill Login Form    ${email}    ${password}
-    Submit Login Form
-    Login Result    ${email}    ${password}    ${expected}
-    
 Logout User
     [Documentation]    Perform logout action
     # TODO: Implement
+    Click On Element    ${LOGOUT_BTN}
 
-Login User
+Login To System
     [Documentation]    Perform login action
     # TODO: Implement
+    Open Login Page
+    Fill Login Form
+    Submit Login Form
+    

@@ -5,20 +5,20 @@ Here is the output:
 | Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
 |--------------|-----------------|---------------------|---------------------|-------------|
 | Search Product | Yes | product_name |  | Perform search for a product with given name. |
-| Enter Search Criteria | Yes | criteria |  | Enter search criteria into the search field. |
+| Enter Search Criteria | No |  | search_term | Enter search criteria for the product. |
 
 **UI ACTION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Input Text Into Field | Yes | text, field_name | Input Text | Input given text into a specific field. |
-| Click On Search Button | No |  | Click Element | Click the search button. |
+| Input Search Term | Yes | search_term | Input Text | Input search term into search field. |
+| Click Search Button | No |  | Click Element | Click the search button to initiate search. |
 
 **VERIFICATION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Verify Product List Is Present | Yes | product_list | Page Should Contain | Verify that a list of products is present on the page. |
-| Verify No Results Found | No |  | Element Should Be Visible | Verify that no results found message is displayed. |
+| Verify Product List Is Present | Yes | product_list | Page Should Contain | Verify that the list of products is present on the page. |
+| Verify No Results Found | No |  | Element Should Be Visible | Verify that a message indicating no results found is visible. |
 
-Note: I've followed the rules and naming conventions provided, and ensured that the keywords are reusable, generic, and data-independent.
+Note: I've followed the rules and guidelines provided to generate reusable keywords for the given feature using exactly three layers (Business, UI Action, Verification).

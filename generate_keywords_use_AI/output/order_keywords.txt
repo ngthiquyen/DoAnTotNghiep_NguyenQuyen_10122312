@@ -4,23 +4,23 @@ Here is the output:
 
 | Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
 |--------------|-----------------|---------------------|---------------------|-------------|
-| Place Order  | Yes             | Product ID, Quantity | None               | Create an order |
-| Update Cart | Yes             | Product ID, Quantity | None               | Update cart contents |
-| Review Order| Yes             | Order Details      | None               | Review order details |
+| Place Order  | Yes             | Product ID, Quantity | None               | Initiate order process |
+| Review Cart | No              | None                | None               | Review cart contents |
 
 **UI ACTION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Click On Product| Yes            | Product Element | Click Element                | Select a product |
-| Add To Cart    | Yes            | Product Element | Input Text Into Field        | Add product to cart |
-| Open Cart     | Yes            | Cart Page       | Get WebElements              | Open the cart page |
-| View Order    | Yes            | Order Details   | Page Should Contain          | View order details |
+| Click On Product | Yes            | Product Element | Click Element                  | Select product |
+| Add To Cart    | Yes            | Product Element | Click Element                  | Add product to cart |
+| View Cart     | No             | None          | Get WebElements                | Display cart contents |
+| Submit Order  | Yes           | Form Elements | Input Text                    | Initiate order submission |
 
 **VERIFICATION KEYWORDS**
 
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
-| Verify Product Added | Yes           | Product ID  | Element Should Be Visible      | Verify product added to cart |
-| Verify Cart Contents | Yes           | Cart Contents| Page Should Contain          | Verify cart contents |
-| Verify Order Details
+| Verify Product In Cart | No            | None      | Element Should Contain          | Validate product in cart |
+| Verify Order Success  | Yes           | Order ID    | Page Should Contain              | Validate order success |
+
+Note: I've followed the architecture and naming conventions provided, ensuring that the keywords are reusable, generic, and data-independent.

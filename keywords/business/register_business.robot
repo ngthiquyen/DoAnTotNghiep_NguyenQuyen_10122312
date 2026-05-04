@@ -17,28 +17,9 @@ Fill Register Form
 Submit Register Form
     Click On Element    ${REGISTER_BTN}
 
-Register Result
-    [Arguments]    ${email}    ${password}    ${re_password}    ${expected}
-
-    IF    '${email}' == '' or '${password}' == '' or '${re_password}' == ''
-        Verify Required Field Message    ${expected}
-
-    ELSE IF    '${expected}' == 'invalid'
-        Verify Required Field Message    ${expected}
-
-    ELSE
-        Verify Message Or Page    ${ERROR_MSG_REGISTER}    ${ACCOUNT_NAME}    ${expected}
-    END
-
-
-Register Flow
-    [Arguments]    ${email}    ${password}    ${re_password}    ${expected}
-    Open Register Page
-    Fill Register Form    ${email}    ${password}    ${re_password}
-    Submit Register Form
-    Register Result    ${email}    ${password}    ${re_password}    ${expected}
-
-
 Register User
     [Documentation]    Create a new user account.
     # TODO: Implement
+    Open Register Page
+    Fill Register Form
+    Submit Register Form

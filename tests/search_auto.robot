@@ -10,6 +10,5 @@ search Auto Test
     Open Search Page
     Input Search Keyword      ${searchKeyword}
     Submit Search
-    Verify Business Result      "Search Result"
-    Select Product From Result
-    Verify Business Result      "Product List Is Present"
+    Verify Current URL Should Be      "search-results"
+    Verify Page Contains Element      "product-list"

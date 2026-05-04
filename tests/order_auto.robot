@@ -7,12 +7,10 @@ Resource    ../keywords/verify/verify.robot
 order Auto Test
     [Documentation]    Auto generated from AI flow
 
-    Open Cart Page      ${data}
-    Add To Cart      ${product}
-    Update Cart
-    Open Checkout Page
-    Fill Shipping Information      ${shipping_info}
-    Select Payment Method      ${payment_method}
+    Open Cart Page      ${cartPageUrl}
+    Update Cart      ${productIds}
     Submit Order
-    Verify Order Result      "Order placed successfully"
-    Verify Business Result      "Order flow completed"
+    Fill Shipping Information      ${shippingInfo}
+    Select Payment Method      ${paymentMethod}
+    Submit Order
+    Verify Current URL Should Be      ${orderConfirmationUrl}

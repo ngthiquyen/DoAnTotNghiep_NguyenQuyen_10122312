@@ -128,6 +128,7 @@ def build_keyword_text(groups, verify):
 
     return text
 
+
 def fix_json_string(raw):
     lines = []
 

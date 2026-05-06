@@ -5,12 +5,18 @@ Resource   ../keywords/business/search_business.robot
 
 *** Keywords ***
 Open Cart Page
+    [Documentation]    Navigate to the cart page
+    # TODO: Implement
     Click On Element    ${CART_ICON}
 
 Open Checkout Page
+    [Documentation]    Navigate to the checkout page
+    # TODO: Implement
     Click On Element    ${CHECKOUT_BTN}
 
 Fill Shipping Information
+    [Documentation]    Fill in the shipping information form
+    # TODO: Implement
     [Arguments]    ${name}    ${phone}    ${address}
 
     Input Text To Element    ${NAME_INPUT}      ${name}
@@ -20,11 +26,15 @@ Fill Shipping Information
     Input Text To Element    ${NOTE_INPUT}   ${note}
 
 Select Payment Method
+    [Documentation]    Select a payment method
+    # TODO: Implement
     [Arguments]    ${method}
     ${locator}=    Replace String    ${PAYMENT_METHOD}    {}    ${method}
     Click On Element    ${locator}
 
 Submit Order
+    [Documentation]    Submit the order
+    # TODO: Implement
     Click On Element    ${SUBMIT_ORDER}
 
 Add To Cart

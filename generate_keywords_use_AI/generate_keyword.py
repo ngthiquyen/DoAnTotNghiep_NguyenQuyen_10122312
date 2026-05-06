@@ -244,7 +244,6 @@ def generate_business_flow(feature_name, parsed_sections, use_case_text):
 
     return result
 
-
 def parse_flow(flow_text: str):
     steps = []
 
@@ -288,26 +287,64 @@ def generate_robot_test(feature_name, flow_text):
             f.write(f"    {step}\n")
 
     print(f"Robot test generated: {output_path}")
+
+def normalize_text(text: str):
     
+    import re
+    return re.sub(r"\s+", " ", text.strip().lower())    
 # ===== LẤY KEYWORD ĐÃ TỒN TẠI =====
 def get_existing_keywords(file_path: str):
     names = set()
     normalized = set()
     capabilities = set()
+    descriptions = set()
+
     if not os.path.exists(file_path):
-        return names, normalized, capabilities
+        return names, normalized, capabilities, descriptions
 
     with open(file_path, "r", encoding="utf-8") as f:
-        for line in f:
-            stripped = line.strip()
+        lines = f.readlines()
 
-            # Bỏ qua dòng rỗng và dòng indent (TODO)
-            if stripped and not line.startswith("    "):
-                names.add(stripped)
-                normalized.add(normalize_keyword(stripped))
-                capabilities.add(detect_capability(stripped))
+    current_keyword = None
+    current_description = ""
 
-    return names, normalized, capabilities
+    for line in lines:
+        stripped = line.strip()
+
+        # Bỏ qua section header
+        if stripped.startswith("***"):
+            continue
+
+        # 👉 Keyword = dòng KHÔNG indent
+        if stripped and not line.startswith(" "):
+            # lưu keyword trước đó (nếu có)
+            if current_keyword:
+                names.add(current_keyword)
+                normalized.add(normalize_keyword(current_keyword))
+                capabilities.add(detect_capability(current_keyword))
+
+                if current_description:
+                    descriptions.add(normalize_text(current_description))
+
+            # reset cho keyword mới
+            current_keyword = stripped
+            current_description = ""
+
+        # 👉 Documentation (thuộc keyword hiện tại)
+        elif "[Documentation]" in line:
+            desc = line.split("[Documentation]")[-1]
+            current_description = desc.strip()
+
+    # 👉 lưu keyword cuối cùng
+    if current_keyword:
+        names.add(current_keyword)
+        normalized.add(normalize_keyword(current_keyword))
+        capabilities.add(detect_capability(current_keyword))
+
+        if current_description:
+            descriptions.add(normalize_text(current_description))
+
+    return names, normalized, capabilities, descriptions
 
 # ===== APPEND KEYWORD MỚI =====
 def append_keywords(file_path: str, new_keywords: list):
@@ -322,8 +359,21 @@ def append_keywords(file_path: str, new_keywords: list):
 
             f.write("    # TODO: Implement\n")
             
+#===== CHECK MÔ TẢ CÓ LIÊN QUAN =====            
+def is_similar_description(desc1: str, desc2: str):
+    desc1 = desc1.lower()
+    desc2 = desc2.lower()
+
+    keywords = ["login", "search", "add", "delete", "update"]
+
+    for kw in keywords:
+        if kw in desc1 and kw in desc2:
+            return True
+
+    return False
+
 # ===== FILTER DUPLICATE KEYWORDS =====
-def filter_keywords(keywords, existing_names, existing_normalized, existing_capabilities):
+def filter_keywords(keywords, existing_names, existing_normalized, existing_capabilities, existing_descriptions):
 
     new_keywords = []
 
@@ -347,12 +397,26 @@ def filter_keywords(keywords, existing_names, existing_normalized, existing_capa
         if capability in existing_capabilities and capability != "other":
             print(f"Reuse existing capability ({capability}) for: {name}")
             continue
+        
+        # duplicate description
+        is_duplicate = False
 
+        description = kw["description"]
+        # duplicate by description (semantic)
+        for existing_desc in existing_descriptions:
+            if is_similar_description(description, existing_desc):
+                print(f"Skip semantic duplicate by description: {name}")
+                is_duplicate = True
+                break
+        if is_duplicate:
+            continue
+        
         new_keywords.append(kw)
 
         existing_names.add(name)
         existing_normalized.add(normalized)
         existing_capabilities.add(capability)
+        existing_descriptions.add(description)
 
     return new_keywords
 
@@ -371,13 +435,14 @@ def write_to_framework(parsed_sections: dict, feature_name: str):
         else:
             file_path = FILE_MAPPING[section]
 
-        existing_names, existing_normalized, existing_capabilities = get_existing_keywords(file_path)
+        existing_names, existing_normalized, existing_capabilities, existing_descriptions = get_existing_keywords(file_path)
 
         new_keywords = filter_keywords(
             keywords,
             existing_names,
             existing_normalized,
-            existing_capabilities
+            existing_capabilities,
+            existing_descriptions
         )
 
         if new_keywords:
@@ -461,7 +526,6 @@ def generate_for_features(feature_name: str):
 
     print("\nHoàn tất inject keyword vào framework.")
     
-
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Vui lòng cung cấp tên feature để generate keywords.")

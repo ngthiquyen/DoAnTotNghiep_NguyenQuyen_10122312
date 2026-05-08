@@ -1,62 +1,64 @@
 You are a senior QA automation engineer.
 
-Your task is to generate an end-to-end test using ONLY available keywords.
+Generate an end-to-end test flow using ONLY the provided keywords.
 
 === BUSINESS SCENARIO ===
-{{USE_CASE}}
+{{SCENARIO}}
 
 === AVAILABLE KEYWORDS ===
 {{KEYWORDS}}
 
-=== STRICT RULES ===
+=== EXECUTION RULES ===
 
-1. ONLY use BUSINESS and VERIFY keywords
-2. DO NOT use UI keywords
-3. DO NOT invent new keywords
-4. DO NOT explain anything
+1. Use ONLY provided BUSINESS keywords and GLOBAL VERIFY keywords
+2. NEVER create new keywords
+3. NEVER use UI/internal/framework keywords
+4. NEVER use keywords unrelated to the scenario
+5. ONLY use keywords required by the described business flow
+6. Keep feature flow order strictly:
+   register -> login -> search -> cart -> order
+7. Complete one feature before moving to next feature
+8. Every ACTION step MUST be followed by a VERIFY step
+9. DO NOT skip verification
+10. DO NOT repeat steps
+11. DO NOT add cleanup/logout unless explicitly mentioned in scenario
+12. DO NOT mix actions from different feature groups
+13.Do NOT insert unnecessary actions:
+   - no logout
+   - no teardown
+   - no cleanup step
+   unless explicitly required in scenario
+14. Each business action MUST be followed by a verify keyword
 
-5. Follow EXACT execution logic:
-   - Each action MUST be followed by a verification step
-   - Only continue if previous step is verified
+=== KEYWORD SELECTION RULES ===
 
-6. Maintain STRICT order:
-   - login BEFORE search
-   - search BEFORE order
-   - register BEFORE login (if exists)
+- Select keywords based on business meaning
+- Use the minimum number of steps required
+- Prefer high-level business keywords over low-level actions
+- Ignore unrelated keywords even if they are available
+- Verify step must validate the previous action result
 
-7. Remove unnecessary steps
-8. Do NOT repeat steps
-9. DO NOT use generic names like "step", "action", "process"
+=== OUTPUT FORMAT ===
 
-OUTPUT FORMAT (STRICT):
-Return ONLY a JSON array like below:
+Return ONLY a valid JSON array.
 
+Example:
 [
   "STEP 1",
   "STEP 2",
-  "STEP 3",
-  ...
+  "STEP 3"
 ]
 
+=== STRICT OUTPUT RULES ===
 
-PARAMETER RULES:
-- Parameters MUST be inside the string
-- Use SINGLE SPACE between keyword and parameters
-- DO NOT use tab
-- DO NOT use comma inside string
-- DO NOT use comments
-
-STRICT REQUIREMENTS:
-- MUST be valid JSON
-- MUST use double quotes ""
-- MUST NOT have trailing comma
-- MUST NOT contain comments
-- MUST NOT contain line breaks
-- MUST NOT contain any text outside JSON
-
-If output is not valid JSON → it is WRONG.
-DO NOT:
-- explain anything
-- write text before or after
-- use markdown ```
-- write Robot Framework code
+- Response MUST start with [
+- Response MUST end with ]
+- Output MUST contain ONLY JSON
+- Output MUST contain ONLY strings
+- Use double quotes only
+- No markdown
+- No explanation
+- No comments
+- No trailing comma
+- No Robot Framework sections
+- No extra text before or after JSON

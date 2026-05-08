@@ -20,7 +20,6 @@ def read_file(path):
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
 
-
 # ===== CALL AI =====
 def call_ollama(prompt: str) -> str:
     payload = {
@@ -28,7 +27,7 @@ def call_ollama(prompt: str) -> str:
         "prompt": prompt,
         "stream": False,
         "options": {
-        "temperature": 0.1,
+        "temperature": 0,
         "num_predict": 301,
         "top_p": 0.9
         }
@@ -47,6 +46,7 @@ def load_keywords_grouped():
         "login": [],
         "register": [],
         "search": [],
+        "cart": [],
         "order": []
     }
 
@@ -68,25 +68,51 @@ def load_keywords_grouped():
                 key = "search"
             elif "order" in name:
                 key = "order"
+            elif "cart" in name:
+                key = "cart"
 
             if not key:
                 continue
 
             with open(path, "r", encoding="utf-8") as f:
                 for line in f:
-                    line = line.strip()
-                    if line and not line.startswith("***") and not line.startswith("#"):
-                        if not line.startswith("    "):
-                            groups[key].append(line)
+                    raw_line = line.strip()
+                    # bỏ rỗng
+                    if not raw_line.strip():
+                        continue
+
+                    # bỏ section/comment
+                    if raw_line.strip().startswith("***"):
+                        continue
+
+                    if raw_line.strip().startswith("#"):
+                        continue
+
+                    # chỉ lấy keyword level 0
+                    if not raw_line.startswith(" ") and not raw_line.startswith("\t"):
+
+                        keyword = raw_line.strip()
+
+                        groups[key].append(keyword)
 
     # VERIFY
     verify = []
     with open("keywords/verify/verify.robot", "r", encoding="utf-8") as f:
         for line in f:
-            line = line.strip()
-            if line and not line.startswith("***") and not line.startswith("#"):
-                if not line.startswith("    "):
-                    verify.append(line)
+            raw_line = line.rstrip()
+
+            if not raw_line.strip():
+                continue
+
+            if raw_line.strip().startswith("***"):
+                continue
+
+            if raw_line.strip().startswith("#"):
+                continue
+
+            if not raw_line.startswith(" ") and not raw_line.startswith("\t"):
+
+                verify.append(raw_line.strip())
 
     return groups, verify
 
@@ -128,6 +154,43 @@ def build_keyword_text(groups, verify):
 
     return text
 
+# ===== GET ALL VALID KEYWORDS =====
+def get_all_valid_keywords(groups, verify):
+
+    valid_keywords = set()
+
+    for keyword_list in groups.values():
+        for kw in keyword_list:
+            valid_keywords.add(kw.strip())
+
+    for kw in verify:
+        valid_keywords.add(kw.strip())
+
+    return valid_keywords
+
+
+# ===== FILTER INVALID AI STEPS =====
+def filter_invalid_steps(steps, valid_keywords):
+
+    cleaned_steps = []
+
+    for step in steps:
+
+        matched = False
+
+        for kw in valid_keywords:
+
+            # step bắt đầu bằng keyword hợp lệ
+            if step.startswith(kw):
+                matched = True
+                break
+
+        if matched:
+            cleaned_steps.append(step)
+        else:
+            print(f"⚠ Invalid keyword removed: {step}")
+
+    return cleaned_steps
 
 def fix_json_string(raw):
     lines = []
@@ -155,50 +218,110 @@ def fix_json_string(raw):
     fixed = "[\n" + ",\n".join(lines) + "\n]"
     return fixed
 
+# ===== SAVE RAW AI OUTPUT =====
+def save_raw_ai_output(raw_output):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-# ===== PARSE JSON =====
+    path = os.path.join(
+        "generate_keywords_use_AI/output",
+        f"e2e_{timestamp}.txt"
+    )
+
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(raw_output)
+
+    print(f"Saved AI output: {path}")
+
+# ===== PARSE AI FLOW =====
 def parse_flow(text: str):
+
     print("\nRAW AI OUTPUT:\n", text)
 
-    # remove markdown
-    text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
+    # =========================================
+    # CASE 1: AI trả JSON array
+    # =========================================
+    match = re.search(r"\[(.*?)\]", text, re.DOTALL)
 
-    lines = text.splitlines()
+    if match:
+
+        raw_json = "[" + match.group(1) + "]"
+
+        try:
+            steps = json.loads(raw_json)
+
+        except Exception:
+
+            print("⚠ JSON lỗi → đang auto-fix format...")
+
+            fixed_json = fix_json_string(raw_json)
+
+            print("\nFIXED JSON:\n", fixed_json)
+
+            try:
+                steps = json.loads(fixed_json)
+
+            except Exception as e:
+                print("⚠ JSON parse error:", e)
+                steps = []
+
+        cleaned = []
+
+        for step in steps:
+
+            if not isinstance(step, str):
+                continue
+
+            step = " ".join(step.split())
+
+            cleaned.append(step)
+
+        print("\nPARSED CLEAN STEPS:", cleaned)
+
+        return cleaned
+
+    # =========================================
+    # CASE 2: AI trả Robot Framework format
+    # =========================================
+
+    print("⚠ JSON không tồn tại → fallback parse Robot format")
+
     steps = []
 
+    lines = text.splitlines()
+
+    skip_keywords = [
+        "***",
+        "[Documentation]",
+        "[Teardown]",
+        "End-To-End",
+        "Test Cases"
+    ]
+
     for line in lines:
+
         line = line.strip()
 
         if not line:
             continue
 
-        # bỏ prefix 1. / - / ...
-        line = re.sub(r"^\d+[\.\)]\s*", "", line)
-        line = re.sub(r"^-\s*", "", line)
-
-        # bỏ dấu ", ở cuối
-        line = line.rstrip('",')
-
-        # bỏ dấu "
-        line = line.strip('"')
-
-        #  loại rác
-        if any(x in line.lower() for x in [
-            "here is",
-            "note:",
-            "output",
-            "example"
-        ]):
+        # bỏ markdown
+        if line.startswith("```"):
             continue
 
-        # normalize space
-        line = " ".join(line.split())
+        # bỏ header
+        if any(k in line for k in skip_keywords):
+            continue
 
-        # chỉ giữ dòng hợp lệ
-        if len(line.split()) >= 2:
-            steps.append(line)
+        # chỉ lấy step có khoảng trắng keyword
+        if "    " in line or line.startswith("Open") or line.startswith("Fill"):
 
-    print("\nPARSED CLEAN STEPS:", steps)
+            step = " ".join(line.split())
+
+            steps.append(step)
+
+    print("\nPARSED ROBOT STEPS:", steps)
 
     return steps
 
@@ -296,9 +419,17 @@ if __name__ == "__main__":
     print("\nSENDING PROMPT TO AI...\n")
 
     result = call_ollama(prompt)
+    
+    save_raw_ai_output(result)
 
     steps = parse_flow(result)
+    # validate AI output
+    valid_keywords = get_all_valid_keywords(groups, verify)
 
+    steps = filter_invalid_steps(
+        steps,
+        valid_keywords
+    )
     if not steps:
         print("⚠ Không tạo được step")
         sys.exit()

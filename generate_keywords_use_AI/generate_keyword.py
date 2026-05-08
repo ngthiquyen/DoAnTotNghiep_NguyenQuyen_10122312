@@ -2,6 +2,7 @@ import os
 import sys
 import requests
 import re
+from datetime import datetime
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 # ===== CẤU HÌNH =====
@@ -232,10 +233,12 @@ def generate_business_flow(feature_name, parsed_sections, use_case_text):
     print(" Generating business flow...")
 
     result = call_ollama(prompt)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     output_path = os.path.join(
-        OUTPUT_DIR, f"{feature_name}_flow.txt"
-    )
+        OUTPUT_DIR, f"{feature_name}_flow_{timestamp}.txt"
+)
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(result)
@@ -267,8 +270,8 @@ def parse_flow(flow_text: str):
 def generate_robot_test(feature_name, flow_text):
 
     steps = parse_flow(flow_text)
-
-    output_path = f"tests/{feature_name}_auto.robot"
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_path = f"tests/{feature_name}_auto_{timestamp}.robot"
     os.makedirs("tests", exist_ok=True)
 
     business_file = f"../keywords/business/{feature_name}_business.robot"
@@ -278,7 +281,6 @@ def generate_robot_test(feature_name, flow_text):
         f.write(f"Resource    {business_file}\n")
         f.write("Resource    ../keywords/ui/common_keywords.robot\n")
         f.write("Resource    ../keywords/verify/verify.robot\n\n")
-
         f.write("*** Test Cases ***\n")
         f.write(f"{feature_name} Auto Test\n")
         f.write("    [Documentation]    Auto generated from AI flow\n\n")
@@ -292,6 +294,7 @@ def normalize_text(text: str):
     
     import re
     return re.sub(r"\s+", " ", text.strip().lower())    
+
 # ===== LẤY KEYWORD ĐÃ TỒN TẠI =====
 def get_existing_keywords(file_path: str):
     names = set()
@@ -315,7 +318,7 @@ def get_existing_keywords(file_path: str):
         if stripped.startswith("***"):
             continue
 
-        # 👉 Keyword = dòng KHÔNG indent
+        #  Keyword = dòng KHÔNG indent
         if stripped and not line.startswith(" "):
             # lưu keyword trước đó (nếu có)
             if current_keyword:
@@ -330,12 +333,12 @@ def get_existing_keywords(file_path: str):
             current_keyword = stripped
             current_description = ""
 
-        # 👉 Documentation (thuộc keyword hiện tại)
+        #  Documentation (thuộc keyword hiện tại)
         elif "[Documentation]" in line:
             desc = line.split("[Documentation]")[-1]
             current_description = desc.strip()
 
-    # 👉 lưu keyword cuối cùng
+    #  lưu keyword cuối cùng
     if current_keyword:
         names.add(current_keyword)
         normalized.add(normalize_keyword(current_keyword))
@@ -402,7 +405,7 @@ def filter_keywords(keywords, existing_names, existing_normalized, existing_capa
         is_duplicate = False
 
         description = kw["description"]
-        # duplicate by description (semantic)
+        # duplicate by description similarity
         for existing_desc in existing_descriptions:
             if is_similar_description(description, existing_desc):
                 print(f"Skip semantic duplicate by description: {name}")
@@ -455,6 +458,7 @@ def write_to_framework(parsed_sections: dict, feature_name: str):
 
     return summary
 
+# ===== GENERATE KEYWORDS FOR A LIST OF FEATURES =====
 def generate_for_features(feature_name: str):
     input_file = os.path.join(INPUT_DIR, f"{feature_name}.txt")
 
@@ -468,19 +472,10 @@ def generate_for_features(feature_name: str):
     feature_content = read_file(input_file)
 
     prompt = prompt_template.replace("{{FEATURE}}",feature_content)
-    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_path = os.path.join(
-        OUTPUT_DIR, f"{feature_name}_keywords.txt"
+        OUTPUT_DIR, f"{feature_name}_keywords_{timestamp}.txt"
         )
-    # ===== HỎI TRƯỚC KHI GHI ĐÈ =====
-    if os.path.exists(output_path):
-        choice = input(
-            f"File '{feature_name}_keywords.txt' đã tồn tại. Ghi đè không? (Y/N): "
-            ).strip().lower()
-
-        if choice != "y":
-            print(f"Bỏ qua feature: {feature_name}")
-            return
         
     print(f" Đang generate keyword cho feature: {feature_name} ...")
 

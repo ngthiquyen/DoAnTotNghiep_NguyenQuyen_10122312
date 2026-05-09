@@ -1,0 +1,5 @@
+NAME_INPUT ="xpath://input[@name='t_hoten']"
+PHONE_INPUT ="xpath://input[@name='t_dienthoai']"
+ADDRESS_INPUT ="xpath://input[@name='t_diachi']"
+SAVE_BTN ="xpath://input[@value='Cập nhật']"
+SUCCESS_MSG = "css:div[id='WGR_html_alert'] div"

@@ -1,0 +1,31 @@
+Chức năng: Cập nhật hồ sơ cá nhân
+
+Mô tả:
+Chức năng cập nhật hồ sơ cho phép người dùng thay đổi thông tin cá nhân trong hệ thống.
+
+Điều kiện tiên quyết (Pre-condition):
+Người dùng đã đăng nhập thành công vào hệ thống.
+
+Luồng chính (Main Flows):
+
+1. Người dùng truy cập trang hồ sơ cá nhân (Profile).
+2. Hệ thống hiển thị thông tin hiện tại của người dùng.
+3. Người dùng cập nhật các thông tin cá nhân.
+4. Người dùng nhấn nút lưu thông tin.
+5. Hệ thống kiểm tra dữ liệu hợp lệ.
+6. Hệ thống cập nhật thông tin người dùng.
+7. Hệ thống hiển thị thông báo cập nhật thành công.
+
+Luồng ngoại lệ (Alternate Flows):
+A1. Người dùng để trống thông tin bắt buộc
+    - Người dùng không nhập các trường bắt buộc.
+    - Hệ thống không thực hiện cập nhật.
+    - Hệ thống hiển thị thông báo yêu cầu nhập đầy đủ thông tin.
+
+A2. Cập nhật thất bại do lỗi hệ thống
+    - Hệ thống không thể lưu dữ liệu.
+    - Hệ thống hiển thị thông báo cập nhật thất bại.
+
+Kết quả mong đợi (Expected):
+Khi dữ liệu hợp lệ: Thông tin cá nhân được cập nhật thành công và hiển thị chính xác.
+Khi dữ liệu không hợp lệ hoặc xảy ra lỗi: Hệ thống hiển thị thông báo lỗi phù hợp cho người dùng.

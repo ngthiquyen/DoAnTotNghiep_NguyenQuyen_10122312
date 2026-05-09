@@ -1,0 +1,22 @@
+Chức năng: Cập nhật hồ sơ (End-to-End Purchase Flow)
+
+Mô tả:
+Luồng này mô tả toàn bộ hành vi của người dùng từ khi đăng nhập vào hệ thống cho đến khi hoàn tất cập nhật hồ sơ.
+
+Luồng chính (Main Flow):
+LOGIN
+1. Mở trang đăng nhập.
+2. Nhập username và password.
+3. Nhấn nút đăng nhập.
+4. Xác minh đăng nhập thành công.
+
+FROFILE
+5. Nhấn vào tài khoản
+6. Nhập thông tin chỉnh sửa (họ tên, số điện thoại, địa chỉ).
+7. Nhấn cập nhật
+7. Xác minh cập nhật thành công.
+
+
+Kết quả mong đợi (Expected):
+- Người dùng đăng nhập thành công.
+- Cập nhật hồ sơ thành công.

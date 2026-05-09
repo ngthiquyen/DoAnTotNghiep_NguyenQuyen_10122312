@@ -6,12 +6,12 @@ import sys
 import requests
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from utils.rune2e import run_robot_test   
+
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "llama3"
 
-INPUT_FILE = "generate_keywords_use_AI/input/e2e.txt"
+DEFAULT_INPUT_FILE = "generate_keywords_use_AI/input/e2e.txt"
 E2E_PROMPT = "generate_keywords_use_AI/prompt/generate_e2e_flow_prompt.txt"
 
 
@@ -47,7 +47,8 @@ def load_keywords_grouped():
         "register": [],
         "search": [],
         "cart": [],
-        "order": []
+        "order": [],
+        "profile": []
     }
 
     for root, _, files in os.walk(base_dir):
@@ -70,7 +71,8 @@ def load_keywords_grouped():
                 key = "order"
             elif "cart" in name:
                 key = "cart"
-
+            elif "profile" in name:
+                key = "profile"
             if not key:
                 continue
 
@@ -131,9 +133,13 @@ def filter_groups_by_scenario(groups, scenario):
         allowed.append("search")
     if "order" in scenario or "cart" in scenario or "đặt hàng" in scenario:
         allowed.append("order")
+    if "profile" in scenario or "hồ sơ" in scenario:
+        allowed.append("profile")
 
     # nếu có order → thường cần login
     if "order" in allowed and "login" not in allowed:
+        allowed.append("login")
+    if "profile" in allowed and "login" not in allowed:
         allowed.append("login")
 
     print(" Allowed groups:", allowed)
@@ -219,12 +225,15 @@ def fix_json_string(raw):
     return fixed
 
 # ===== SAVE RAW AI OUTPUT =====
-def save_raw_ai_output(raw_output):
+def save_raw_ai_output(raw_output, input_file):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    # lấy tên file không có .txt
+    base_name = os.path.splitext(os.path.basename(input_file))[0]
 
     path = os.path.join(
         "generate_keywords_use_AI/output",
-        f"e2e_{timestamp}.txt"
+        f"{base_name}_{timestamp}.txt"
     )
 
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -386,21 +395,15 @@ def generate_robot_file(steps):
     return path
 
 
-# ===== RUN =====
-def run_e2e(robot_file):
-    print(f"\n Running: {robot_file}")
-    run_robot_test(robot_file)
-
-
 # ===== MAIN =====
 if __name__ == "__main__":
-    mode = "generate"
+    input_file = DEFAULT_INPUT_FILE
     if len(sys.argv) > 1:
-        mode = sys.argv[1]
+        input_file = sys.argv[1]
 
     print("START GENERATE E2E")
 
-    scenario = read_file(INPUT_FILE)
+    scenario = read_file(input_file)
     print("\nSCENARIO:\n", scenario)
 
     groups, verify = load_keywords_grouped()
@@ -420,7 +423,7 @@ if __name__ == "__main__":
 
     result = call_ollama(prompt)
     
-    save_raw_ai_output(result)
+    save_raw_ai_output(result, input_file)
 
     steps = parse_flow(result)
     # validate AI output
@@ -439,6 +442,3 @@ if __name__ == "__main__":
         print(f"{i}. {s}")
 
     robot_file = generate_robot_file(steps)
-
-    if mode == "execute":
-        run_robot_test(robot_file)

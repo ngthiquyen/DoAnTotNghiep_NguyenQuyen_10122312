@@ -1,0 +1,1497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.13 on win32)" generated="2026-05-09T12:19:30.942455" rpa="false" schemaversion="5">
+<suite id="s1" name="Order Auto" source="D:\DoAnTotNghiep_NguyenQuyen_10122312\tests\order_auto.robot">
+<test id="s1-t1" name="order Auto Test 1" line="15">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-09T12:19:35.634829" elapsed="0.001278"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:19:35.637022" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-09T12:19:35.636645" elapsed="1.095469"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-09T12:19:36.733679" elapsed="0.036625"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:19:36.773506" level="INFO">================================</msg>
+<msg time="2026-05-09T12:19:36.777443" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-09T12:19:36.771371" elapsed="0.006249"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:19:36.780069" level="INFO">Browser opened</msg>
+<msg time="2026-05-09T12:19:36.780161" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:19:36.779471" elapsed="0.000785"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:19:36.783207" elapsed="0.000631"/>
+</kw>
+<arg>Order Feature</arg>
+<status status="PASS" start="2026-05-09T12:19:35.633499" elapsed="1.151409"/>
+</kw>
+<kw name="Open Cart Page" owner="order_business">
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:19:36.789752" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<msg time="2026-05-09T12:19:36.789849" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:19:36.789156" elapsed="0.000788"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:19:36.791925" elapsed="0.000537"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:19:36.794405" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<msg time="2026-05-09T12:19:36.794546" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:19:36.793607" elapsed="0.001042"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:19:36.795960" elapsed="0.000735"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:19:46.969915" level="FAIL">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-05-09T12:19:36.797394" elapsed="10.261281">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="FAIL" start="2026-05-09T12:19:36.792949" elapsed="10.267063">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-05-09T12:19:47.060514" elapsed="0.000137"/>
+</kw>
+<arg>${CART_ICON}</arg>
+<doc>Click on a specified element.</doc>
+<status status="FAIL" start="2026-05-09T12:19:36.788433" elapsed="10.272560">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<doc>Navigate to the cart page</doc>
+<status status="FAIL" start="2026-05-09T12:19:36.787318" elapsed="10.273992">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Update Cart" owner="order_business">
+<doc>Update cart contents</doc>
+<status status="NOT RUN" start="2026-05-09T12:19:47.062008" elapsed="0.000125"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:19:47.062719" elapsed="0.000109"/>
+</kw>
+<kw name="Fill Shipping Information" owner="order_business">
+<arg>Hoang Nguyen</arg>
+<arg>0123456789</arg>
+<arg>nghoan@gmail.com</arg>
+<arg>123 Main St, Hanoi</arg>
+<arg>Gửi hàng trong giờ hành chính</arg>
+<doc>Fill in the shipping information form</doc>
+<status status="NOT RUN" start="2026-05-09T12:19:47.063440" elapsed="0.000119"/>
+</kw>
+<kw name="Select Payment Method" owner="order_business">
+<arg>cod</arg>
+<doc>Select a payment method</doc>
+<status status="NOT RUN" start="2026-05-09T12:19:47.064174" elapsed="0.000132"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:19:47.065004" elapsed="0.000140"/>
+</kw>
+<kw name="Verify Current URL Should Be" owner="verify">
+<arg>${URL_ORDER_SUCCESS}</arg>
+<doc>Verify that the current URL matches the expected URL.</doc>
+<status status="NOT RUN" start="2026-05-09T12:19:47.066011" elapsed="0.000162"/>
+</kw>
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${ORDER_SUCCESS_MSG}</arg>
+<arg>ĐƠN HÀNG CỦA BẠN ĐÃ ĐƯỢC GỬI ĐI!</arg>
+<doc>Verify that the text of the element located by the given locator contains the expected text.</doc>
+<status status="NOT RUN" start="2026-05-09T12:19:47.066967" elapsed="0.000158"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Handle Test Failure" owner="base_test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:19:47.070748" level="INFO">Test failed: order Auto Test 1</msg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.070336" elapsed="0.000509"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Test failed: ${TEST NAME}</arg>
+<status status="PASS" start="2026-05-09T12:19:47.072044" elapsed="0.000537"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-05-09T12:19:47.075551" level="INFO">${timestamp} = 20260509_121947</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.074832" elapsed="0.000787"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:19:47.079986" level="INFO">${clean_test_name} = order_Auto_Test_1</msg>
+<var>${clean_test_name}</var>
+<arg>${TEST NAME}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.078638" elapsed="0.001512"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:19:47.083713" level="INFO">${clean_test_name} = order_Auto_Test_1</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>:</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.082662" elapsed="0.001216"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:19:47.086435" level="INFO">${clean_test_name} = order_Auto_Test_1</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>/</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.085919" elapsed="0.000587"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:19:47.089436" level="INFO">${clean_test_name} = order_Auto_Test_1</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>\\</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.088075" elapsed="0.001432"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:19:47.092091" level="INFO">${dir} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots</msg>
+<var>${dir}</var>
+<arg>${OUTPUT DIR}${/}screenshots</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.091414" elapsed="0.000732"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-05-09T12:19:47.094483" level="INFO" html="true">Created directory '&lt;a href="file://D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots"&gt;D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots&lt;/a&gt;'.</msg>
+<arg>${dir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.093439" elapsed="0.001283"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:19:47.097105" level="INFO">${path} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_1_20260509_121947.png</msg>
+<var>${path}</var>
+<arg>${dir}${/}${clean_test_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.096370" elapsed="0.000798"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:19:47.199597" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/order_Auto_Test_1_20260509_121947.png"&gt;&lt;img src="screenshots/order_Auto_Test_1_20260509_121947.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${path}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.098580" elapsed="0.101175"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:19:47.202268" level="INFO">Screenshot saved at: D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_1_20260509_121947.png</msg>
+<arg>Screenshot saved at: ${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.201504" elapsed="0.000904"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Screenshot saved at: ${path}</arg>
+<status status="PASS" start="2026-05-09T12:19:47.203910" elapsed="0.000589"/>
+</kw>
+<kw name="Attach Screenshot" owner="allure_helper">
+<arg>${path}</arg>
+<status status="PASS" start="2026-05-09T12:19:47.205016" elapsed="0.016516"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:19:47.069878" elapsed="0.152270"/>
+</kw>
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.069245" elapsed="0.153354"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:19:47.225119" level="INFO">Close browser</msg>
+<msg time="2026-05-09T12:19:47.225259" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:19:47.224324" elapsed="0.001091"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:19:47.227239" elapsed="0.000649"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.228556" elapsed="2.312922"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:19:47.223367" elapsed="2.318555"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-09T12:19:47.068360" elapsed="2.473815"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="FAIL" start="2026-05-09T12:19:35.631798" elapsed="13.910995">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t2" name="order Auto Test 2" line="27">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-09T12:19:49.553372" elapsed="0.000779"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:19:49.554700" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-09T12:19:49.554511" elapsed="0.739198"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-09T12:19:50.295045" elapsed="0.037490"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:19:50.333850" level="INFO">================================</msg>
+<msg time="2026-05-09T12:19:50.333937" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-09T12:19:50.333080" elapsed="0.000938"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:19:50.336280" level="INFO">Browser opened</msg>
+<msg time="2026-05-09T12:19:50.336421" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:19:50.335822" elapsed="0.000749"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:19:50.338289" elapsed="0.000554"/>
+</kw>
+<arg>Order Feature</arg>
+<status status="PASS" start="2026-05-09T12:19:49.552648" elapsed="0.786678"/>
+</kw>
+<kw name="Open Cart Page" owner="order_business">
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:19:50.341972" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<msg time="2026-05-09T12:19:50.342117" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:19:50.341429" elapsed="0.000814"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:19:50.343536" elapsed="0.000459"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:19:50.345487" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<msg time="2026-05-09T12:19:50.345559" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:19:50.345004" elapsed="0.000629"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:19:50.346698" elapsed="0.000462"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:00.552309" level="FAIL">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-05-09T12:19:50.347811" elapsed="10.207095">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="FAIL" start="2026-05-09T12:19:50.344468" elapsed="10.213918">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:00.559179" elapsed="0.000205"/>
+</kw>
+<arg>${CART_ICON}</arg>
+<doc>Click on a specified element.</doc>
+<status status="FAIL" start="2026-05-09T12:19:50.340952" elapsed="10.218995">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<doc>Navigate to the cart page</doc>
+<status status="FAIL" start="2026-05-09T12:19:50.340247" elapsed="10.220278">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Update Cart" owner="order_business">
+<doc>Update cart contents</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:00.561600" elapsed="0.000212"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:00.562904" elapsed="0.000225"/>
+</kw>
+<kw name="Fill Shipping Information" owner="order_business">
+<arg>Hoang Nguyen</arg>
+<arg>${EMPTY}</arg>
+<arg>nghoan@gmail.com</arg>
+<arg>123 Main St, Hanoi</arg>
+<arg>Gửi hàng trong giờ hành chính</arg>
+<doc>Fill in the shipping information form</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:00.564257" elapsed="0.000234"/>
+</kw>
+<kw name="Select Payment Method" owner="order_business">
+<arg>cod</arg>
+<doc>Select a payment method</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:00.565723" elapsed="0.000237"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:00.567039" elapsed="0.000260"/>
+</kw>
+<kw name="Verify Required Field Message" owner="verify">
+<arg>Please fill out this field.</arg>
+<doc>Verify the validation message for required fields or invalid input.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:00.568889" elapsed="0.000279"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Handle Test Failure" owner="base_test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:00.574284" level="INFO">Test failed: order Auto Test 2</msg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.573892" elapsed="0.000477"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Test failed: ${TEST NAME}</arg>
+<status status="PASS" start="2026-05-09T12:20:00.575437" elapsed="0.000839"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-05-09T12:20:00.577548" level="INFO">${timestamp} = 20260509_122000</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.577009" elapsed="0.000613"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:00.579372" level="INFO">${clean_test_name} = order_Auto_Test_2</msg>
+<var>${clean_test_name}</var>
+<arg>${TEST NAME}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.578801" elapsed="0.000782"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:00.583574" level="INFO">${clean_test_name} = order_Auto_Test_2</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>:</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.582379" elapsed="0.001369"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:00.589032" level="INFO">${clean_test_name} = order_Auto_Test_2</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>/</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.587466" elapsed="0.001803"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:00.594224" level="INFO">${clean_test_name} = order_Auto_Test_2</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>\\</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.592944" elapsed="0.001448"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:00.599680" level="INFO">${dir} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots</msg>
+<var>${dir}</var>
+<arg>${OUTPUT DIR}${/}screenshots</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.597702" elapsed="0.002185"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-05-09T12:20:00.603583" level="INFO" html="true">Directory '&lt;a href="file://D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots"&gt;D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${dir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.602725" elapsed="0.001086"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:00.608258" level="INFO">${path} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_2_20260509_122000.png</msg>
+<var>${path}</var>
+<arg>${dir}${/}${clean_test_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.606636" elapsed="0.001763"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:00.704251" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/order_Auto_Test_2_20260509_122000.png"&gt;&lt;img src="screenshots/order_Auto_Test_2_20260509_122000.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${path}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.610796" elapsed="0.093647"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:00.706323" level="INFO">Screenshot saved at: D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_2_20260509_122000.png</msg>
+<arg>Screenshot saved at: ${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.705688" elapsed="0.000768"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Screenshot saved at: ${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:00.709283" elapsed="0.000589"/>
+</kw>
+<kw name="Attach Screenshot" owner="allure_helper">
+<arg>${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:00.710375" elapsed="0.003604"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:00.573433" elapsed="0.141021"/>
+</kw>
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.572572" elapsed="0.142191"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:00.716690" level="INFO">Close browser</msg>
+<msg time="2026-05-09T12:20:00.716799" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:00.716004" elapsed="0.000906"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:00.718182" elapsed="0.000437"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.719084" elapsed="2.293735"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:00.715383" elapsed="2.298207"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-09T12:20:00.570890" elapsed="2.443168"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="FAIL" start="2026-05-09T12:19:49.551216" elapsed="13.465066">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t3" name="order Auto Test 3" line="37">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-09T12:20:03.023311" elapsed="0.001168"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:03.026055" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-09T12:20:03.025388" elapsed="0.770472"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-09T12:20:03.797251" elapsed="0.028852"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:03.826810" level="INFO">================================</msg>
+<msg time="2026-05-09T12:20:03.826865" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-09T12:20:03.826473" elapsed="0.000467"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:03.828709" level="INFO">Browser opened</msg>
+<msg time="2026-05-09T12:20:03.828769" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:20:03.828362" elapsed="0.000475"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:20:03.829954" elapsed="0.000298"/>
+</kw>
+<arg>Order Feature</arg>
+<status status="PASS" start="2026-05-09T12:20:03.022599" elapsed="0.807990"/>
+</kw>
+<kw name="Open Cart Page" owner="order_business">
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:03.832754" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<msg time="2026-05-09T12:20:03.832858" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:20:03.832169" elapsed="0.000768"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:20:03.834196" elapsed="0.000407"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:03.836607" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<msg time="2026-05-09T12:20:03.836754" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:20:03.835997" elapsed="0.000919"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:20:03.839817" elapsed="0.001267"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:14.012221" level="FAIL">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-05-09T12:20:03.841567" elapsed="10.175150">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="FAIL" start="2026-05-09T12:20:03.835279" elapsed="10.184060">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:14.020137" elapsed="0.000189"/>
+</kw>
+<arg>${CART_ICON}</arg>
+<doc>Click on a specified element.</doc>
+<status status="FAIL" start="2026-05-09T12:20:03.831548" elapsed="10.189297">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<doc>Navigate to the cart page</doc>
+<status status="FAIL" start="2026-05-09T12:20:03.831119" elapsed="10.190236">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Update Cart" owner="order_business">
+<doc>Update cart contents</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:14.022382" elapsed="0.000216"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:14.023611" elapsed="0.000217"/>
+</kw>
+<kw name="Fill Shipping Information" owner="order_business">
+<arg>Hoang Nguyen</arg>
+<arg>0123456789</arg>
+<arg>nghoan@gmail.com</arg>
+<arg>${EMPTY}</arg>
+<arg>Gửi hàng trong giờ hành chính</arg>
+<doc>Fill in the shipping information form</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:14.024874" elapsed="0.000265"/>
+</kw>
+<kw name="Select Payment Method" owner="order_business">
+<arg>cod</arg>
+<doc>Select a payment method</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:14.026109" elapsed="0.000195"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:14.027225" elapsed="0.000207"/>
+</kw>
+<kw name="Verify Required Field Message" owner="verify">
+<arg>Please fill out this field.</arg>
+<doc>Verify the validation message for required fields or invalid input.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:14.028713" elapsed="0.000217"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Handle Test Failure" owner="base_test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:14.034474" level="INFO">Test failed: order Auto Test 3</msg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.033709" elapsed="0.000928"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Test failed: ${TEST NAME}</arg>
+<status status="PASS" start="2026-05-09T12:20:14.036577" elapsed="0.000756"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-05-09T12:20:14.039219" level="INFO">${timestamp} = 20260509_122014</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.038311" elapsed="0.001047"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:14.044258" level="INFO">${clean_test_name} = order_Auto_Test_3</msg>
+<var>${clean_test_name}</var>
+<arg>${TEST NAME}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.043032" elapsed="0.001434"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:14.050898" level="INFO">${clean_test_name} = order_Auto_Test_3</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>:</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.049120" elapsed="0.001992"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:14.054917" level="INFO">${clean_test_name} = order_Auto_Test_3</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>/</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.053823" elapsed="0.001225"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:14.058935" level="INFO">${clean_test_name} = order_Auto_Test_3</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>\\</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.057940" elapsed="0.001122"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:14.062618" level="INFO">${dir} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots</msg>
+<var>${dir}</var>
+<arg>${OUTPUT DIR}${/}screenshots</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.061394" elapsed="0.001348"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-05-09T12:20:14.067368" level="INFO" html="true">Directory '&lt;a href="file://D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots"&gt;D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${dir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.066271" elapsed="0.001467"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:14.072088" level="INFO">${path} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_3_20260509_122014.png</msg>
+<var>${path}</var>
+<arg>${dir}${/}${clean_test_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.070378" elapsed="0.001895"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:14.178884" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/order_Auto_Test_3_20260509_122014.png"&gt;&lt;img src="screenshots/order_Auto_Test_3_20260509_122014.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${path}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.074898" elapsed="0.104231"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:14.181938" level="INFO">Screenshot saved at: D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_3_20260509_122014.png</msg>
+<arg>Screenshot saved at: ${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.181077" elapsed="0.001023"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Screenshot saved at: ${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:14.183843" elapsed="0.000624"/>
+</kw>
+<kw name="Attach Screenshot" owner="allure_helper">
+<arg>${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:14.185008" elapsed="0.004009"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:14.032810" elapsed="0.156703"/>
+</kw>
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.031725" elapsed="0.158138"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:14.191738" level="INFO">Close browser</msg>
+<msg time="2026-05-09T12:20:14.191849" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:14.191211" elapsed="0.000793"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:14.193870" elapsed="0.000952"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.195681" elapsed="2.285558"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:14.190488" elapsed="2.291592"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-09T12:20:14.030370" elapsed="2.452159"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="FAIL" start="2026-05-09T12:20:03.021179" elapsed="13.463340">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t4" name="order Auto Test 4" line="47">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-09T12:20:16.496765" elapsed="0.000721"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:16.498413" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-09T12:20:16.498033" elapsed="0.713820"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-09T12:20:17.212976" elapsed="0.029078"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:17.242831" level="INFO">================================</msg>
+<msg time="2026-05-09T12:20:17.242895" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-09T12:20:17.242469" elapsed="0.000493"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:17.244143" level="INFO">Browser opened</msg>
+<msg time="2026-05-09T12:20:17.244197" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:20:17.243850" elapsed="0.000411"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:20:17.245336" elapsed="0.000317"/>
+</kw>
+<arg>Order Feature</arg>
+<status status="PASS" start="2026-05-09T12:20:16.496205" elapsed="0.749701"/>
+</kw>
+<kw name="Open Cart Page" owner="order_business">
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:17.247620" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<msg time="2026-05-09T12:20:17.247687" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:20:17.247231" elapsed="0.000529"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:20:17.249152" elapsed="0.000508"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:17.251419" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<msg time="2026-05-09T12:20:17.251514" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:20:17.250785" elapsed="0.000831"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:20:17.253166" elapsed="0.001091"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:27.386644" level="FAIL">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-05-09T12:20:17.254950" elapsed="10.135472">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="FAIL" start="2026-05-09T12:20:17.250165" elapsed="10.142643">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:27.393610" elapsed="0.000194"/>
+</kw>
+<arg>${CART_ICON}</arg>
+<doc>Click on a specified element.</doc>
+<status status="FAIL" start="2026-05-09T12:20:17.246841" elapsed="10.147508">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<doc>Navigate to the cart page</doc>
+<status status="FAIL" start="2026-05-09T12:20:17.246419" elapsed="10.148448">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Update Cart" owner="order_business">
+<doc>Update cart contents</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:27.395884" elapsed="0.000215"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:27.397032" elapsed="0.000192"/>
+</kw>
+<kw name="Fill Shipping Information" owner="order_business">
+<arg>Hoang Nguyen</arg>
+<arg>012345678999</arg>
+<arg>nghoan@gmail.com</arg>
+<arg>123 Main St, Hanoi</arg>
+<arg>Gửi hàng trong giờ hành chính</arg>
+<doc>Fill in the shipping information form</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:27.398156" elapsed="0.000195"/>
+</kw>
+<kw name="Select Payment Method" owner="order_business">
+<arg>cod</arg>
+<doc>Select a payment method</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:27.399373" elapsed="0.000192"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:27.400495" elapsed="0.000193"/>
+</kw>
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${ORDER_ERROR_MSG}</arg>
+<arg>Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng</arg>
+<doc>Verify that the text of the element located by the given locator contains the expected text.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:27.401614" elapsed="0.000208"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Handle Test Failure" owner="base_test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:27.407081" level="INFO">Test failed: order Auto Test 4</msg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.406368" elapsed="0.000856"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Test failed: ${TEST NAME}</arg>
+<status status="PASS" start="2026-05-09T12:20:27.408878" elapsed="0.000589"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-05-09T12:20:27.410824" level="INFO">${timestamp} = 20260509_122027</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.410072" elapsed="0.000867"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:27.415560" level="INFO">${clean_test_name} = order_Auto_Test_4</msg>
+<var>${clean_test_name}</var>
+<arg>${TEST NAME}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.414381" elapsed="0.001329"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:27.419144" level="INFO">${clean_test_name} = order_Auto_Test_4</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>:</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.418180" elapsed="0.001101"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:27.423048" level="INFO">${clean_test_name} = order_Auto_Test_4</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>/</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.421978" elapsed="0.001212"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:27.426580" level="INFO">${clean_test_name} = order_Auto_Test_4</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>\\</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.425790" elapsed="0.000894"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:27.430350" level="INFO">${dir} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots</msg>
+<var>${dir}</var>
+<arg>${OUTPUT DIR}${/}screenshots</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.429175" elapsed="0.001290"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-05-09T12:20:27.433319" level="INFO" html="true">Directory '&lt;a href="file://D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots"&gt;D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${dir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.432507" elapsed="0.001035"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:27.437026" level="INFO">${path} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_4_20260509_122027.png</msg>
+<var>${path}</var>
+<arg>${dir}${/}${clean_test_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.435766" elapsed="0.001366"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:27.541388" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/order_Auto_Test_4_20260509_122027.png"&gt;&lt;img src="screenshots/order_Auto_Test_4_20260509_122027.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${path}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.439742" elapsed="0.101839"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:27.543601" level="INFO">Screenshot saved at: D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_4_20260509_122027.png</msg>
+<arg>Screenshot saved at: ${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.542904" elapsed="0.001011"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Screenshot saved at: ${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:27.545168" elapsed="0.000528"/>
+</kw>
+<kw name="Attach Screenshot" owner="allure_helper">
+<arg>${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:27.546167" elapsed="0.004188"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:27.405292" elapsed="0.145566"/>
+</kw>
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.404244" elapsed="0.146948"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:27.552867" level="INFO">Close browser</msg>
+<msg time="2026-05-09T12:20:27.552956" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:27.552408" elapsed="0.000649"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:27.554725" elapsed="0.000431"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.555640" elapsed="2.273232"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:27.551762" elapsed="2.277905"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-09T12:20:27.403132" elapsed="2.426982"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="FAIL" start="2026-05-09T12:20:16.495080" elapsed="13.336968">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t5" name="order Auto Test 5" line="57">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-09T12:20:29.842773" elapsed="0.000820"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:29.844511" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-09T12:20:29.844137" elapsed="0.701135"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-09T12:20:30.546426" elapsed="0.032093"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:30.579334" level="INFO">================================</msg>
+<msg time="2026-05-09T12:20:30.579394" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-09T12:20:30.578971" elapsed="0.000490"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:30.581118" level="INFO">Browser opened</msg>
+<msg time="2026-05-09T12:20:30.581208" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:20:30.580611" elapsed="0.000693"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:20:30.582754" elapsed="0.000405"/>
+</kw>
+<arg>Order Feature</arg>
+<status status="PASS" start="2026-05-09T12:20:29.842164" elapsed="0.741346"/>
+</kw>
+<kw name="Open Cart Page" owner="order_business">
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:30.586502" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<msg time="2026-05-09T12:20:30.586636" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:20:30.585229" elapsed="0.001623"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:20:30.589609" elapsed="0.000554"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:30.591586" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<msg time="2026-05-09T12:20:30.591652" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:20:30.591147" elapsed="0.000599"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:20:30.592670" elapsed="0.000436"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:40.744280" level="FAIL">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-05-09T12:20:30.593544" elapsed="10.155267">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="FAIL" start="2026-05-09T12:20:30.590657" elapsed="10.160484">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:40.751859" elapsed="0.000180"/>
+</kw>
+<arg>${CART_ICON}</arg>
+<doc>Click on a specified element.</doc>
+<status status="FAIL" start="2026-05-09T12:20:30.584801" elapsed="10.167743">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<doc>Navigate to the cart page</doc>
+<status status="FAIL" start="2026-05-09T12:20:30.584216" elapsed="10.168823">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Update Cart" owner="order_business">
+<doc>Update cart contents</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:40.754043" elapsed="0.000218"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:40.755253" elapsed="0.000214"/>
+</kw>
+<kw name="Fill Shipping Information" owner="order_business">
+<arg>Hoang Nguyen</arg>
+<arg>01234</arg>
+<arg>nghoan@gmail.com</arg>
+<arg>123 Main St, Hanoi</arg>
+<arg>Gửi hàng trong giờ hành chính</arg>
+<doc>Fill in the shipping information form</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:40.756484" elapsed="0.000222"/>
+</kw>
+<kw name="Select Payment Method" owner="order_business">
+<arg>cod</arg>
+<doc>Select a payment method</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:40.757735" elapsed="0.000195"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:40.758824" elapsed="0.000198"/>
+</kw>
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${ORDER_ERROR_MSG}</arg>
+<arg>Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng</arg>
+<doc>Verify that the text of the element located by the given locator contains the expected text.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:40.760070" elapsed="0.000183"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Handle Test Failure" owner="base_test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:40.765590" level="INFO">Test failed: order Auto Test 5</msg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.764924" elapsed="0.000818"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Test failed: ${TEST NAME}</arg>
+<status status="PASS" start="2026-05-09T12:20:40.769343" elapsed="0.000938"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-05-09T12:20:40.772035" level="INFO">${timestamp} = 20260509_122040</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.771076" elapsed="0.001085"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:40.775295" level="INFO">${clean_test_name} = order_Auto_Test_5</msg>
+<var>${clean_test_name}</var>
+<arg>${TEST NAME}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.774351" elapsed="0.001062"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:40.778945" level="INFO">${clean_test_name} = order_Auto_Test_5</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>:</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.777845" elapsed="0.001261"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:40.783531" level="INFO">${clean_test_name} = order_Auto_Test_5</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>/</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.782319" elapsed="0.001372"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:40.787761" level="INFO">${clean_test_name} = order_Auto_Test_5</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>\\</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.786696" elapsed="0.001270"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:40.791325" level="INFO">${dir} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots</msg>
+<var>${dir}</var>
+<arg>${OUTPUT DIR}${/}screenshots</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.790121" elapsed="0.001313"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-05-09T12:20:40.793830" level="INFO" html="true">Directory '&lt;a href="file://D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots"&gt;D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${dir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.793201" elapsed="0.000856"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:40.796793" level="INFO">${path} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_5_20260509_122040.png</msg>
+<var>${path}</var>
+<arg>${dir}${/}${clean_test_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.795734" elapsed="0.001157"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:40.879895" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/order_Auto_Test_5_20260509_122040.png"&gt;&lt;img src="screenshots/order_Auto_Test_5_20260509_122040.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${path}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.799226" elapsed="0.080864"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:40.882277" level="INFO">Screenshot saved at: D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_5_20260509_122040.png</msg>
+<arg>Screenshot saved at: ${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.881542" elapsed="0.000863"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Screenshot saved at: ${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:40.883727" elapsed="0.000527"/>
+</kw>
+<kw name="Attach Screenshot" owner="allure_helper">
+<arg>${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:40.884745" elapsed="0.003678"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:40.764134" elapsed="0.124786"/>
+</kw>
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.763010" elapsed="0.126260"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:40.890891" level="INFO">Close browser</msg>
+<msg time="2026-05-09T12:20:40.890979" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:40.890460" elapsed="0.000621"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:40.892420" elapsed="0.000415"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.893256" elapsed="2.268452"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:40.889845" elapsed="2.272403"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-09T12:20:40.761562" elapsed="2.400993"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="FAIL" start="2026-05-09T12:20:29.840954" elapsed="13.323048">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t6" name="order Auto Test 6" line="67">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-09T12:20:43.176160" elapsed="0.001222"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:43.178729" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-09T12:20:43.178147" elapsed="0.789077"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-09T12:20:43.969154" elapsed="0.030631"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:44.001317" level="INFO">================================</msg>
+<msg time="2026-05-09T12:20:44.001380" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-09T12:20:44.000795" elapsed="0.000653"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:44.005056" level="INFO">Browser opened</msg>
+<msg time="2026-05-09T12:20:44.005235" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:20:44.003728" elapsed="0.001642"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-09T12:20:44.006734" elapsed="0.000364"/>
+</kw>
+<arg>Order Feature</arg>
+<status status="PASS" start="2026-05-09T12:20:43.175331" elapsed="0.832076"/>
+</kw>
+<kw name="Open Cart Page" owner="order_business">
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:44.009074" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<msg time="2026-05-09T12:20:44.009134" level="INFO">[STEP] Click element css:a[title='Giỏ hàng']</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:20:44.008740" elapsed="0.000462"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-09T12:20:44.010123" elapsed="0.000303"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:44.011630" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<msg time="2026-05-09T12:20:44.011695" level="INFO">[STEP] Wait until element css:a[title='Giỏ hàng'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:20:44.011234" elapsed="0.000531"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-09T12:20:44.012839" elapsed="0.000465"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:54.176047" level="FAIL">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</msg>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-05-09T12:20:44.013716" elapsed="10.163739">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="FAIL" start="2026-05-09T12:20:44.010762" elapsed="10.169054">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:54.180244" elapsed="0.000112"/>
+</kw>
+<arg>${CART_ICON}</arg>
+<doc>Click on a specified element.</doc>
+<status status="FAIL" start="2026-05-09T12:20:44.008374" elapsed="10.172282">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<doc>Navigate to the cart page</doc>
+<status status="FAIL" start="2026-05-09T12:20:44.007955" elapsed="10.173036">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</kw>
+<kw name="Update Cart" owner="order_business">
+<doc>Update cart contents</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:54.181612" elapsed="0.000121"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:54.182296" elapsed="0.000120"/>
+</kw>
+<kw name="Fill Shipping Information" owner="order_business">
+<arg>Hoang Nguyen</arg>
+<arg>0123456789</arg>
+<arg>nghoan@gmail.com</arg>
+<arg>123</arg>
+<arg>Gửi hàng trong giờ hành chính</arg>
+<doc>Fill in the shipping information form</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:54.183034" elapsed="0.000112"/>
+</kw>
+<kw name="Select Payment Method" owner="order_business">
+<arg>cod</arg>
+<doc>Select a payment method</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:54.183786" elapsed="0.000124"/>
+</kw>
+<kw name="Submit Order" owner="order_business">
+<doc>Submit the order</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:54.184470" elapsed="0.000111"/>
+</kw>
+<kw name="Verify Element Text Contains" owner="verify">
+<arg>${ORDER_ERROR_MSG}</arg>
+<arg>Vui lòng nhập chính xác!</arg>
+<doc>Verify that the text of the element located by the given locator contains the expected text.</doc>
+<status status="NOT RUN" start="2026-05-09T12:20:54.185099" elapsed="0.000141"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Handle Test Failure" owner="base_test">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:54.188436" level="INFO">Test failed: order Auto Test 6</msg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.188013" elapsed="0.000527"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Test failed: ${TEST NAME}</arg>
+<status status="PASS" start="2026-05-09T12:20:54.189606" elapsed="0.000351"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-05-09T12:20:54.190645" level="INFO">${timestamp} = 20260509_122054</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.190279" elapsed="0.000423"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:54.192121" level="INFO">${clean_test_name} = order_Auto_Test_6</msg>
+<var>${clean_test_name}</var>
+<arg>${TEST NAME}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.191725" elapsed="0.000450"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:54.193488" level="INFO">${clean_test_name} = order_Auto_Test_6</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>:</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.193107" elapsed="0.000438"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:54.195219" level="INFO">${clean_test_name} = order_Auto_Test_6</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>/</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.194806" elapsed="0.000472"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-05-09T12:20:54.196758" level="INFO">${clean_test_name} = order_Auto_Test_6</msg>
+<var>${clean_test_name}</var>
+<arg>${clean_test_name}</arg>
+<arg>\\</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.196341" elapsed="0.000477"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:54.198422" level="INFO">${dir} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots</msg>
+<var>${dir}</var>
+<arg>${OUTPUT DIR}${/}screenshots</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.197833" elapsed="0.000646"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-05-09T12:20:54.199750" level="INFO" html="true">Directory '&lt;a href="file://D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots"&gt;D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${dir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.199425" elapsed="0.000429"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-05-09T12:20:54.201812" level="INFO">${path} = D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_6_20260509_122054.png</msg>
+<var>${path}</var>
+<arg>${dir}${/}${clean_test_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.200954" elapsed="0.001027"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-05-09T12:20:54.277630" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/order_Auto_Test_6_20260509_122054.png"&gt;&lt;img src="screenshots/order_Auto_Test_6_20260509_122054.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${path}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.203347" elapsed="0.074440"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-09T12:20:54.279237" level="INFO">Screenshot saved at: D:\DoAnTotNghiep_NguyenQuyen_10122312\reports\robot\run_20260509_121924\screenshots\order_Auto_Test_6_20260509_122054.png</msg>
+<arg>Screenshot saved at: ${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.278760" elapsed="0.000571"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Screenshot saved at: ${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:54.280439" elapsed="0.002832"/>
+</kw>
+<kw name="Attach Screenshot" owner="allure_helper">
+<arg>${path}</arg>
+<status status="PASS" start="2026-05-09T12:20:54.283625" elapsed="0.003578"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:54.187473" elapsed="0.100052"/>
+</kw>
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.186758" elapsed="0.101010"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-09T12:20:54.289031" level="INFO">Close browser</msg>
+<msg time="2026-05-09T12:20:54.289099" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:54.288706" elapsed="0.000467"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-09T12:20:54.290106" elapsed="0.000288"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.290719" elapsed="2.269700"/>
+</kw>
+<status status="PASS" start="2026-05-09T12:20:54.288243" elapsed="2.272500"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-09T12:20:54.186024" elapsed="2.374840"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="FAIL" start="2026-05-09T12:20:43.173819" elapsed="13.387850">Element 'css:a[title='Giỏ hàng']' not visible after 10 seconds.</status>
+</test>
+<status status="FAIL" start="2026-05-09T12:19:32.033029" elapsed="84.534521"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="6" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Order Auto" id="s1" pass="0" fail="6" skip="0">Order Auto</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

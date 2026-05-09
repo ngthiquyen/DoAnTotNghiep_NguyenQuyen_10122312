@@ -36,7 +36,6 @@ Verify Page Contains Text
     Wait Until Page Contains   ${message}    10s
     Log Info    [STEP]    Page contains text: ${message}
     Step log   Page contains text: ${message}
-    Log Info    =====================================
 
 #Xác minh trang chứa phần tử
 Verify Page Contains Element
@@ -45,7 +44,6 @@ Verify Page Contains Element
     Wait Until Page Contains Element    ${locator}    10s
     Log Info    [STEP]    Element located by: ${locator} is present on the page.
     Step log   Element located by: ${locator} is present on the page.
-    Log Info  =====================================
 
 #Xác minh thông báo trường bắt buộc (validation message)
 Verify Required Field Message
@@ -67,7 +65,6 @@ Verify Required Field Message
         Should Contain    ${message}    ${expected}
     END    
     Step log   Validation message verified.
-    Log Info    =====================================
 
 #Xác minh thông báo(có thể là message hoặc text trên page)
 Verify Element Text Contains
@@ -77,14 +74,13 @@ Verify Element Text Contains
         Wait Until Element Contains    
         ...    ${locator}    
         ...    ${expected}    
-        ...    10s
+        ...    3s
         ${text}=    Get Text    ${locator}
 
         Log Info    [STEP] Text: ${text}
         Log Info    [STEP]    Expected: ${expected}
         Should Contain    ${text}    ${expected}
         Step log   Element text verified.
-        Log Info    =====================================
 
 Verify Element Is Present
     [Documentation]    Verify that element is present on the page.
@@ -94,3 +90,15 @@ Verify Element Is Present
     Log Info    [STEP]    Element located by: ${locator} is present on the page.
     Step log   Element located by: ${locator} is present on the page.
     
+#Xác minh thông báo trên alert
+Verify Alert Message
+    [Arguments]    ${expected}
+
+    Alert Should Be Present    10s
+
+    ${text}=    Handle Alert
+
+    Log Info    [STEP] Alert text: ${text}
+    Step log   Alert text: ${text}
+
+    Should Contain    ${text}    ${expected}

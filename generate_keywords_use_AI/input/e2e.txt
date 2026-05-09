@@ -4,28 +4,30 @@ Mô tả:
 Luồng này mô tả toàn bộ hành vi của người dùng từ khi đăng nhập vào hệ thống cho đến khi tìm kiếm sản phẩm và hoàn tất việc đặt hàng.
 
 Luồng chính (Main Flow):
-
+LOGIN
 1. Mở trang đăng nhập.
 2. Nhập username và password.
 3. Nhấn nút đăng nhập.
 4. Xác minh đăng nhập thành công.
 
+SEARCH
 5. Nhập từ khóa tìm kiếm.
 6. Nhấn nút tìm kiếm.
 7. Xác minh sản phẩm chứa từ khóa.
 
+CART
 8. Chọn một sản phẩm từ danh sách.
 9. Thêm sản phẩm vào giỏ hàng.
 10. Nhấn xem giỏ hàng.
 11. Xác minh tên sản phẩm
 
-
+ORDER
 12. Nhập thông tin khách hàng
 13. Nhấn nút đặt hàng.
 14. Xác minh đặt hàng thành công.
 
-Kết quả mong đợi (Expected):
 
+Kết quả mong đợi (Expected):
 - Người dùng đăng nhập thành công.
 - Kết quả tìm kiếm hiển thị chính xác.
 - Sản phẩm được thêm vào giỏ hàng thành công.

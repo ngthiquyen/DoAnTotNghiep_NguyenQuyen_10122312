@@ -20,8 +20,8 @@ Submit Login Form
     [Documentation]    Submit the login form
     # TODO: Implement
     Click On Element    ${LOGIN_BTN}
-    Wait Until Page Contains Element    //body    10s
-    #Reload Current Page
+    Sleep   2s
+    Reload Current Page
 
 Logout User
     [Documentation]    Perform logout action

@@ -14,3 +14,6 @@ order Auto Test
     Fill Shipping Information      ${data}
     Submit Order
     Verify Current URL Should Be      "${expected}/order-success"
+
+
+

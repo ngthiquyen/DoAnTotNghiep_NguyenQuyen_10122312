@@ -4,6 +4,11 @@ Resource   ../keywords/verify/verify.robot
 Resource   ../keywords/business/search_business.robot
 
 *** Keywords ***
+Open Home Page
+    [Documentation]    Navigate to the home page
+    # TODO: Implement
+    Go To    ${URL}
+
 Open Cart Page
     [Documentation]    Navigate to the cart page
     # TODO: Implement
@@ -17,7 +22,7 @@ Open Checkout Page
 Fill Shipping Information
     [Documentation]    Fill in the shipping information form
     # TODO: Implement
-    [Arguments]    ${name}    ${phone}    ${address}
+    [Arguments]    ${name}    ${phone}    ${email}    ${address}    ${note}
 
     Input Text To Element    ${NAME_INPUT}      ${name}
     Input Text To Element    ${PHONE_INPUT}     ${phone}
@@ -40,7 +45,16 @@ Submit Order
 Add To Cart
     [Documentation]    Add product to cart
     # TODO: Implement
-    Click On Element    ${ADD_TO_CART_BTN}
+    Wait Until Element Is Visible    ${ADD_TO_CART_BTN}    timeout=10s
+    Scroll Element Into View    ${ADD_TO_CART_BTN}
+
+    Wait Until Keyword Succeeds
+    ...    10s
+    ...    1s
+    ...    Click On Element
+    ...    ${ADD_TO_CART_BTN}
+
+    Sleep    2s
 
 Update Cart
     [Documentation]    Update cart contents

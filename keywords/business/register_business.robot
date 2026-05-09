@@ -1,13 +1,14 @@
 ***Settings***
 Resource   ../keywords/ui/common_keywords.robot
 Resource   ../keywords/verify/verify.robot
+Variables   ../pages/register_page.py
 
 *** Keywords ***
 
 Open Register Page
     [Documentation]    Navigate to the registration page
     # TODO: Implement
-    Navigate To Page    ${URL}
+    Open Page    ${URL}
     Click On Element    ${REGISTER_URL}
 
 Fill Register Form

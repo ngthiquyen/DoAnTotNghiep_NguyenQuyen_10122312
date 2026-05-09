@@ -29,9 +29,7 @@ Select Product From Result
     ${elements}=    Get WebElements    ${PRODUCT_ITEMS}
     Should Not Be Empty    ${elements}
     Scroll Element Into View    ${elements}[${index}]
-    Click Element              ${elements}[${index}]
-    Click On Element    ${elements}[0]
-
+    Click On Element              ${elements}[${index}]
 
 Search Product
     [Documentation]    Perform search for a product with given name.

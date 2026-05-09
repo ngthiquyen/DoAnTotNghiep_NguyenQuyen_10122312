@@ -6,11 +6,11 @@ import shutil
 
 
 FEATURE_MAP = {
-    "1": ("search", "tests/test_search.robot"),
+    "1": ("search", "tests/search_auto.robot"),
     "2": ("login", "tests/login_auto.robot"),
-    "3": ("register", "tests/test_register.robot"),
-    "4": ("order", "tests/test_order.robot"),
-    "5": ("profile", "tests/test_profile.robot"),
+    "3": ("register", "tests/register_auto.robot"),
+    "4": ("order", "tests/order_auto.robot"),
+    "5": ("profile", "tests/profile_auto.robot"),
 }
 
 print("===== CHỌN TEST =====")

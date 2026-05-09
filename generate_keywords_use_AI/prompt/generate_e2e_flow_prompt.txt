@@ -29,7 +29,19 @@ Generate an end-to-end test flow using ONLY the provided keywords.
    - no cleanup step
    unless explicitly required in scenario
 14. Each business action MUST be followed by a verify keyword
+15. STRICT FLOW PATTERN:
 
+LOGIN ACTIONS
+-> LOGIN VERIFY
+
+SEARCH ACTIONS
+-> SEARCH VERIFY
+
+CART ACTIONS
+-> CART VERIFY
+
+ORDER ACTIONS
+-> ORDER VERIFY
 === KEYWORD SELECTION RULES ===
 
 - Select keywords based on business meaning

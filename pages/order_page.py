@@ -1,5 +1,6 @@
 #ORDER PAGE
 URL = "https://ella.vn/"
+CHECKOUT_URL="https://ella.vn/cart/"
 ADD_TO_CART_BTN="xpath://div[@class='detail-muangay-button detail-muangay-center detail-muangay-topcenter details-ankhi-hethang d-none fullsize-if-mobile']//div//button[@type='button'][contains(text(),'Cho vào giỏ hàng')]"
 CART_ICON="css:a[title='Giỏ hàng']"
 CHECKOUT_BTN="xpath://button[contains(text(),'Thanh toán')]"

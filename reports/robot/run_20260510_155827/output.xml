@@ -1,0 +1,1886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.13 on win32)" generated="2026-05-10T15:58:27.978218" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Auto 20260510 150439" source="D:\DoAnTotNghiep_NguyenQuyen_10122312\tests\login_auto_20260510_150439.robot">
+<test id="s1-t1" name="login Auto Test 1" line="18">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-10T15:58:28.225982" elapsed="0.000563"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:28.227046" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:58:28.226839" elapsed="0.740046"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-10T15:58:28.969922" elapsed="0.048603"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:29.019637" level="INFO">================================</msg>
+<msg time="2026-05-10T15:58:29.019743" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-10T15:58:29.018979" elapsed="0.000852"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:29.022024" level="INFO">Browser opened</msg>
+<msg time="2026-05-10T15:58:29.022119" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:58:29.021449" elapsed="0.000758"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:58:29.025403" elapsed="0.001699"/>
+</kw>
+<arg>Login Feature</arg>
+<status status="PASS" start="2026-05-10T15:58:28.225200" elapsed="0.802957"/>
+</kw>
+<kw name="Login To System" owner="login_business">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:29.031360" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<msg time="2026-05-10T15:58:29.031449" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<arg>[STEP]</arg>
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:58:29.030797" elapsed="0.000729"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:58:29.032881" elapsed="0.000415"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:29.034932" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:58:29.033582" elapsed="3.378531"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-05-10T15:58:32.414283" elapsed="0.018779"/>
+</kw>
+<arg>${URL}</arg>
+<doc>Open a web page with the specified URL.</doc>
+<status status="PASS" start="2026-05-10T15:58:29.030136" elapsed="3.403467"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:32.435311" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:58:32.435369" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:32.434782" elapsed="0.000651"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:32.436526" elapsed="0.000500"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:32.438621" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:32.438747" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:32.438016" elapsed="0.000883"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:32.439834" elapsed="0.000426"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:32.440692" elapsed="0.022614"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:32.437435" elapsed="0.026177"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:32.464207" level="INFO">Clicking element 'xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:32.463915" elapsed="0.129329"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:32.434078" elapsed="0.160337"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:32.596940" level="INFO">[STEP] Input text "ngvanhoan@gmail.com" to element css:input[placeholder='Email']</msg>
+<msg time="2026-05-10T15:58:32.597062" level="INFO">[STEP] Input text "ngvanhoan@gmail.com" to element css:input[placeholder='Email']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:32.596194" elapsed="0.001013"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:32.599090" elapsed="0.000732"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:32.601982" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:32.602110" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:32.601316" elapsed="0.000933"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:32.603983" elapsed="0.000577"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:32.604901" elapsed="0.689641"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:32.600479" elapsed="0.694757"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.295916" elapsed="0.086953"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:33.383758" level="INFO">Typing text 'ngvanhoan@gmail.com' into text field 'css:input[placeholder='Email']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.383346" elapsed="0.147445"/>
+</kw>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:32.595222" elapsed="0.937201"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:33.535267" level="INFO">[STEP] Input text "123456789" to element css:input[placeholder='Password']</msg>
+<msg time="2026-05-10T15:58:33.535420" level="INFO">[STEP] Input text "123456789" to element css:input[placeholder='Password']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:33.534249" elapsed="0.001377"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:33.538327" elapsed="0.000483"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:33.541388" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:33.541557" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:33.540507" elapsed="0.001213"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:33.544800" elapsed="0.000688"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.546110" elapsed="0.027739"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.539441" elapsed="0.035074"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.575046" elapsed="0.064815"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:33.641631" level="INFO">Typing text '123456789' into text field 'css:input[placeholder='Password']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.640859" elapsed="0.206420"/>
+</kw>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.533119" elapsed="0.315300"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:33.850013" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:58:33.850080" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:33.849617" elapsed="0.000541"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:33.851157" elapsed="0.000714"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:33.854427" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:33.854539" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:33.853107" elapsed="0.001570"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:33.856358" elapsed="0.001268"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.858269" elapsed="0.032268"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.852254" elapsed="0.038934"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:33.892020" level="INFO">Clicking element 'xpath://button[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.891607" elapsed="0.193666"/>
+</kw>
+<arg>${LOGIN_BTN}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:33.848921" elapsed="0.238563"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-10T15:58:36.089304" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-10T15:58:34.088130" elapsed="2.001354"/>
+</kw>
+<arg>ngvanhoan@gmail.com</arg>
+<arg>123456789</arg>
+<doc>Perform login action</doc>
+<status status="PASS" start="2026-05-10T15:58:29.029226" elapsed="7.061314"/>
+</kw>
+<kw name="Verify Element Text Contains" owner="verify">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:36.092233" elapsed="0.048827"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${expected}</arg>
+<arg>3s</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-05-10T15:58:36.141538" elapsed="0.024622"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:36.187984" level="INFO">${text} = Tài khoản hoặc mật khẩu không chính xác</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:36.166609" elapsed="0.021518"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:36.190107" level="INFO">[STEP] Text: Tài khoản hoặc mật khẩu không chính xác</msg>
+<msg time="2026-05-10T15:58:36.190228" level="INFO">[STEP] Text: Tài khoản hoặc mật khẩu không chính xác</msg>
+<arg>[STEP] Text: ${text}</arg>
+<status status="PASS" start="2026-05-10T15:58:36.189448" elapsed="0.000919"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:36.191975" level="INFO">[STEP] Expected: Tài khoản hoặc mật khẩu không chính xác</msg>
+<msg time="2026-05-10T15:58:36.192070" level="INFO">[STEP] Expected: Tài khoản hoặc mật khẩu không chính xác</msg>
+<arg>[STEP]</arg>
+<arg>Expected: ${expected}</arg>
+<status status="PASS" start="2026-05-10T15:58:36.191520" elapsed="0.000644"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expected}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-10T15:58:36.193593" elapsed="0.000854"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Element text verified.</arg>
+<status status="PASS" start="2026-05-10T15:58:36.194980" elapsed="0.000326"/>
+</kw>
+<arg>${ERROR_MSG}</arg>
+<arg>Tài khoản hoặc mật khẩu không chính xác</arg>
+<doc>Verify that the text of the element located by the given locator contains the expected text.</doc>
+<status status="PASS" start="2026-05-10T15:58:36.091598" elapsed="0.103969"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-10T15:58:36.196987" elapsed="0.000571"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:36.199457" level="INFO">Close browser</msg>
+<msg time="2026-05-10T15:58:36.199579" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:58:36.198793" elapsed="0.000955"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:58:36.200824" elapsed="0.000626"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-10T15:58:36.202129" elapsed="2.248190"/>
+</kw>
+<status status="PASS" start="2026-05-10T15:58:36.198041" elapsed="2.252975"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-10T15:58:36.196242" elapsed="2.255201"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="PASS" start="2026-05-10T15:58:28.224261" elapsed="10.228244"/>
+</test>
+<test id="s1-t2" name="login Auto Test 2" line="24">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-10T15:58:38.461951" elapsed="0.000776"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:38.463654" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:58:38.463281" elapsed="0.715077"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-10T15:58:39.179587" elapsed="0.045498"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:39.226126" level="INFO">================================</msg>
+<msg time="2026-05-10T15:58:39.226198" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-10T15:58:39.225689" elapsed="0.000587"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:39.228337" level="INFO">Browser opened</msg>
+<msg time="2026-05-10T15:58:39.228408" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:58:39.227907" elapsed="0.000586"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:58:39.229608" elapsed="0.000434"/>
+</kw>
+<arg>Login Feature</arg>
+<status status="PASS" start="2026-05-10T15:58:38.461324" elapsed="0.769036"/>
+</kw>
+<kw name="Login To System" owner="login_business">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:39.232375" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<msg time="2026-05-10T15:58:39.232441" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<arg>[STEP]</arg>
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:58:39.231985" elapsed="0.000533"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:58:39.233481" elapsed="0.000386"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:39.234472" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:58:39.234217" elapsed="1.754802"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-05-10T15:58:40.990552" elapsed="0.079407"/>
+</kw>
+<arg>${URL}</arg>
+<doc>Open a web page with the specified URL.</doc>
+<status status="PASS" start="2026-05-10T15:58:39.231569" elapsed="1.838885"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:41.072564" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:58:41.072689" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:41.071685" elapsed="0.001121"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:41.074617" elapsed="0.000873"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:41.077190" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:41.077275" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:41.076669" elapsed="0.000701"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:41.078472" elapsed="0.000602"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:41.079542" elapsed="0.020622"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:41.076054" elapsed="0.024534"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:41.101454" level="INFO">Clicking element 'xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:41.101046" elapsed="0.097576"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:41.071056" elapsed="0.128582"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:41.201237" level="INFO">[STEP] Input text "tuyetmai999" to element css:input[placeholder='Email']</msg>
+<msg time="2026-05-10T15:58:41.201314" level="INFO">[STEP] Input text "tuyetmai999" to element css:input[placeholder='Email']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:41.200793" elapsed="0.000612"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:41.202416" elapsed="0.000488"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:41.205039" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:41.205116" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:41.204365" elapsed="0.000812"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:41.206404" elapsed="0.000327"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:41.206993" elapsed="0.668346"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:41.203570" elapsed="0.672311"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:41.876504" elapsed="0.061658"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:41.939465" level="INFO">Typing text 'tuyetmai999' into text field 'css:input[placeholder='Email']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:41.938770" elapsed="0.187542"/>
+</kw>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:41.200169" elapsed="0.927603"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:42.132173" level="INFO">[STEP] Input text "tuyetmai99" to element css:input[placeholder='Password']</msg>
+<msg time="2026-05-10T15:58:42.132361" level="INFO">[STEP] Input text "tuyetmai99" to element css:input[placeholder='Password']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:42.130800" elapsed="0.001752"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:42.134781" elapsed="0.001261"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:42.139361" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:42.139456" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:42.138419" elapsed="0.001197"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:42.141161" elapsed="0.000703"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.142401" elapsed="0.050061"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.137128" elapsed="0.056335"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.194300" elapsed="0.057844"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:42.254045" level="INFO">Typing text 'tuyetmai99' into text field 'css:input[placeholder='Password']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.253176" elapsed="0.148824"/>
+</kw>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.128737" elapsed="0.274813"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:42.405158" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:58:42.405304" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:42.404582" elapsed="0.000894"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:42.407645" elapsed="0.000688"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:42.410701" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:42.410872" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:42.409982" elapsed="0.001031"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:42.412499" elapsed="0.000589"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.413640" elapsed="0.023748"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.409156" elapsed="0.028920"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:42.439023" level="INFO">Clicking element 'xpath://button[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.438467" elapsed="0.131094"/>
+</kw>
+<arg>${LOGIN_BTN}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.404086" elapsed="0.166786"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-10T15:58:44.572209" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-10T15:58:42.571257" elapsed="2.001138"/>
+</kw>
+<arg>tuyetmai999</arg>
+<arg>tuyetmai99</arg>
+<doc>Perform login action</doc>
+<status status="PASS" start="2026-05-10T15:58:39.231047" elapsed="5.343042"/>
+</kw>
+<kw name="Verify Element Text Contains" owner="verify">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:44.576157" elapsed="0.059524"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${expected}</arg>
+<arg>3s</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-05-10T15:58:44.637193" elapsed="0.044478"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:44.712874" level="INFO">${text} = Tài khoản hoặc mật khẩu không chính xác</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:44.682754" elapsed="0.030249"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:44.715527" level="INFO">[STEP] Text: Tài khoản hoặc mật khẩu không chính xác</msg>
+<msg time="2026-05-10T15:58:44.715661" level="INFO">[STEP] Text: Tài khoản hoặc mật khẩu không chính xác</msg>
+<arg>[STEP] Text: ${text}</arg>
+<status status="PASS" start="2026-05-10T15:58:44.714753" elapsed="0.001081"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:44.718246" level="INFO">[STEP] Expected: Tài khoản hoặc mật khẩu không chính xác</msg>
+<msg time="2026-05-10T15:58:44.718355" level="INFO">[STEP] Expected: Tài khoản hoặc mật khẩu không chính xác</msg>
+<arg>[STEP]</arg>
+<arg>Expected: ${expected}</arg>
+<status status="PASS" start="2026-05-10T15:58:44.717575" elapsed="0.000903"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expected}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-10T15:58:44.720931" elapsed="0.001170"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Element text verified.</arg>
+<status status="PASS" start="2026-05-10T15:58:44.722911" elapsed="0.000548"/>
+</kw>
+<arg>${ERROR_MSG}</arg>
+<arg>Tài khoản hoặc mật khẩu không chính xác</arg>
+<doc>Verify that the text of the element located by the given locator contains the expected text.</doc>
+<status status="PASS" start="2026-05-10T15:58:44.575163" elapsed="0.148777"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-10T15:58:44.726345" elapsed="0.000609"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:44.728840" level="INFO">Close browser</msg>
+<msg time="2026-05-10T15:58:44.728943" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:58:44.728317" elapsed="0.000747"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:58:44.731173" elapsed="0.000486"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-10T15:58:44.732208" elapsed="2.268424"/>
+</kw>
+<status status="PASS" start="2026-05-10T15:58:44.727638" elapsed="2.273382"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-10T15:58:44.725199" elapsed="2.276047"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="PASS" start="2026-05-10T15:58:38.460079" elapsed="8.541855"/>
+</test>
+<test id="s1-t3" name="login Auto Test 3" line="30">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-10T15:58:47.008942" elapsed="0.000552"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:47.010172" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:58:47.009903" elapsed="0.706907"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-10T15:58:47.718063" elapsed="0.038744"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:47.758598" level="INFO">================================</msg>
+<msg time="2026-05-10T15:58:47.758709" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-10T15:58:47.757840" elapsed="0.000977"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:47.762797" level="INFO">Browser opened</msg>
+<msg time="2026-05-10T15:58:47.762907" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:58:47.761846" elapsed="0.001145"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:58:47.764267" elapsed="0.002309"/>
+</kw>
+<arg>Login Feature</arg>
+<status status="PASS" start="2026-05-10T15:58:47.008486" elapsed="0.758379"/>
+</kw>
+<kw name="Login To System" owner="login_business">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:47.769353" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<msg time="2026-05-10T15:58:47.769457" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<arg>[STEP]</arg>
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:58:47.768683" elapsed="0.000862"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:58:47.770657" elapsed="0.000369"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:47.772020" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:58:47.771504" elapsed="1.811254"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-05-10T15:58:49.585420" elapsed="0.081605"/>
+</kw>
+<arg>${URL}</arg>
+<doc>Open a web page with the specified URL.</doc>
+<status status="PASS" start="2026-05-10T15:58:47.768294" elapsed="1.899336"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:49.669750" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:58:49.669824" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:49.669247" elapsed="0.000649"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:49.670769" elapsed="0.000281"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:49.672014" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:49.672067" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:49.671698" elapsed="0.000427"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:49.673219" elapsed="0.000439"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:49.673976" elapsed="0.019057"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:49.671329" elapsed="0.022326"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:49.694931" level="INFO">Clicking element 'xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:49.694332" elapsed="0.095544"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:49.668381" elapsed="0.122404"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:49.792912" level="INFO">[STEP] Input text "ngvanhoan@gmail.com" to element css:input[placeholder='Email']</msg>
+<msg time="2026-05-10T15:58:49.793014" level="INFO">[STEP] Input text "ngvanhoan@gmail.com" to element css:input[placeholder='Email']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:49.792218" elapsed="0.000911"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:49.794536" elapsed="0.000647"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:49.797340" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:49.797445" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:49.796698" elapsed="0.000877"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:49.799016" elapsed="0.000624"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:49.800206" elapsed="0.673165"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:49.795877" elapsed="0.678164"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.474672" elapsed="0.073805"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:50.549361" level="INFO">Typing text 'ngvanhoan@gmail.com' into text field 'css:input[placeholder='Email']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.548958" elapsed="0.128327"/>
+</kw>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:49.791403" elapsed="0.888663"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:50.682204" level="INFO">[STEP] Input text "" to element css:input[placeholder='Password']</msg>
+<msg time="2026-05-10T15:58:50.682279" level="INFO">[STEP] Input text "" to element css:input[placeholder='Password']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:50.681705" elapsed="0.000659"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:50.683390" elapsed="0.000419"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:50.685500" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:50.685589" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:50.684985" elapsed="0.000716"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:50.687192" elapsed="0.000491"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.688007" elapsed="0.021096"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.684305" elapsed="0.025340"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.710223" elapsed="0.050101"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:50.761744" level="INFO">Typing text '' into text field 'css:input[placeholder='Password']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.761052" elapsed="0.155903"/>
+</kw>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.680754" elapsed="0.237751"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:50.920670" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:58:50.920820" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:50.919962" elapsed="0.001004"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:50.922833" elapsed="0.000655"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:50.925754" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:50.925872" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:50.925047" elapsed="0.000959"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:50.927603" elapsed="0.000655"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.928824" elapsed="0.025647"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.924214" elapsed="0.030911"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:50.956189" level="INFO">Clicking element 'xpath://button[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.955695" elapsed="0.112898"/>
+</kw>
+<arg>${LOGIN_BTN}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:50.919127" elapsed="0.150759"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-10T15:58:53.071348" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-10T15:58:51.070393" elapsed="2.001468"/>
+</kw>
+<arg>ngvanhoan@gmail.com</arg>
+<arg>${EMPTY}</arg>
+<doc>Perform login action</doc>
+<status status="PASS" start="2026-05-10T15:58:47.767423" elapsed="5.306300"/>
+</kw>
+<kw name="Verify Required Field Message" owner="verify">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:53.075888" level="INFO">Executing JavaScript:
+var el = document.activeElement;if (el) {el.reportValidity();return el.validationMessage;}return "";
+Without any arguments.</msg>
+<msg time="2026-05-10T15:58:53.094049" level="INFO">${message} = Please fill out this field.</msg>
+<var>${message}</var>
+<arg>var el = document.activeElement;</arg>
+<arg>if (el) {</arg>
+<arg>el.reportValidity();</arg>
+<arg>return el.validationMessage;</arg>
+<arg>}</arg>
+<arg>return "";</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-10T15:58:53.075248" elapsed="0.018977"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:53.096484" level="INFO">[STEP] Actual validation message: Please fill out this field.</msg>
+<msg time="2026-05-10T15:58:53.096556" level="INFO">[STEP] Actual validation message: Please fill out this field.</msg>
+<arg>[STEP]</arg>
+<arg>Actual validation message: ${message}</arg>
+<status status="PASS" start="2026-05-10T15:58:53.096014" elapsed="0.000620"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:53.098019" level="INFO">[STEP] Expected validation message: Please fill out this field.</msg>
+<msg time="2026-05-10T15:58:53.098090" level="INFO">[STEP] Expected validation message: Please fill out this field.</msg>
+<arg>[STEP]</arg>
+<arg>Expected validation message: ${expected}</arg>
+<status status="PASS" start="2026-05-10T15:58:53.097586" elapsed="0.000628"/>
+</kw>
+<if>
+<branch type="IF" condition="'${expected}' == 'required' or '${expected}' == 'invalid'">
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${message}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2026-05-10T15:58:53.100033" elapsed="0.000089"/>
+</kw>
+<status status="NOT RUN" start="2026-05-10T15:58:53.099572" elapsed="0.000760"/>
+</branch>
+<branch type="ELSE">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>${expected}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-10T15:58:53.100725" elapsed="0.000555"/>
+</kw>
+<status status="PASS" start="2026-05-10T15:58:53.100529" elapsed="0.000957"/>
+</branch>
+<status status="PASS" start="2026-05-10T15:58:53.099521" elapsed="0.002144"/>
+</if>
+<kw name="Step Log" owner="allure_helper">
+<arg>Validation message verified.</arg>
+<status status="PASS" start="2026-05-10T15:58:53.101806" elapsed="0.000253"/>
+</kw>
+<arg>Please fill out this field.</arg>
+<doc>Verify the validation message for required fields or invalid input.</doc>
+<status status="PASS" start="2026-05-10T15:58:53.074750" elapsed="0.027617"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-10T15:58:53.105313" elapsed="0.000985"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:53.108234" level="INFO">Close browser</msg>
+<msg time="2026-05-10T15:58:53.108314" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:58:53.107825" elapsed="0.000581"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:58:53.109742" elapsed="0.000382"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-10T15:58:53.110545" elapsed="2.289553"/>
+</kw>
+<status status="PASS" start="2026-05-10T15:58:53.107293" elapsed="2.293758"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-10T15:58:53.103652" elapsed="2.297972"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="PASS" start="2026-05-10T15:58:47.007590" elapsed="8.395280"/>
+</test>
+<test id="s1-t4" name="login Auto Test 4" line="36">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-10T15:58:55.417023" elapsed="0.001400"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:55.419701" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:58:55.419188" elapsed="0.773605"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-10T15:58:56.194053" elapsed="0.043686"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:56.239320" level="INFO">================================</msg>
+<msg time="2026-05-10T15:58:56.239382" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-10T15:58:56.238627" elapsed="0.000837"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:56.244721" level="INFO">Browser opened</msg>
+<msg time="2026-05-10T15:58:56.244795" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:58:56.240962" elapsed="0.003916"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:58:56.245868" elapsed="0.000299"/>
+</kw>
+<arg>Login Feature</arg>
+<status status="PASS" start="2026-05-10T15:58:55.416081" elapsed="0.830315"/>
+</kw>
+<kw name="Login To System" owner="login_business">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:56.248560" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<msg time="2026-05-10T15:58:56.248629" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<arg>[STEP]</arg>
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:58:56.248188" elapsed="0.000516"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:58:56.249958" elapsed="0.000417"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:56.250958" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:58:56.250730" elapsed="1.699881"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-05-10T15:58:57.953122" elapsed="0.068581"/>
+</kw>
+<arg>${URL}</arg>
+<doc>Open a web page with the specified URL.</doc>
+<status status="PASS" start="2026-05-10T15:58:56.247800" elapsed="1.774269"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:58.023381" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:58:58.023455" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:58.022958" elapsed="0.000576"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:58.024500" elapsed="0.000315"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:58.026027" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:58.026090" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:58.025660" elapsed="0.000507"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:58.027295" elapsed="0.000396"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:58.028013" elapsed="0.022291"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:58.025205" elapsed="0.025621"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:58.051789" level="INFO">Clicking element 'xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:58.051323" elapsed="0.097226"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:58.022473" elapsed="0.127400"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:58.151747" level="INFO">[STEP] Input text "" to element css:input[placeholder='Email']</msg>
+<msg time="2026-05-10T15:58:58.151852" level="INFO">[STEP] Input text "" to element css:input[placeholder='Email']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:58.151050" elapsed="0.000927"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:58.153736" elapsed="0.000477"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:58.155932" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:58.156044" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:58.155306" elapsed="0.000863"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:58.157602" elapsed="0.000577"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:58.158709" elapsed="0.884957"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:58.154555" elapsed="0.889601"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.044651" elapsed="0.063763"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:59.109729" level="INFO">Typing text '' into text field 'css:input[placeholder='Email']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.109096" elapsed="0.124845"/>
+</kw>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:58.150370" elapsed="1.085763"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:59.239781" level="INFO">[STEP] Input text "123456789" to element css:input[placeholder='Password']</msg>
+<msg time="2026-05-10T15:58:59.239966" level="INFO">[STEP] Input text "123456789" to element css:input[placeholder='Password']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:59.238551" elapsed="0.001608"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:59.243540" elapsed="0.000672"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:59.247007" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:59.247155" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:59.246154" elapsed="0.001136"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:59.249185" elapsed="0.000455"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.250406" elapsed="0.028393"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.245127" elapsed="0.034303"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.280058" elapsed="0.058683"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:59.340440" level="INFO">Typing text '123456789' into text field 'css:input[placeholder='Password']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.339632" elapsed="0.167632"/>
+</kw>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.237292" elapsed="0.271802"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:59.511110" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:58:59.511231" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:59.510396" elapsed="0.000974"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:58:59.512873" elapsed="0.000558"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:58:59.515453" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:58:59.515561" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:59.514834" elapsed="0.000880"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:58:59.518546" elapsed="0.000938"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.520289" elapsed="0.037372"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.514051" elapsed="0.044164"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:58:59.559290" level="INFO">Clicking element 'xpath://button[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.558778" elapsed="0.176457"/>
+</kw>
+<arg>${LOGIN_BTN}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.509604" elapsed="0.227761"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-10T15:59:01.739765" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-10T15:58:59.738136" elapsed="2.002162"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>123456789</arg>
+<doc>Perform login action</doc>
+<status status="PASS" start="2026-05-10T15:58:56.246931" elapsed="5.496831"/>
+</kw>
+<kw name="Verify Required Field Message" owner="verify">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:01.748722" level="INFO">Executing JavaScript:
+var el = document.activeElement;if (el) {el.reportValidity();return el.validationMessage;}return "";
+Without any arguments.</msg>
+<msg time="2026-05-10T15:59:01.779112" level="INFO">${message} = Please fill out this field.</msg>
+<var>${message}</var>
+<arg>var el = document.activeElement;</arg>
+<arg>if (el) {</arg>
+<arg>el.reportValidity();</arg>
+<arg>return el.validationMessage;</arg>
+<arg>}</arg>
+<arg>return "";</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-10T15:59:01.747372" elapsed="0.031920"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:01.782975" level="INFO">[STEP] Actual validation message: Please fill out this field.</msg>
+<msg time="2026-05-10T15:59:01.783130" level="INFO">[STEP] Actual validation message: Please fill out this field.</msg>
+<arg>[STEP]</arg>
+<arg>Actual validation message: ${message}</arg>
+<status status="PASS" start="2026-05-10T15:59:01.782046" elapsed="0.001253"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:01.789294" level="INFO">[STEP] Expected validation message: Please fill out this field.</msg>
+<msg time="2026-05-10T15:59:01.789496" level="INFO">[STEP] Expected validation message: Please fill out this field.</msg>
+<arg>[STEP]</arg>
+<arg>Expected validation message: ${expected}</arg>
+<status status="PASS" start="2026-05-10T15:59:01.787882" elapsed="0.002087"/>
+</kw>
+<if>
+<branch type="IF" condition="'${expected}' == 'required' or '${expected}' == 'invalid'">
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${message}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2026-05-10T15:59:01.794290" elapsed="0.000260"/>
+</kw>
+<status status="NOT RUN" start="2026-05-10T15:59:01.793002" elapsed="0.002095"/>
+</branch>
+<branch type="ELSE">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>${expected}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-10T15:59:01.796093" elapsed="0.001202"/>
+</kw>
+<status status="PASS" start="2026-05-10T15:59:01.795605" elapsed="0.002194"/>
+</branch>
+<status status="PASS" start="2026-05-10T15:59:01.792874" elapsed="0.005303"/>
+</if>
+<kw name="Step Log" owner="allure_helper">
+<arg>Validation message verified.</arg>
+<status status="PASS" start="2026-05-10T15:59:01.798459" elapsed="0.000590"/>
+</kw>
+<arg>Please fill out this field.</arg>
+<doc>Verify the validation message for required fields or invalid input.</doc>
+<status status="PASS" start="2026-05-10T15:59:01.746118" elapsed="0.053421"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-10T15:59:01.801949" elapsed="0.000781"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:01.805510" level="INFO">Close browser</msg>
+<msg time="2026-05-10T15:59:01.805655" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:59:01.804666" elapsed="0.001147"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:59:01.808358" elapsed="0.000690"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-10T15:59:01.809841" elapsed="2.290745"/>
+</kw>
+<status status="PASS" start="2026-05-10T15:59:01.803658" elapsed="2.297859"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-10T15:59:01.800724" elapsed="2.301249"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="PASS" start="2026-05-10T15:58:55.414238" elapsed="8.688706"/>
+</test>
+<test id="s1-t5" name="login Auto Test 5" line="42">
+<kw name="Open Browser Suite" owner="base_test" type="SETUP">
+<kw name="Init Logger" owner="logger">
+<arg>${feature}</arg>
+<status status="PASS" start="2026-05-10T15:59:04.108483" elapsed="0.000343"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:04.109371" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:59:04.109067" elapsed="0.761637"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-10T15:59:04.872313" elapsed="0.047744"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:04.920970" level="INFO">================================</msg>
+<msg time="2026-05-10T15:59:04.921070" level="INFO">================================</msg>
+<arg>================================</arg>
+<status status="PASS" start="2026-05-10T15:59:04.920504" elapsed="0.000670"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:04.923816" level="INFO">Browser opened</msg>
+<msg time="2026-05-10T15:59:04.923885" level="INFO">Browser opened</msg>
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:59:04.923076" elapsed="0.000884"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Browser opened</arg>
+<status status="PASS" start="2026-05-10T15:59:04.925163" elapsed="0.002367"/>
+</kw>
+<arg>Login Feature</arg>
+<status status="PASS" start="2026-05-10T15:59:04.108206" elapsed="0.819618"/>
+</kw>
+<kw name="Login To System" owner="login_business">
+<kw name="Open Page" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:04.929532" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<msg time="2026-05-10T15:59:04.929592" level="INFO">[STEP] Opening page: https://ella.vn/</msg>
+<arg>[STEP]</arg>
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:59:04.929190" elapsed="0.000472"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Opening page: ${url}</arg>
+<status status="PASS" start="2026-05-10T15:59:04.930650" elapsed="0.000380"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:04.931703" level="INFO">Opening url 'https://ella.vn/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-10T15:59:04.931435" elapsed="1.681167"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-05-10T15:59:06.613822" elapsed="0.082972"/>
+</kw>
+<arg>${URL}</arg>
+<doc>Open a web page with the specified URL.</doc>
+<status status="PASS" start="2026-05-10T15:59:04.928828" elapsed="1.768582"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:06.699635" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:59:06.699760" level="INFO">[STEP] Click element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:06.698949" elapsed="0.000950"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:06.701395" elapsed="0.000559"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:06.704885" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:59:06.705071" level="INFO">[STEP] Wait until element xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:06.703507" elapsed="0.001733"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:06.707405" elapsed="0.000798"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:59:06.708840" elapsed="0.034227"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:59:06.702495" elapsed="0.041061"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:06.744482" level="INFO">Clicking element 'xpath://div[@class='lf']//span[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:59:06.744035" elapsed="0.099412"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:59:06.698122" elapsed="0.146311"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:06.846298" level="INFO">[STEP] Input text "ngvanhoan@gmail.com" to element css:input[placeholder='Email']</msg>
+<msg time="2026-05-10T15:59:06.846370" level="INFO">[STEP] Input text "ngvanhoan@gmail.com" to element css:input[placeholder='Email']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:06.845611" elapsed="0.000836"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:06.849285" elapsed="0.000904"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:06.853416" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:59:06.853614" level="INFO">[STEP] Wait until element css:input[placeholder='Email'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:06.852173" elapsed="0.001634"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:06.855353" elapsed="0.000488"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:59:06.856222" elapsed="0.680818"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:59:06.851044" elapsed="0.686453"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:59:07.537927" elapsed="0.069126"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:07.608366" level="INFO">Typing text 'ngvanhoan@gmail.com' into text field 'css:input[placeholder='Email']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:59:07.607749" elapsed="0.202785"/>
+</kw>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:59:06.844903" elapsed="0.967831"/>
+</kw>
+<kw name="Input Text To Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:07.815690" level="INFO">[STEP] Input text "ngvanhoan" to element css:input[placeholder='Password']</msg>
+<msg time="2026-05-10T15:59:07.815834" level="INFO">[STEP] Input text "ngvanhoan" to element css:input[placeholder='Password']</msg>
+<arg>[STEP]</arg>
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:07.814869" elapsed="0.001112"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Input text "${text}" to element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:07.817776" elapsed="0.000946"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:07.825328" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:59:07.825483" level="INFO">[STEP] Wait until element css:input[placeholder='Password'] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:07.824164" elapsed="0.001480"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:07.827884" elapsed="0.000860"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:59:07.829395" elapsed="0.026660"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:59:07.822298" elapsed="0.034155"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:59:07.857089" elapsed="0.056469"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:07.914572" level="INFO">Typing text 'ngvanhoan' into text field 'css:input[placeholder='Password']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:59:07.914126" elapsed="0.162039"/>
+</kw>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Input text into a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:59:07.813776" elapsed="0.263307"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:08.078845" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<msg time="2026-05-10T15:59:08.078967" level="INFO">[STEP] Click element xpath://button[contains(text(),'Đăng nhập')]</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:08.078136" elapsed="0.000970"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:08.080571" elapsed="0.000536"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:08.083143" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:59:08.083271" level="INFO">[STEP] Wait until element xpath://button[contains(text(),'Đăng nhập')] is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:08.082501" elapsed="0.000902"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:08.084763" elapsed="0.000586"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:59:08.085679" elapsed="0.021875"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:59:08.081717" elapsed="0.026434"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:08.109429" level="INFO">Clicking element 'xpath://button[contains(text(),'Đăng nhập')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:59:08.108840" elapsed="0.149857"/>
+</kw>
+<arg>${LOGIN_BTN}</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:59:08.077519" elapsed="0.183178"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-10T15:59:10.262531" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-10T15:59:08.261372" elapsed="2.001423"/>
+</kw>
+<arg>ngvanhoan@gmail.com</arg>
+<arg>ngvanhoan</arg>
+<doc>Perform login action</doc>
+<status status="PASS" start="2026-05-10T15:59:04.928371" elapsed="5.335822"/>
+</kw>
+<kw name="Select Product From Result" owner="search_business">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:10.312380" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="ce01ee53e029658637304e06d6a90499", element="f.220A6DD9FEB1862E4F299D88D193F704.d.F682CE432026C2493CECFA1B4CD610B7.e.3853")&gt;, &lt;selenium.webdr...</msg>
+<var>${elements}</var>
+<arg>${PRODUCT_ITEMS}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:59:10.265521" elapsed="0.047134"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-05-10T15:59:10.317546" level="INFO">Length is 36.</msg>
+<arg>${elements}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-05-10T15:59:10.315726" elapsed="0.002152"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${elements}[${index}]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-05-10T15:59:10.321928" elapsed="1.523486"/>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:11.847800" level="INFO">[STEP] Click element &lt;selenium.webdriver.remote.webelement.WebElement (session="ce01ee53e029658637304e06d6a90499", element="f.220A6DD9FEB1862E4F299D88D193F704.d.F682CE432026C2493CECFA1B4CD610B7.e.3853")&gt;</msg>
+<msg time="2026-05-10T15:59:11.847924" level="INFO">[STEP] Click element &lt;selenium.webdriver.remote.webelement.WebElement (session="ce01ee53e029658637304e06d6a90499", element="f.220A6DD9FEB1862E4F299D88D193F704.d.F682CE432026C2493CECFA1B4CD610B7.e.3853")&gt;</msg>
+<arg>[STEP]</arg>
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:11.847164" elapsed="0.000902"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Click element ${locator}</arg>
+<status status="PASS" start="2026-05-10T15:59:11.849841" elapsed="0.000690"/>
+</kw>
+<kw name="Wait Until Element Visible Custom" owner="common_keywords">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:11.852613" level="INFO">[STEP] Wait until element &lt;selenium.webdriver.remote.webelement.WebElement (session="ce01ee53e029658637304e06d6a90499", element="f.220A6DD9FEB1862E4F299D88D193F704.d.F682CE432026C2493CECFA1B4CD610B7.e.3853")&gt; is visible with timeout 10s</msg>
+<msg time="2026-05-10T15:59:11.852871" level="INFO">[STEP] Wait until element &lt;selenium.webdriver.remote.webelement.WebElement (session="ce01ee53e029658637304e06d6a90499", element="f.220A6DD9FEB1862E4F299D88D193F704.d.F682CE432026C2493CECFA1B4CD610B7.e.3853")&gt; is visible with timeout 10s</msg>
+<arg>[STEP]</arg>
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:11.851905" elapsed="0.001219"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Wait until element ${locator} is visible with timeout ${timeout}</arg>
+<status status="PASS" start="2026-05-10T15:59:11.855361" elapsed="0.000751"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:59:11.856774" elapsed="0.011171"/>
+</kw>
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Wait until the specified element is visible on the page.</doc>
+<status status="PASS" start="2026-05-10T15:59:11.851210" elapsed="0.017284"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:11.869547" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="ce01ee53e029658637304e06d6a90499", element="f.220A6DD9FEB1862E4F299D88D193F704.d.F682CE432026C2493CECFA1B4CD610B7.e.3853")&gt;'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:59:11.869059" elapsed="0.564250"/>
+</kw>
+<arg>${elements}[${index}]</arg>
+<doc>Click on a specified element.</doc>
+<status status="PASS" start="2026-05-10T15:59:11.846238" elapsed="0.588071"/>
+</kw>
+<arg>0</arg>
+<doc>Select a product from the search results based on the given index</doc>
+<status status="PASS" start="2026-05-10T15:59:10.265065" elapsed="2.169766"/>
+</kw>
+<kw name="Verify Element Text Contains" owner="verify">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.437152" elapsed="0.040047"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${expected}</arg>
+<arg>3s</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.477599" elapsed="0.046453"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-10T15:59:12.563598" level="INFO">${text} = Tài khoản</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.525413" elapsed="0.038304"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:12.565890" level="INFO">[STEP] Text: Tài khoản</msg>
+<msg time="2026-05-10T15:59:12.566100" level="INFO">[STEP] Text: Tài khoản</msg>
+<arg>[STEP] Text: ${text}</arg>
+<status status="PASS" start="2026-05-10T15:59:12.565212" elapsed="0.001014"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:12.570668" level="INFO">[STEP] Expected: Tài khoản</msg>
+<msg time="2026-05-10T15:59:12.570833" level="INFO">[STEP] Expected: Tài khoản</msg>
+<arg>[STEP]</arg>
+<arg>Expected: ${expected}</arg>
+<status status="PASS" start="2026-05-10T15:59:12.569330" elapsed="0.001678"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expected}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.574188" elapsed="0.000825"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Element text verified.</arg>
+<status status="PASS" start="2026-05-10T15:59:12.575475" elapsed="0.000347"/>
+</kw>
+<arg>${ACCOUNT_PAGE}</arg>
+<arg>Tài khoản</arg>
+<doc>Verify that the text of the element located by the given locator contains the expected text.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.435751" elapsed="0.140368"/>
+</kw>
+<kw name="Verify Page Contains Element" owner="verify">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.577617" elapsed="0.023867"/>
+</kw>
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:12.603190" level="INFO">[STEP] Element located by: xpath://div[@class='lf']//span[contains(text(),'Thoát')] is present on the page.</msg>
+<msg time="2026-05-10T15:59:12.603412" level="INFO">[STEP] Element located by: xpath://div[@class='lf']//span[contains(text(),'Thoát')] is present on the page.</msg>
+<arg>[STEP]</arg>
+<arg>Element located by: ${locator} is present on the page.</arg>
+<status status="PASS" start="2026-05-10T15:59:12.602045" elapsed="0.001579"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Element located by: ${locator} is present on the page.</arg>
+<status status="PASS" start="2026-05-10T15:59:12.607207" elapsed="0.001413"/>
+</kw>
+<arg>${LOGOUT_BTN}</arg>
+<doc>Verify that the page contains the specified element.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.576898" elapsed="0.031996"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Handle Test Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.610164" elapsed="0.000336"/>
+</kw>
+<kw name="Close Browser Suite" owner="base_test">
+<kw name="Log Info" owner="logger">
+<msg time="2026-05-10T15:59:12.611703" level="INFO">Close browser</msg>
+<msg time="2026-05-10T15:59:12.611774" level="INFO">Close browser</msg>
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:59:12.611350" elapsed="0.000509"/>
+</kw>
+<kw name="Step Log" owner="allure_helper">
+<arg>Close browser</arg>
+<status status="PASS" start="2026-05-10T15:59:12.613154" elapsed="0.000519"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.614244" elapsed="2.285594"/>
+</kw>
+<status status="PASS" start="2026-05-10T15:59:12.610931" elapsed="2.289772"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Handle Test Failure</arg>
+<arg>AND</arg>
+<arg>Close Browser Suite</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-05-10T15:59:12.609553" elapsed="2.291599"/>
+</kw>
+<doc>Auto generated from AI flow</doc>
+<status status="PASS" start="2026-05-10T15:59:04.107696" elapsed="10.794533"/>
+</test>
+<status status="PASS" start="2026-05-10T15:58:28.028966" elapsed="46.881169"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login Auto 20260510 150439" id="s1" pass="5" fail="0" skip="0">Login Auto 20260510 150439</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

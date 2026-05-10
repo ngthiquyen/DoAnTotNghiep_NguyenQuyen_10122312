@@ -39,7 +39,7 @@ def detect_capability(keyword_name: str):
     if "input" in name or "enter" in name or "type" in name or "fill" in name:
         return "input_text"
 
-    if "click" in name or "press" in name:
+    if "click" in name or "press" in name or "submit" in name:
         return "click_element"
 
     if "wait" in name and "page" in name:

@@ -4,47 +4,13 @@ Resource   ../keywords/verify/verify.robot
 Resource   ../keywords/business/search_business.robot
 
 *** Keywords ***
-Open Home Page
-    [Documentation]    Navigate to the home page
-    # TODO: Implement
-    Go To    ${URL}
-
-Open Cart Page
-    [Documentation]    Navigate to the cart page
-    # TODO: Implement
-    Click On Element    ${CART_ICON}
-
-Open Checkout Page
-    [Documentation]    Navigate to the checkout page
-    # TODO: Implement
-    Click On Element    ${CHECKOUT_BTN}
-
-Fill Shipping Information
-    [Documentation]    Fill in the shipping information form
-    # TODO: Implement
-    [Arguments]    ${name}    ${phone}    ${email}    ${address}    ${note}
-
-    Input Text To Element    ${NAME_INPUT}      ${name}
-    Input Text To Element    ${PHONE_INPUT}     ${phone}
-    Input Text To Element    ${EMAIL_INPUT_ORDER}   ${email}
-    Input Text To Element    ${ADDRESS_INPUT}     ${address}
-    Input Text To Element    ${NOTE_INPUT}   ${note}
-
-Select Payment Method
-    [Documentation]    Select a payment method
-    # TODO: Implement
-    [Arguments]    ${method}
-    ${locator}=    Replace String    ${PAYMENT_METHOD}    {}    ${method}
-    Click On Element    ${locator}
-
-Submit Order
-    [Documentation]    Submit the order
-    # TODO: Implement
-    Click On Element    ${SUBMIT_ORDER}
 
 Add To Cart
     [Documentation]    Add product to cart
     # TODO: Implement
+    [Arguments]    ${index}
+    Open Page    ${URL}
+    Select Product From Result    ${index}
     Wait Until Element Is Visible    ${ADD_TO_CART_BTN}    timeout=10s
     Scroll Element Into View    ${ADD_TO_CART_BTN}
 
@@ -56,8 +22,16 @@ Add To Cart
 
     Sleep    2s
 
-Update Cart
-    [Documentation]    Update cart contents
+Place Order
+    [Documentation]    Start checkout process
     # TODO: Implement
-    Reload Current Page
+    [Arguments]    ${name}    ${phone}    ${email}    ${address}    ${note}    
+    Open Page   ${CART_ICON}
+    Input Text To Element    ${NAME_INPUT}      ${name}
+    Input Text To Element    ${PHONE_INPUT}     ${phone}
+    Input Text To Element    ${EMAIL_INPUT_ORDER}   ${email}
+    Input Text To Element    ${ADDRESS_INPUT}     ${address}
+    Input Text To Element    ${NOTE_INPUT}   ${note}
+    Click On Element    ${SUBMIT_ORDER}
+    
 

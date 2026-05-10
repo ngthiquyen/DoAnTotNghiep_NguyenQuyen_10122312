@@ -6,10 +6,10 @@ import shutil
 
 
 FEATURE_MAP = {
-    "1": ("search", "tests/search_auto.robot"),
-    "2": ("login", "tests/login_auto.robot"),
-    "3": ("register", "tests/register_auto.robot"),
-    "4": ("order", "tests/order_auto.robot"),
+    "1": ("search", "tests/search_auto_20260510_173326.robot"),
+    "2": ("login", "tests/login_auto_20260510_150439.robot"),
+    "3": ("register", "tests/register_auto_20260510_162840.robot"),
+    "4": ("order", "tests/order_auto_20260510_214603.robot"),
     "5": ("profile", "tests/profile_auto.robot"),
 }
 

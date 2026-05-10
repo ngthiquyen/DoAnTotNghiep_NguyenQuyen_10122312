@@ -66,7 +66,7 @@ Verify Required Field Message
     END    
     Step log   Validation message verified.
 
-#Xác minh thông báo(có thể là message hoặc text trên page)
+#Xác minh thông báo
 Verify Element Text Contains
     [Documentation]    Verify that the text of the element located by the given locator contains the expected text.
     [Arguments]       ${locator}     ${expected}
@@ -89,16 +89,3 @@ Verify Element Is Present
     Wait Until Page Contains Element    ${locator}    10s
     Log Info    [STEP]    Element located by: ${locator} is present on the page.
     Step log   Element located by: ${locator} is present on the page.
-    
-#Xác minh thông báo trên alert
-Verify Alert Message
-    [Arguments]    ${expected}
-
-    Alert Should Be Present    10s
-
-    ${text}=    Handle Alert
-
-    Log Info    [STEP] Alert text: ${text}
-    Step log   Alert text: ${text}
-
-    Should Contain    ${text}    ${expected}

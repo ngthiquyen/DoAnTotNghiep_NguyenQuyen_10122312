@@ -58,25 +58,3 @@ Wait Until Element Visible Custom
     Step log   Wait until element ${locator} is visible with timeout ${timeout}
     Wait Until Element Is Visible    ${locator}    ${timeout}
 
-Close Alert
-    [Documentation]    Close any alert
-    # TODO: Implement
-
-Reload Until Element Visible
-    [Arguments]    ${locator}
-
-    FOR    ${i}    IN RANGE    5
-        Step log   Reload attempt ${i}
-        Reload Page
-        Sleep    2s
-
-        ${ok}=    Run Keyword And Return Status
-        ...    Element Should Be Visible    ${locator}
-
-        IF    ${ok}
-            Log Info    [STEP] Element found after reload
-            Step log   Element found after reload
-            BREAK
-        END
-    END
-

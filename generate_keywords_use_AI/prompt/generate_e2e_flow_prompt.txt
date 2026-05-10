@@ -30,6 +30,20 @@ Generate an end-to-end test flow using ONLY the provided keywords.
    unless explicitly required in scenario
 14. Each business action MUST be followed by a verify keyword
 15. STRICT FLOW PATTERN:
+16. NEVER generate low-level UI actions
+17. NEVER generate custom verify text
+18. NEVER infer hidden UI steps
+19. NEVER break business keywords into sub-actions
+
+FORBIDDEN EXAMPLES:
+- Click Button
+- Click Link
+- Input Text
+- Open Page
+- Go To
+- Fill Form
+
+These are INVALID even if logically correct.
 
 LOGIN ACTIONS
 -> LOGIN VERIFY

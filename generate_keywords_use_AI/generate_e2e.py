@@ -77,16 +77,32 @@ def load_keywords_grouped():
                 continue
 
             with open(path, "r", encoding="utf-8") as f:
+
+                inside_keyword_section = False
+
                 for line in f:
-                    raw_line = line.strip()
+
+                    raw_line = line.rstrip()
+
+                    # detect keyword section
+                    if raw_line.strip() == "*** Keywords ***":
+                        inside_keyword_section = True
+                        continue
+
+                    # gặp section khác thì thoát
+                    if raw_line.startswith("***") and raw_line.strip() != "*** Keywords ***":
+                        inside_keyword_section = False
+                        continue
+
+                    # chưa vào keywords section
+                    if not inside_keyword_section:
+                        continue
+
                     # bỏ rỗng
                     if not raw_line.strip():
                         continue
 
-                    # bỏ section/comment
-                    if raw_line.strip().startswith("***"):
-                        continue
-
+                    # bỏ comment
                     if raw_line.strip().startswith("#"):
                         continue
 
@@ -95,18 +111,34 @@ def load_keywords_grouped():
 
                         keyword = raw_line.strip()
 
+                        # bỏ metadata
+                        if keyword.startswith("["):
+                            continue
+
                         groups[key].append(keyword)
 
     # VERIFY
     verify = []
     with open("keywords/verify/verify.robot", "r", encoding="utf-8") as f:
+
+        inside_keyword_section = False
+
         for line in f:
+
             raw_line = line.rstrip()
 
-            if not raw_line.strip():
+            if raw_line.strip() == "*** Keywords ***":
+                inside_keyword_section = True
                 continue
 
-            if raw_line.strip().startswith("***"):
+            if raw_line.startswith("***") and raw_line.strip() != "*** Keywords ***":
+                inside_keyword_section = False
+                continue
+
+            if not inside_keyword_section:
+                continue
+
+            if not raw_line.strip():
                 continue
 
             if raw_line.strip().startswith("#"):
@@ -114,7 +146,12 @@ def load_keywords_grouped():
 
             if not raw_line.startswith(" ") and not raw_line.startswith("\t"):
 
-                verify.append(raw_line.strip())
+                keyword = raw_line.strip()
+
+                if keyword.startswith("["):
+                    continue
+
+                verify.append(keyword)
 
     return groups, verify
 

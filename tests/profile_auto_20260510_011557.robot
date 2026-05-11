@@ -24,3 +24,13 @@ profile Auto Test 4
     [Documentation]    Auto generated from AI flow
     Update Profile      Hoang Nguyen      0123456789      ${EMPTY}
     Verify Required Field Message      Please fill out this field.
+
+profile Auto Test 5
+    [Documentation]    Auto generated from AI flow
+    Update Profile      Hoang Nguyen      01234      123 Main St, Hanoi
+    Verify Element Text Contains     ${ERROR_MSG}     Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng
+
+profile Auto Test 6
+    [Documentation]    Auto generated from AI flow
+    Update Profile      Hoang Nguyen      012345678999      123 Main St, Hanoi
+    Verify Element Text Contains     ${ERROR_MSG}     Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng

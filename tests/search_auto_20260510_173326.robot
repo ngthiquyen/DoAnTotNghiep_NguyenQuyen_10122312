@@ -42,3 +42,8 @@ search Auto Test 5
     [Documentation]    Auto generated from AI flow
     Search Product      ${EMPTY}
     Verify Required Field Message      Please fill out this field.
+
+search Auto Test 6
+    [Documentation]    Auto generated from AI flow
+    Search Product      móng
+    Verify Element Should Not Be Visible      ${PRODUCTS_NAME}

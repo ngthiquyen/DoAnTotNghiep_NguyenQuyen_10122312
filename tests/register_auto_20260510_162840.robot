@@ -53,3 +53,9 @@ register Auto Test 7
 
     Register User       ngminhtu@gmail    ngmi    ngmi
     Verify Element Text Contains     ${ERROR_MSG_REGISTER}      Mật khẩu tối thiểu phải có 6 ký tự
+
+register Auto Test 8
+    [Documentation]    Auto generated from AI flow
+
+    Register User       ngminh@gmail    ngminhtu   ngminht
+    Verify Element Text Contains     ${ERROR_MSG_REGISTER}      Xác nhận mật khẩu không khớp với mật khẩu

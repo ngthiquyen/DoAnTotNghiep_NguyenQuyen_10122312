@@ -4,7 +4,9 @@ __pycache__/
 *.pyc
 
 #=====Robot Framework/HTML Report=====
-*.html
+log.html
+report.html
+output.xml
 
 # ===== TEMP / OUTPUT =====
 *.log

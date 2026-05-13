@@ -1,0 +1,14 @@
+Here is the Happy Path Main Business Flow:
+
+**Register User**
+
+1. **Open Register Page**
+	* ${data}: None
+2. **Fill Register Form**
+	* ${data}: [insert placeholder for user input]
+3. **Verify Element Should Be Visible** | "Register Form"
+4. **Submit Register Form**
+5. **Verify Current URL Should Be** | "/register-success"
+6. **Verify Page Contains Text** | "Account created successfully"
+
+Note: The expected values are placeholders and will be replaced with actual data during execution.

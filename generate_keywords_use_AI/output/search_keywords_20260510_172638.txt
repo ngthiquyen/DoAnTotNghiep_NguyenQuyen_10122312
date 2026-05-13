@@ -1,0 +1,23 @@
+Here is the output:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Search Product | Yes | product_name |  | Perform search for a product with given name. |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Input Search Query | Yes | query_text | Input Text | Enter the search query into the search field. |
+| Click Search Button | No |  | Click Element | Click the search button to initiate the search. |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Product List Is Present | Yes | product_list | Page Should Contain | Verify that the list of products is present on the page. |
+| Verify No Results Message Is Present | Yes | message_text | Element Should Be Visible | Verify that the no results message is present and visible. |
+
+Note: I've followed the rules and guidelines provided to generate reusable keywords for the given feature using exactly three layers (Business, UI Action, Verification).

@@ -1,0 +1,13 @@
+Here is the Happy Path Main Business Flow:
+
+**Order Placement**
+
+1. Open Cart Page | ${cartPageUrl}
+2. Update Cart | ${productIds}
+3. Submit Order
+4. Fill Shipping Information | ${shippingInfo}
+5. Select Payment Method | ${paymentMethod}
+6. Submit Order
+7. Verify Current URL Should Be | ${orderConfirmationUrl}
+
+This flow represents the main path of a user placing an order on the system, including adding products to their cart, filling out shipping information, selecting a payment method, and submitting the order. The final step verifies that the current URL is the expected order confirmation page.

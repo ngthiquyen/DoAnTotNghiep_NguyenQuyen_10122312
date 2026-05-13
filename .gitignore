@@ -3,8 +3,10 @@
 __pycache__/
 *.pyc
 
+#=====Robot Framework/HTML Report=====
+*.html
+
 # ===== TEMP / OUTPUT =====
-output/
 *.log
 
 # ===== OS =====

@@ -1,0 +1,24 @@
+Here is the output:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Update Profile | Yes | profile_id, new_info | None | Update user's personal information. |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Go To Profile Page | No | None | Go To | Navigate to the profile page. |
+| Click On Update Button | No | None | Click Element | Click the update button. |
+| Input New Information | Yes | new_info | Input Text | Enter new user information. |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Profile Updated | No | None | Element Should Contain | Verify that the profile has been updated correctly. |
+| Verify Error Message | Yes | error_message | Page Should Contain | Verify that an error message is displayed when data is invalid. |
+
+Note: I've followed the rules and guidelines provided to generate reusable keywords for the given feature.

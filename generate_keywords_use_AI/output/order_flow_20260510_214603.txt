@@ -1,0 +1,11 @@
+Here is the Happy Path Main Business Flow:
+
+**Order Placement**
+
+1. **Add To Cart** | ${productID}
+2. **Place Order**
+3. **Verify Page Contains Text** | "Order Summary"
+4. **Verify Current URL Should Be** | "${expectedOrderSummaryURL}"
+5. **Verify Element Is Present** | "Shipping Information"
+
+Note: The placeholders `${data}` and `${expected}` are used to represent the actual values that would be passed in a real-world scenario.

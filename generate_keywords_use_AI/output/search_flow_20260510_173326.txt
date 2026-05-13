@@ -1,0 +1,9 @@
+Here is the Happy Path Main Business Flow:
+
+**Search Product**
+
+1. **Search Product** | ${searchQuery}
+2. **Select Product From Result**
+3. **Verify Page Contains Element** | ${expectedProductList}
+
+Note: The `${searchQuery}` placeholder represents the input search query, and `${expectedProductList}` represents the expected list of products that match the search query.

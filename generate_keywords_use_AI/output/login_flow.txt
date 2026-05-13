@@ -1,0 +1,12 @@
+Here is the Happy Path Main Business Flow:
+
+**Login Successful**
+
+1. **Login To System** | ${username}
+2. **Fill Login Form**
+3. **Verify Current URL Should Be** | "login"
+4. **Submit Login Form**
+5. **Verify Element Text Contains** | "Welcome, ${username}"
+6. **Verify Page Contains Element** | "logout"
+
+Note: I used the provided business and verification keywords to create a happy path flow that represents a successful login scenario. The placeholders `${data}` and `${expected}` are not filled in as they would be in an actual test case.

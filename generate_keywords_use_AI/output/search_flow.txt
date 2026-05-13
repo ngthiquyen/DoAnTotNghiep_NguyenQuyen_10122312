@@ -1,0 +1,11 @@
+Here is the Happy Path Main Business Flow:
+
+**Search Product**
+
+1. **Open Search Page**
+2. **Input Search Keyword** | ${searchKeyword}
+3. **Submit Search**
+4. **Verify Current URL Should Be** | "search-results"
+5. **Verify Page Contains Element** | "product-list"
+
+Note: I used the provided business keywords and verification keywords to create a flow that matches the use case description. The placeholders `${searchKeyword}` represent the input search keyword, which is expected to be passed in as part of the test data.

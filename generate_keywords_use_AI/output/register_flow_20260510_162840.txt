@@ -1,0 +1,11 @@
+Here is the Happy Path Main Business Flow:
+
+**Register User Successfully**
+
+1. **Register User** | ${data}
+2. **Register User**
+3. **Verify Page Contains Text** | "Please wait while we process your registration..."
+4. **Verify Element Should Be Visible** | "Registration successful"
+5. **Verify Current URL Should Be** | "/account-created"
+
+Note: The placeholders `${data}` represent the input data for the Register User business keyword, which is not specified in this example.

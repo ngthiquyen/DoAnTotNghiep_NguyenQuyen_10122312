@@ -1,0 +1,10 @@
+Here is the Happy Path Main Business Flow:
+
+**Login to System**
+
+1. **Login To System** | ${username}
+2. **Login To System**
+3. **Verify Current URL Should Be** | "login-success"
+4. **Verify Page Contains Text** | "Welcome, ${username}!"
+
+Note: The `${username}` placeholder represents the actual username input by the user.

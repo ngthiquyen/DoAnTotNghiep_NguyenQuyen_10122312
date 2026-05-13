@@ -1,0 +1,10 @@
+Here is the Happy Path Main Business Flow:
+
+**Update Profile Successfully**
+
+1. Update Profile | ${newName}, ${newEmail}, ${newPhone}
+2. Update Profile
+3. Verify Page Contains Text | "Updated successfully"
+4. Verify Current URL Should Be | "${expectedURL}"
+
+Note: The placeholders `${newName}`, `${newEmail}`, and `${newPhone}` represent the new values entered by the user for their profile information.

@@ -1,0 +1,9 @@
+Here is the Happy Path Main Business Flow:
+
+**Order Placement**
+
+1. Add To Cart From HomePage | ${productID}
+2. Place Order
+3. Verify Current URL Should Be | ${orderConfirmationPageURL}
+
+Note: This flow assumes that the user has successfully added a product to their cart and then proceeds to place the order, which results in a successful order confirmation page being displayed.

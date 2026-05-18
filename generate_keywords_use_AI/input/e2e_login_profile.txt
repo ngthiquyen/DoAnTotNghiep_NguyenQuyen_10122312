@@ -12,7 +12,7 @@ LOGIN
 
 FROFILE
 5. Nhấn vào tài khoản
-6. Nhập thông tin chỉnh sửa (họ tên, số điện thoại, địa chỉ).
+6. Nhập thông tin chỉnh sửa.
 7. Nhấn cập nhật
 7. Xác minh cập nhật thành công.
 

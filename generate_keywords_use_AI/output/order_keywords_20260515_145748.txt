@@ -1,0 +1,26 @@
+Here is the output:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Place Order  | Yes             | Product ID, Quantity | None               | Initiate order creation |
+| Add To Cart  | Yes             | Product ID          | None               | Add product to cart |
+| View Cart    | No              | None                | None               | Display cart contents |
+| Checkout     | Yes             | Payment Info        | Shipping Address   | Start checkout process |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Click On Product  | Yes            | Product Element | Click Element                | Select product |
+| Input Quantity    | Yes            | Quantity Field   | Input Text                  | Enter quantity |
+| Open Cart         | No             | None            | Get WebElements              | Display cart |
+| Close Checkout     | Yes           | Payment Info     | Page Should Contain          | Complete checkout |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Product Added  | No             | None        | Element Should Be Visible      | Validate product addition |
+| Verify Cart Contents  | Yes           | Cart Elements | Get

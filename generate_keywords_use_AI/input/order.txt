@@ -5,7 +5,7 @@ Chức năng đặt hàng cho phép người dùng tạo đơn hàng bằng các
 thêm vào giỏ hàng và thực hiện thanh toán với thông tin giao hàng hợp lệ.
 
 Luồng chính (Main Flows):
-1. Người dùng chọn sản phẩm.
+1. Người dùng chọn sản phẩm từ trang chủ.
 2. Hệ thống hiển thị thông tin chi tiết của sản phẩm.
 3. Người dùng nhấn nút thêm.
 4. Người dùng mở trang giỏ hàng.

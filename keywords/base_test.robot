@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary  run_on_failure=None
 Library    ../utils/logger.py
-Library    ../utils/screenshot.py
 Library   ../utils/allure_helper.py
 Library    OperatingSystem
 Library    String
@@ -24,8 +23,6 @@ Close Browser Suite
     Step log   Close browser
     Close All Browsers
 
-Test Teardown    Run Keyword If Test Failed    Handle Test Failure
-
 Handle Test Failure
     Log    Test failed: ${TEST NAME}
     Step log   Test failed: ${TEST NAME}
@@ -40,16 +37,24 @@ Handle Test Failure
     ${clean_test_name}=    Replace String    ${clean_test_name}    \\    _
 
     # 3. Folder
-    ${dir}=    Set Variable    ${OUTPUT DIR}${/}screenshots
-    Create Directory    ${dir}
+    ${dir_in}=    Set Variable    ${OUTPUT DIR}${/}screenshots
+    Create Directory    ${dir_in}
 
-    # 4. Path
-    ${path}=    Set Variable    ${dir}${/}${clean_test_name}_${timestamp}.png
+    # 4. Folder ngoài project
+    ${dir_out}=    Set Variable    ${CURDIR}${/}..${/}screenshots
+    Create Directory    ${dir_out}
 
-    # 5. Screenshot
-    Capture Page Screenshot    ${path}
+    # 5. Path
+    ${path_in}=    Set Variable    ${dir_in}${/}${clean_test_name}_${timestamp}.png
+    ${path_out}=    Set Variable    ${dir_out}${/}${clean_test_name}_${timestamp}.png
 
-    Log    Screenshot saved at: ${path}
-    Step log   Screenshot saved at: ${path}
-    Attach Screenshot    ${path} 
+    # 6. Chụp vào reports/robot/screenshots
+    Capture Page Screenshot    ${path_in}
+
+    # 7. Copy thêm ra screenshots/ ngoài project
+    Copy File    ${path_in}    ${path_out}
+
+    Log    Screenshot saved at: ${path_in}
+    Step log   Screenshot saved at: ${path_in}
+    Attach Screenshot    ${path_in} 
 

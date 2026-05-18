@@ -5,8 +5,24 @@ Resource   ../keywords/business/search_business.robot
 
 *** Keywords ***
 
-Add To Cart
-    [Documentation]    Add product to cart
+Add To Cart From Search Result
+    [Documentation]    Add product to cart from search result page
+    # TODO: Implement
+    [Arguments]    ${index}
+    Select Product From Result    ${index}
+    Wait Until Element Is Visible    ${ADD_TO_CART_BTN}    timeout=10s
+    Scroll Element Into View    ${ADD_TO_CART_BTN}
+
+    Wait Until Keyword Succeeds
+    ...    10s
+    ...    1s
+    ...    Click On Element
+    ...    ${ADD_TO_CART_BTN}
+
+    Sleep    2s
+
+Add To Cart From HomePage
+    [Documentation]    Add product to cart from home page
     # TODO: Implement
     [Arguments]    ${index}
     Open Page    ${URL}
@@ -20,8 +36,6 @@ Add To Cart
     ...    Click On Element
     ...    ${ADD_TO_CART_BTN}
 
-    Sleep    2s
-
 Place Order
     [Documentation]    Start checkout process
     # TODO: Implement
@@ -34,4 +48,3 @@ Place Order
     Input Text To Element    ${NOTE_INPUT}   ${note}
     Click On Element    ${SUBMIT_ORDER}
     
-

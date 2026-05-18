@@ -1,0 +1,11 @@
+Here is the generated end-to-end test flow using only the provided keywords:
+
+[
+  "Login To System",
+  "Verify Current URL Should Be",
+  "Update Profile",
+  "Verify Element Text Contains",
+  "Verify Page Contains Text"
+]
+
+This flow follows the strict rules and guidelines provided, using only the available business keywords and global verify keywords. It also ensures that each action is followed by a verification step to validate the result of the previous action.

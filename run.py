@@ -9,8 +9,9 @@ FEATURE_MAP = {
     "1": ("search", "tests/search_auto_20260510_173326.robot"),
     "2": ("login", "tests/login_auto_20260510_150439.robot"),
     "3": ("register", "tests/register_auto_20260510_162840.robot"),
-    "4": ("order", "tests/order_auto_20260510_214603.robot"),
+    "4": ("order", "tests/order_auto_20260515_150607.robot"),
     "5": ("profile", "tests/profile_auto.robot"),
+    "6": ("e2e", "tests/e2e/login_search_order_20260514_124712.robot")
 }
 
 print("===== CHỌN TEST =====")
@@ -19,7 +20,7 @@ print("2. Login")
 print("3. Register")
 print("4. Order")
 print("5. Profile")
-
+print("6. E2E")
 # ===== CONFIG =====
 venv_python = os.path.join(".venv", "Scripts", "python.exe")
 
@@ -70,7 +71,7 @@ if os.path.exists(history_src):
 result = subprocess.run([
     venv_python, "-X", "utf8", "-m", "robot",
     "--outputdir", ROBOT_DIR,
-    "--listener", f"allure_robotframework:{RESULTS_DIR}",
+    "--listener", f"allure_robotframework;{RESULTS_DIR}",
     test_file
 ])
 # Nếu fail thì dừng luôn

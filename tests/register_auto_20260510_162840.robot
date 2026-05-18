@@ -12,7 +12,7 @@ Test Teardown    Run Keywords
 
 
 *** Test Cases ***
-register Auto Test
+register Auto Test 1
     [Documentation]    Auto generated from AI flow
 
     Register User       ngminhtu@gmail.com   ngminhtu   ngminhtu
@@ -21,41 +21,54 @@ register Auto Test
 register Auto Test 2
     [Documentation]    Auto generated from AI flow
 
-    Register User       ${EMPTY}   ngminhtu   ngminhtu
-    Verify Required Field Message      Please fill out this field.
+    Register User       ngminhtu@gmail.com    ngmi    ngmi
+    Verify Element Text Contains     ${ERROR_MSG_REGISTER}      Mật khẩu tối thiểu phải có 6 ký tự
 
 register Auto Test 3
     [Documentation]    Auto generated from AI flow
 
-    Register User       ngminhtu@gmail.com   ${EMPTY}   ngminhtu
-    Verify Required Field Message      Please fill out this field.
+    Register User       hoanganh@gmail.com    hoanganh   hoanganh1
+    Verify Element Text Contains     ${ERROR_MSG_REGISTER}      Xác nhận mật khẩu không khớp với mật khẩu
 
 register Auto Test 4
     [Documentation]    Auto generated from AI flow
 
-    Register User       ngminhtu@gmail.com   ngminhtu   ${EMPTY}
+    Register User       ${EMPTY}   ngminhtu   ngminhtu
     Verify Required Field Message      Please fill out this field.
 
 register Auto Test 5
     [Documentation]    Auto generated from AI flow
 
+    Register User       ngminhtu@gmail.com   ${EMPTY}   ngminhtu
+    Verify Required Field Message      Please fill out this field.
+
+register Auto Test 6
+    [Documentation]    Auto generated from AI flow
+
+    Register User       ngminhtu@gmail.com   ngminhtu   ${EMPTY}
+    Verify Required Field Message      Please fill out this field.
+
+register Auto Test 7
+    [Documentation]    Auto generated from AI flow
+
     Register User       ngminhtugmail.com   ngminhtu   ngminhtu
     Verify Required Field Message      Please
 
-register Auto Test 6
+register Auto Test 8
     [Documentation]    Auto generated from AI flow
 
     Register User       ngminhtu@       ngminhtu   ngminhtu
     Verify Required Field Message      Please
 
-register Auto Test 7
+register Auto Test 9
     [Documentation]    Auto generated from AI flow
 
-    Register User       ngminhtu@gmail    ngmi    ngmi
-    Verify Element Text Contains     ${ERROR_MSG_REGISTER}      Mật khẩu tối thiểu phải có 6 ký tự
-
-register Auto Test 8
+    Register User       @gmail.com   ngminhtu   ngminhtu
+    Verify Required Field Message      Please
+    
+register Auto Test 10
     [Documentation]    Auto generated from AI flow
 
-    Register User       ngminh@gmail    ngminhtu   ngminht
-    Verify Element Text Contains     ${ERROR_MSG_REGISTER}      Xác nhận mật khẩu không khớp với mật khẩu
+    Register User   ngminhtu@gmail.     ngminhtu   ngminhtu
+    Verify Required Field Message      wrong position
+

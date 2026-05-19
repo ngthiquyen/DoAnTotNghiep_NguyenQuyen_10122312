@@ -89,3 +89,4 @@ E2E login_20260517_213426_8
     Verify Element Should Be Visible    ${ACCOUNT_PAGE}  
     Update Profile      Nguyen Van Hoan    012345678aa    123 Nguyen Trai Street
     Verify Element Text Contains        ${ERROR_MSG}    Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng
+

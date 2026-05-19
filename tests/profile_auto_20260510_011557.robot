@@ -34,3 +34,13 @@ profile Auto Test 6
     [Documentation]    Auto generated from AI flow
     Update Profile      Hoang Nguyen      012345678999      123 Main St, Hanoi
     Verify Element Text Contains     ${ERROR_MSG}     Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng
+
+profile Auto Test 7
+    [Documentation]    Auto generated from AI flow
+    Update Profile      Hoang Nguyen      0123456789aa      123 Main St, Hanoi
+    Verify Element Text Contains     ${ERROR_MSG}     Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng
+
+profile Auto Test 8
+    [Documentation]    Auto generated from AI flow
+    Update Profile      Hoang Nguyen      0123456789@!      123 Main St, Hanoi, Vietnam
+    Verify Element Text Contains     ${ERROR_MSG}     Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng

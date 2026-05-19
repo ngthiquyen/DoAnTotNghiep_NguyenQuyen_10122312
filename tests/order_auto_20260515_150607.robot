@@ -48,10 +48,17 @@ order Auto Test 5
     [Documentation]    Auto generated from AI flow
 
     Add To Cart From HomePage      0
+    Place Order         Linh    012345679a    linhnguyen@gmail.com       123 Main St, City   Giao giờ hành chính
+    Verify Element Text Contains       ${ORDER_ERROR_MSG}    Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng
+
+order Auto Test 6
+    [Documentation]    Auto generated from AI flow
+
+    Add To Cart From HomePage      0
     Place Order         Linh    ${EMPTY}   linhnguyen@gmail.com   123 Main St, City   Giao giờ hành chính  
     Verify Required Field Message     Please fill out this field.
 
-order Auto Test 6
+order Auto Test 7
     [Documentation]    Auto generated from AI flow
 
     Add To Cart From HomePage      0
@@ -59,28 +66,28 @@ order Auto Test 6
     Verify Required Field Message         Please fill out this field.
 
 
-order Auto Test 7
+order Auto Test 8
     [Documentation]    Auto generated from AI flow
 
     Add To Cart From HomePage      0
     Place Order         Linh    0123456789  linhnguyen@   123 Main St, City   Giao giờ hành chính
     Verify Required Field Message     Please 
 
-order Auto Test 8
+order Auto Test 9
     [Documentation]    Auto generated from AI flow
 
     Add To Cart From HomePage      0
     Place Order         Linh    0123456789  @gmail.com   123 Main St, City   Giao giờ hành chính
     Verify Required Field Message     Please
 
-order Auto Test 9
+order Auto Test 10
     [Documentation]    Auto generated from AI flow
 
     Add To Cart From HomePage      0
     Place Order         Linh    0123456789   linhnguyengmail   123 Main St, City   Giao giờ hành chính
     Verify Required Field Message     Please
 
-order Auto Test 10
+order Auto Test 11
     [Documentation]    Auto generated from AI flow
 
     Add To Cart From HomePage      0

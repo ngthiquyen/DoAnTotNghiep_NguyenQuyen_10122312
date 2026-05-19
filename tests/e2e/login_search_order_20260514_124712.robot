@@ -79,8 +79,8 @@ E2E login_search_order_20260514_124712_5
     Verify Page Contains Text    ELA811
     Add To Cart From Search Result     0
     Verify Page Contains Element          ${CART_CONTENT}
-    Place Order     Tuyet Mai    ${EMPTY}   tuyetmai99@gmail   123 Main St, City   Giao giờ hành chính
-    Verify Required Field Message     Please fill out this field.
+    Place Order     Tuyet Mai    012345679a   tuyetmai99@gmail   123 Main St, City   Giao giờ hành chính
+    Verify Element Text Contains    ${ORDER_ERROR_MSG}    Vui lòng nhập ít nhất một số điện thoại bạn đang sử dụng
 
 E2E login_search_order_20260514_124712_6
     [Documentation]    AI generated E2E
@@ -92,7 +92,7 @@ E2E login_search_order_20260514_124712_6
     Verify Page Contains Text    ELA811
     Add To Cart From Search Result     0
     Verify Page Contains Element          ${CART_CONTENT}
-    Place Order     Tuyet Mai    0123456789   tuyetmai99@gmail.com   ${EMPTY}   Giao giờ hành chính
+    Place Order     Tuyet Mai    ${EMPTY}   tuyetmai99@gmail   123 Main St, City   Giao giờ hành chính
     Verify Required Field Message     Please fill out this field.
 
 E2E login_search_order_20260514_124712_7
@@ -105,10 +105,23 @@ E2E login_search_order_20260514_124712_7
     Verify Page Contains Text    ELA811
     Add To Cart From Search Result     0
     Verify Page Contains Element          ${CART_CONTENT}
+    Place Order     Tuyet Mai    0123456789   tuyetmai99@gmail.com   ${EMPTY}   Giao giờ hành chính
+    Verify Required Field Message     Please fill out this field.
+
+E2E login_search_order_20260514_124712_8
+    [Documentation]    AI generated E2E
+
+    Login To System     tuyetmai99@gmail.com    tuyetmai99
+    Select Product From Result     0
+    Verify Element Should Be Visible    ${ACCOUNT_PAGE}
+    Search Product      ELA811
+    Verify Page Contains Text    ELA811
+    Add To Cart From Search Result     0
+    Verify Page Contains Element          ${CART_CONTENT}
     Place Order     Tuyet Mai    0123456789   tuyetmai99@   123 Main St, City   Giao giờ hành chính
     Verify Required Field Message     Please 
 
-E2E login_search_order_20260514_124712_8
+E2E login_search_order_20260514_124712_9
     [Documentation]    AI generated E2E
 
     Login To System     tuyetmai99@gmail.com    tuyetmai99
@@ -121,7 +134,7 @@ E2E login_search_order_20260514_124712_8
     Place Order     Tuyet Mai    0123456789   @gmail.com   123 Main St, City   Giao giờ hành chính
     Verify Required Field Message     Please
 
-E2E login_search_order_20260514_124712_9
+E2E login_search_order_20260514_124712_10
     [Documentation]    AI generated E2E
 
     Login To System     tuyetmai99@gmail.com    tuyetmai99
@@ -134,7 +147,7 @@ E2E login_search_order_20260514_124712_9
     Place Order     Tuyet Mai    0123456789   tuyetmaigmail   123 Main St, City   Giao giờ hành chính
     Verify Required Field Message     Please
 
-E2E login_search_order_20260514_124712_10
+E2E login_search_order_20260514_124712_11
     [Documentation]    AI generated E2E
 
     Login To System     tuyetmai99@gmail.com    tuyetmai99

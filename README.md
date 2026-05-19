@@ -71,7 +71,6 @@ project/
 │   ├── allure_helper.py
 │   ├── logger.py
 │   ├── rune2e.py
-│   ├── screenshot.py
 │
 └── README.md
 ├── requirements.txt             --> Các thư viện cần cài đặt

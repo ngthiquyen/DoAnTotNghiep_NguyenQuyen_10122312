@@ -23,4 +23,4 @@ Here is the output:
 | Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
 |--------------|-----------------|-----------|--------------------------------------|-------------|
 | Verify Product Added  | No             | None        | Element Should Be Visible      | Validate product addition |
-| Verify Cart Contents  | Yes           | Cart Elements | Get
+| Verify Cart Contents  | Yes           | Cart Elements | Element Should Be Visible       | Validate cart contents   | 

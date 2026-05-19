@@ -26,7 +26,6 @@ ORDER
 13. Nhấn nút đặt hàng.
 14. Xác minh đặt hàng thành công.
 
-
 Kết quả mong đợi (Expected):
 - Người dùng đăng nhập thành công.
 - Kết quả tìm kiếm hiển thị chính xác.

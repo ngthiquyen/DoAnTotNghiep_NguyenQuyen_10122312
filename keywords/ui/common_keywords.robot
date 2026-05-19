@@ -58,3 +58,7 @@ Wait Until Element Visible Custom
     Step log   Wait until element ${locator} is visible with timeout ${timeout}
     Wait Until Element Is Visible    ${locator}    ${timeout}
 
+
+Close Cart Page
+    [Documentation]    Exit cart page
+    # TODO: Implement

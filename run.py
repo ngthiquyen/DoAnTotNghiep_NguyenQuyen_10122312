@@ -10,7 +10,7 @@ FEATURE_MAP = {
     "2": ("login", "tests/login_auto_20260510_150439.robot"),
     "3": ("register", "tests/register_auto_20260510_162840.robot"),
     "4": ("order", "tests/order_auto_20260515_150607.robot"),
-    "5": ("profile", "tests/profile_auto.robot"),
+    "5": ("profile", "tests/e2e/login_20260517_213426.robot"),
     "6": ("e2e", "tests/e2e/login_search_order_20260514_124712.robot")
 }
 
@@ -21,13 +21,12 @@ print("3. Register")
 print("4. Order")
 print("5. Profile")
 print("6. E2E")
+
 # ===== CONFIG =====
 venv_python = os.path.join(".venv", "Scripts", "python.exe")
 
-# Auto detect allure
 ALLURE_CMD = shutil.which("allure")
 
-# fallback nếu không detect được (sửa lại path nếu cần)
 if not ALLURE_CMD:
     ALLURE_CMD = r"C:\Users\Dell\scoop\apps\allure\current\bin\allure.bat"
 
@@ -36,45 +35,47 @@ choice = input("Nhập lựa chọn: ").strip()
 
 if choice not in FEATURE_MAP:
     print("Lựa chọn không hợp lệ")
-    exit()
+    sys.exit(1)
 
 feature, test_file = FEATURE_MAP[choice]
 
 print(f"\nRunning {feature}...\n")
 
-# Tạo folder nếu chưa có
-os.makedirs("reports/robot", exist_ok=True)
-os.makedirs("reports/allure/results", exist_ok=True)
-
 # ===== TIME STAMP =====
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-# ===== PATH =====
-RESULTS_DIR = "reports/allure/results"
-REPORT_BASE = "reports/allure"
-REPORT_DIR = f"{REPORT_BASE}/report_{timestamp}"
+# ===== PATH THEO TỪNG CHỨC NĂNG =====
+ALLURE_FEATURE_BASE = os.path.join("reports", "allure", feature)
 
-ROBOT_DIR = f"reports/robot/run_{timestamp}"
+RESULTS_DIR = os.path.join(ALLURE_FEATURE_BASE, "results")
+REPORT_DIR = os.path.join(ALLURE_FEATURE_BASE, f"report_{timestamp}")
+LAST_REPORT = os.path.join(ALLURE_FEATURE_BASE, "last_report")
+
+ROBOT_DIR = os.path.join("reports", "robot", feature, f"run_{timestamp}")
+
+# ===== XÓA RESULTS CŨ ĐỂ KHÔNG BỊ LẪN TEST =====
+if os.path.exists(RESULTS_DIR):
+    shutil.rmtree(RESULTS_DIR)
 
 # ===== CREATE DIR =====
 os.makedirs(RESULTS_DIR, exist_ok=True)
 os.makedirs(ROBOT_DIR, exist_ok=True)
 
-# ===== COPY HISTORY (QUAN TRỌNG - TREND) =====
-history_src = f"{REPORT_BASE}/last_report/history"
-history_dst = f"{RESULTS_DIR}/history"
+# ===== COPY HISTORY CŨ CỦA ĐÚNG FEATURE ĐỂ TẠO TREND =====
+history_src = os.path.join(LAST_REPORT, "history")
+history_dst = os.path.join(RESULTS_DIR, "history")
 
 if os.path.exists(history_src):
     shutil.copytree(history_src, history_dst, dirs_exist_ok=True)
-    
-# Command chạy robot
+
+# ===== RUN ROBOT =====
 result = subprocess.run([
     venv_python, "-X", "utf8", "-m", "robot",
     "--outputdir", ROBOT_DIR,
     "--listener", f"allure_robotframework;{RESULTS_DIR}",
     test_file
 ])
-# Nếu fail thì dừng luôn
+
 if result.returncode != 0:
     print("Test failed")
 else:
@@ -83,7 +84,7 @@ else:
 
 print("\nGenerating Allure report...\n")
 
-# Generate allure report
+# ===== GENERATE ALLURE REPORT =====
 try:
     subprocess.run([
         ALLURE_CMD,
@@ -94,16 +95,16 @@ try:
         "--clean"
     ], check=True)
 
-    # ===== SAVE LAST REPORT (CHO TREND LẦN SAU) =====
-    LAST_REPORT = f"{REPORT_BASE}/last_report"
-
+    # ===== SAVE LAST REPORT RIÊNG CHO FEATURE =====
     if os.path.exists(LAST_REPORT):
         shutil.rmtree(LAST_REPORT)
 
     shutil.copytree(REPORT_DIR, LAST_REPORT)
 
     # ===== OPEN REPORT =====
-    subprocess.Popen(f'"{ALLURE_CMD}" open {REPORT_DIR}', shell=True)
+    subprocess.Popen(f'"{ALLURE_CMD}" open "{REPORT_DIR}"', shell=True)
+
+    print(f"\nAllure report generated: {REPORT_DIR}")
 
 except Exception as e:
     print("Không chạy được Allure")

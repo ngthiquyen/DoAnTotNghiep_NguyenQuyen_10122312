@@ -27,7 +27,7 @@ register Auto Test 2
 register Auto Test 3
     [Documentation]    Auto generated from AI flow
 
-    Register User       hoanganh@gmail.com    hoanganh   hoanganh1
+    Register User       hoanganh1@gmail.com    hoanganh   hoanganh1
     Verify Element Text Contains     ${ERROR_MSG_REGISTER}      Xác nhận mật khẩu không khớp với mật khẩu
 
 register Auto Test 4

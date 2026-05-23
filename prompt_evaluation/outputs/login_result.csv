@@ -1,0 +1,285 @@
+FEATURE,"[ollama:llama3] prompts\prompt_v1.txt: You are a QA automation engineer.
+
+Generate reusable Robot Framework keywords for the given feature.
+
+Organize the keywords into three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in table format.
+
+Each table should include the keyword name and a short description of its purpose.
+
+The keywords should be suitable for a Keyword-Driven Testing framework.
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}",Status,Score,Named Scores,Grader Reason,Comment,"[ollama:llama3] prompts\prompt_v2.txt: You are a Senior QA Automation Engineer.
+
+Generate reusable Robot Framework keywords for the given feature using three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in markdown tables.
+
+Do not generate:
+- test cases
+- automation code
+- locators
+- example values
+
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Business Keywords:
+- Represent user actions or business workflows.
+
+UI Action Keywords:
+- Represent UI operations.
+
+Verification Keywords:
+- Represent validation actions.
+
+Each table should include:
+- Keyword Name
+- Input Parameters
+- Parameters
+- Description
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}",Status,Score,Named Scores,Grader Reason,Comment,"[ollama:llama3] prompts\prompt_v3.txt: You are a Senior Automation Architect designing a reusable Keyword-Driven Testing architecture using Robot Framework.
+
+Your task is to generate reusable keywords for the given feature using exactly three layers.
+
+Do not provide explanations. Output tables only.
+
+--------------------------------------------------
+
+ARCHITECTURE
+
+Use exactly these layers:
+1. Business Layer
+2. UI Action Layer
+3. Verification Layer
+
+--------------------------------------------------
+
+GLOBAL RULES
+
+Do NOT generate:
+- test cases
+- automation code
+- locators
+- example values
+
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Keywords must be reusable, generic, and data-independent.
+
+--------------------------------------------------
+
+LAYER DESIGN
+
+BUSINESS
+    - Represent user actions or business workflows
+    - May orchestrate UI and Verification keywords
+    - Must NOT contain UI verbs (Click, Input, Select, Wait)
+    - Must NOT contain validation logic
+
+    BUSINESS KEYWORD PATTERN: <Action> <Business Goal>
+
+UI ACTION
+    - Generic UI operations only
+    - Must NOT contain feature-specific words
+    - Must map to SeleniumLibrary keywords
+
+    UI KEYWORD PATTERN: <Action> <Generic UI Target>
+
+    Allowed SeleniumLibrary Keywords:
+        - Input Text
+        - Click Element
+        - Wait Until Element Is Visible
+        - Element Should Be Visible
+        - Element Should Contain
+        - Page Should Contain
+        - Get WebElements
+        - Scroll Element Into View
+
+        Derived From SeleniumLibrary Keyword MUST be chosen from the list above.
+        Do NOT invent Selenium keywords.
+
+VERIFICATION
+    - Generic validation keywords
+    - Validate text, element state, navigation, or page content
+    - Must map to SeleniumLibrary built-in keywords
+    - Avoid words derived from the feature description
+    - Use abstract validation naming
+
+    VERIFICATION KEYWORD PATTERN: Verify <Generic Condition>
+
+    Good: Verify Element Is Visible, Verify Text Is Present
+
+    Bad: Verify Login Success, Verify Search Result 
+
+--------------------------------------------------
+
+OUTPUT FORMAT (STRICT)
+
+[BUSINESS KEYWORDS]
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| ... | Yes/No | parameter names or None | Yes/No | short purpose |
+
+Rules: business actions only, no UI verbs, no validation terms.
+
+
+[UI ACTION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | generic UI action |
+
+Rules: Must be generic UI operations such as Input Text Into Field, Click On Element, eg.
+
+
+[VERIFICATION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | validation purpose |
+
+Rules: generic validation such as Verify Element Is Visible or Verify Text Is Present, eg.
+
+--------------------------------------------------
+
+SELF VALIDATION (MANDATORY)
+
+Before output:
+- No UI verbs in Business
+- No verification logic in Business
+- No feature words in UI
+- No feature words in Verification
+- Selenium keyword must be from allowed list
+- All UI and Verification keywords map to real SeleniumLibrary built-in keywords.
+- Return maximum 5 keywords for each layer.
+
+If any rule is violated → regenerate the keyword list.
+
+--------------------------------------------------
+
+FEATURE DESCRIPTION
+{{FEATURE}}",Status,Score,Named Scores,Grader Reason,Comment
+"Chức năng: Đăng nhập
+
+Mô tả:
+Chức năng đăng nhập cho phép người dùng truy cập vào hệ thống bằng cách xác thực thông tin đăng nhập đã được lưu trữ trong cơ sở dữ liệu.
+
+Luồng chính:
+1. Người dùng truy cập trang đăng nhập.
+2. Hệ thống hiển thị form đăng nhập.
+3. Người dùng nhập tên đăng nhập hoặc email.
+4. Người dùng nhập mật khẩu.
+5. Người dùng nhấn nút Đăng nhập.
+6. Hệ thống kiểm tra thông tin đăng nhập.
+7. Hệ thống xác thực thành công.
+8. Hệ thống đăng nhập người dùng và chuyển hướng đến trang chủ.
+
+Luồng ngoại lệ:
+1. Dữ liệu đăng nhập bị bỏ trống.
+2. Tài khoản không tồn tại.
+3. Mật khẩu không đúng.
+4. Tài khoản bị khóa hoặc chưa kích hoạt.
+
+Kết quả mong đợi:
+- Người dùng đăng nhập thành công khi nhập đúng thông tin.
+- Hiển thị thông báo lỗi phù hợp khi đăng nhập thất bại.
+","Here are the reusable Robot Framework keywords organized into three layers:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Login User | Perform a login action with valid credentials. |
+| Invalid Credentials | Attempt to login with invalid credentials (e.g., incorrect password). |
+| Missing Credentials | Try to login without providing any credentials. |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Go To Login Page | Navigate to the login page. |
+| Fill In Credentials | Enter valid username and password into the form. |
+| Submit Login Form | Click the ""Login"" button to submit the form. |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Verify Successful Login | Check if the user is successfully logged in (e.g., redirected to the main page). |
+| Verify Error Message | Check if an error message is displayed when login fails (e.g., invalid credentials). |
+| Verify Account Locked | Check if the account is locked or not activated. |
+
+These keywords can be used as a starting point for building test cases using Robot Framework. Note that these are just examples, and you may need to modify them or add more depending on your specific testing requirements.",FAIL,0.69,"{""has_business_keywords"":1,""has_ui_action_keywords"":1,""has_verification_keywords"":1,""has_keyword_name_column"":1,""no_robot_test_cases"":1,""no_test_cases_text"":1,""no_xpath"":1,""no_xpath_lower"":1,""no_css_selector"":1,""no_python_code"":1,""no_import_code"":1,""no_example_values"":0,""has_input_parameters_column"":0,""has_required_parameters_column"":0,""has_optional_parameters_column"":0,""has_selenium_mapping_column"":0}","Expected output to contain ""Derived From SeleniumLibrary Keyword""",,"Here are the reusable Robot Framework keywords for the ""Đăng nhập"" feature, organized into three layers: BUSINESS KEYWORDS, UI ACTION KEYWORDS, and VERIFICATION KEYWORDS.
+
+**BUSINESS KEYWORDS**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Log In User | username, password | None | Simulate a user logging in with the provided credentials. |
+| Verify Login Success | None | None | Verify that the login was successful and the user is logged in. |
+| Handle Invalid Credentials | None | None | Handle the case where the login credentials are invalid (e.g., incorrect password). |
+| Display Error Message | error_message | None | Display an error message to the user indicating why the login failed. |
+
+**UI ACTION KEYWORDS**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Go To Login Page | None | None | Navigate to the login page. |
+| Fill In Username Or Email | username_or_email | None | Enter the username or email address in the form. |
+| Fill In Password | password | None | Enter the password in the form. |
+| Click Login Button | None | None | Click the login button to submit the form. |
+
+**VERIFICATION KEYWORDS**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Page Should Contain Login Form | None | None | Verify that the login page contains a login form. |
+| Error Message Should Be Displayed | error_message | None | Verify that an error message is displayed indicating why the login failed. |
+| User Should Be Logged In | None | None | Verify that the user is logged in and authenticated. |
+
+Note: These keywords are designed to be reusable and can be combined to create more complex test cases.",FAIL,0.81,"{""has_business_keywords"":1,""has_ui_action_keywords"":1,""has_verification_keywords"":1,""has_keyword_name_column"":1,""no_robot_test_cases"":1,""no_test_cases_text"":1,""no_xpath"":1,""no_xpath_lower"":1,""no_css_selector"":1,""no_python_code"":1,""no_import_code"":1,""no_example_values"":1,""has_input_parameters_column"":1,""has_required_parameters_column"":0,""has_optional_parameters_column"":0,""has_selenium_mapping_column"":0}","Expected output to contain ""Derived From SeleniumLibrary Keyword""",,"Here is the output:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Login User   | Yes             | username, password  | None               | Perform login action |
+| Logout User  | Yes             | None               | None               | Perform logout action |
+| Navigate To  | Yes             | page title         | None               | Navigate to a specific page |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Input Username| Yes             | username    | Input Text                     | Input username into field |
+| Input Password| Yes             | password    | Input Text                     | Input password into field |
+| Click Login   | Yes             | login button | Click Element                  | Click the login button |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Login Success | Yes            | None       | Page Should Contain               | Verify successful login |
+| Verify Error Message | Yes            | error text  | Element Should Contain           | Verify error message |
+
+Note: I've followed the rules and generated reusable keywords for each layer. The output is in the strict format as required.",PASS,1.00,"{""has_business_keywords"":1,""has_ui_action_keywords"":1,""has_verification_keywords"":1,""has_keyword_name_column"":1,""no_robot_test_cases"":1,""no_test_cases_text"":1,""no_xpath"":1,""no_xpath_lower"":1,""no_css_selector"":1,""no_python_code"":1,""no_import_code"":1,""no_example_values"":1,""has_input_parameters_column"":1,""has_required_parameters_column"":1,""has_optional_parameters_column"":1,""has_selenium_mapping_column"":1}",All assertions passed,

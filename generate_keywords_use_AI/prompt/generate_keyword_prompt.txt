@@ -52,6 +52,7 @@ UI ACTION
 
     Allowed SeleniumLibrary Keywords:
         - Input Text
+        - Go to
         - Click Element
         - Wait Until Element Is Visible
         - Element Should Be Visible

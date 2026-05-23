@@ -1,0 +1,302 @@
+FEATURE,"[ollama:llama3] prompts\prompt_v1.txt: You are a QA automation engineer.
+
+Generate reusable Robot Framework keywords for the given feature.
+
+Organize the keywords into three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in table format.
+
+Each table should include the keyword name and a short description of its purpose.
+
+The keywords should be suitable for a Keyword-Driven Testing framework.
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}",Status,Score,Named Scores,Grader Reason,Comment,"[ollama:llama3] prompts\prompt_v2.txt: You are a Senior QA Automation Engineer.
+
+Generate reusable Robot Framework keywords for the given feature using three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in markdown tables.
+
+Do not generate:
+- test cases
+- automation code
+- locators
+- example values
+
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Business Keywords:
+- Represent user actions or business workflows.
+
+UI Action Keywords:
+- Represent UI operations.
+
+Verification Keywords:
+- Represent validation actions.
+
+Each table should include:
+- Keyword Name
+- Input Parameters
+- Parameters
+- Description
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}",Status,Score,Named Scores,Grader Reason,Comment,"[ollama:llama3] prompts\prompt_v3.txt: You are a Senior Automation Architect designing a reusable Keyword-Driven Testing architecture using Robot Framework.
+
+Your task is to generate reusable keywords for the given feature using exactly three layers.
+
+Do not provide explanations. Output tables only.
+
+--------------------------------------------------
+
+ARCHITECTURE
+
+Use exactly these layers:
+1. Business Layer
+2. UI Action Layer
+3. Verification Layer
+
+--------------------------------------------------
+
+GLOBAL RULES
+
+Do NOT generate:
+- test cases
+- automation code
+- locators
+- example values
+
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Keywords must be reusable, generic, and data-independent.
+
+--------------------------------------------------
+
+LAYER DESIGN
+
+BUSINESS
+    - Represent user actions or business workflows
+    - May orchestrate UI and Verification keywords
+    - Must NOT contain UI verbs (Click, Input, Select, Wait)
+    - Must NOT contain validation logic
+
+    BUSINESS KEYWORD PATTERN: <Action> <Business Goal>
+
+UI ACTION
+    - Generic UI operations only
+    - Must NOT contain feature-specific words
+    - Must map to SeleniumLibrary keywords
+
+    UI KEYWORD PATTERN: <Action> <Generic UI Target>
+
+    Allowed SeleniumLibrary Keywords:
+        - Input Text
+        - Click Element
+        - Wait Until Element Is Visible
+        - Element Should Be Visible
+        - Element Should Contain
+        - Page Should Contain
+        - Get WebElements
+        - Scroll Element Into View
+
+        Derived From SeleniumLibrary Keyword MUST be chosen from the list above.
+        Do NOT invent Selenium keywords.
+
+VERIFICATION
+    - Generic validation keywords
+    - Validate text, element state, navigation, or page content
+    - Must map to SeleniumLibrary built-in keywords
+    - Avoid words derived from the feature description
+    - Use abstract validation naming
+
+    VERIFICATION KEYWORD PATTERN: Verify <Generic Condition>
+
+    Good: Verify Element Is Visible, Verify Text Is Present
+
+    Bad: Verify Login Success, Verify Search Result 
+
+--------------------------------------------------
+
+OUTPUT FORMAT (STRICT)
+
+[BUSINESS KEYWORDS]
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| ... | Yes/No | parameter names or None | Yes/No | short purpose |
+
+Rules: business actions only, no UI verbs, no validation terms.
+
+
+[UI ACTION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | generic UI action |
+
+Rules: Must be generic UI operations such as Input Text Into Field, Click On Element, eg.
+
+
+[VERIFICATION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | validation purpose |
+
+Rules: generic validation such as Verify Element Is Visible or Verify Text Is Present, eg.
+
+--------------------------------------------------
+
+SELF VALIDATION (MANDATORY)
+
+Before output:
+- No UI verbs in Business
+- No verification logic in Business
+- No feature words in UI
+- No feature words in Verification
+- Selenium keyword must be from allowed list
+- All UI and Verification keywords map to real SeleniumLibrary built-in keywords.
+- Return maximum 5 keywords for each layer.
+
+If any rule is violated → regenerate the keyword list.
+
+--------------------------------------------------
+
+FEATURE DESCRIPTION
+{{FEATURE}}",Status,Score,Named Scores,Grader Reason,Comment
+"Chức năng: Đặt hàng
+
+Mô tả:
+Chức năng đặt hàng cho phép người dùng tạo đơn hàng bằng cách lựa chọn sản phẩm,
+thêm vào giỏ hàng và thực hiện thanh toán với thông tin giao hàng hợp lệ.
+
+Luồng chính (Main Flows):
+1. Người dùng chọn sản phẩm từ trang chủ.
+2. Hệ thống hiển thị thông tin chi tiết của sản phẩm.
+3. Người dùng nhấn nút thêm.
+4. Người dùng mở trang giỏ hàng.
+5. Hệ thống hiển thị danh sách sản phẩm trong giỏ hàng.
+6. Người dùng nhập thông tin giao hàng.
+7. Người dùng nhấn đặt hàng.
+8. Hệ thống kiểm tra:
+    - Tính hợp lệ của thông tin giao hàng
+    - Tình trạng tồn kho của sản phẩm
+9. Hệ thống tạo đơn hàng thành công.
+10. Hệ thống hiển thị thông báo đặt hàng thành công.
+
+
+Luồng ngoại lệ (Alternate Flows):
+1. A2 – Giỏ hàng trống
+    Tại bước 5, nếu giỏ hàng không có sản phẩm
+    → Hệ thống hiển thị thông báo: “Giỏ hàng trống”
+
+2. A3 – Thông tin giao hàng không hợp lệ
+    Tại bước 8, nếu thông tin giao hàng thiếu hoặc sai định dạng
+    → Hệ thống hiển thị thông báo lỗi yêu cầu nhập lại
+
+Kết quả mong đợi (Expected):
+- Đơn hàng được tạo thành công.
+- Hiển thị thông báo lỗi phù hợp nếu đặt hàng thất bại.
+","Here are the reusable Robot Framework keywords organized into three layers:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Place Order | Initiates the order placement process by selecting a product, adding it to the cart, and proceeding with payment. |
+| Verify Order Success | Verifies that an order has been successfully placed. |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Select Product | Selects a product from the main page. |
+| Add To Cart | Adds the selected product to the cart. |
+| Open Cart | Opens the cart page to view the added products. |
+| Enter Shipping Info | Enters shipping information for the order. |
+| Place Order Now | Places the order with the entered shipping information. |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Check Empty Cart Message | Verifies that an empty cart message is displayed when there are no products in the cart. |
+| Validate Shipping Info | Validates that the entered shipping information is correct and meets the system's requirements. |
+| Verify Order Failure Message | Verifies that a failure message is displayed if the order placement fails due to invalid or missing shipping information. |
+
+These keywords can be used as building blocks for creating test cases using Robot Framework.",FAIL,0.75,"{""has_business_keywords"":1,""has_ui_action_keywords"":1,""has_verification_keywords"":1,""has_keyword_name_column"":1,""no_robot_test_cases"":1,""no_test_cases_text"":1,""no_xpath"":1,""no_xpath_lower"":1,""no_css_selector"":1,""no_python_code"":1,""no_import_code"":1,""no_example_values"":1,""has_input_parameters_column"":0,""has_required_parameters_column"":0,""has_optional_parameters_column"":0,""has_selenium_mapping_column"":0}","Expected output to contain ""Derived From SeleniumLibrary Keyword""",,"Here are the reusable Robot Framework keywords for the ""Đặt hàng"" feature, organized into three layers: BUSINESS KEYWORDS, UI ACTION KEYWORDS, and VERIFICATION KEYWORDS.
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Place Order | Product ID, Shipping Info | None | Initiates the order placement process with the specified product and shipping information. |
+| Check Order Status | Order ID | None | Verifies the status of an existing order. |
+| Handle Empty Cart | None | None | Handles the scenario where the cart is empty. |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Select Product | Product ID | None | Selects a product from the main page. |
+| Add To Cart | Product ID | None | Adds a selected product to the cart. |
+| Open Shopping Cart | None | None | Opens the shopping cart page. |
+| Enter Shipping Info | Shipping Info | None | Enters shipping information for an order. |
+| Submit Order | None | None | Submits the order with the entered shipping information. |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Verify Order Success | Order ID | None | Verifies that an order has been successfully placed. |
+| Verify Empty Cart Message | None | None | Verifies the display of the ""Giỏ hàng trống"" message when the cart is empty. |
+| Verify Error Message | Error Message | None | Verifies the display of a specific error message for invalid shipping information. |
+
+Note that these keywords are designed to be reusable and can be combined to create more complex test cases.",FAIL,0.81,"{""has_business_keywords"":1,""has_ui_action_keywords"":1,""has_verification_keywords"":1,""has_keyword_name_column"":1,""no_robot_test_cases"":1,""no_test_cases_text"":1,""no_xpath"":1,""no_xpath_lower"":1,""no_css_selector"":1,""no_python_code"":1,""no_import_code"":1,""no_example_values"":1,""has_input_parameters_column"":1,""has_required_parameters_column"":0,""has_optional_parameters_column"":0,""has_selenium_mapping_column"":0}","Expected output to contain ""Derived From SeleniumLibrary Keyword""",,"Here is the output:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Place Order  | Yes             | Product ID, Quantity | None               | Initiate order creation |
+| Add To Cart  | Yes             | Product ID          | None               | Add product to cart |
+| View Cart    | No              | None                | None               | Display cart contents |
+| Checkout     | Yes             | Payment Info        | Shipping Address   | Start checkout process |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Click On Product  | Yes            | Product Element | Click Element                | Select product |
+| Input Payment Info | Yes           | Payment Field    | Input Text                  | Enter payment info |
+| Open Cart        | No             | None            | Get WebElements          | Display cart contents |
+| Scroll To Checkout | No            | None            | Scroll Element Into View | Start checkout process |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Product Added  | Yes           | Product ID    | Element Should Be Visible   | Validate product addition |
+| Verify Cart Contents  | No            | None         | Page Should Contain        | Display cart contents |
+| Verify Payment Info Valid | Yes          | Payment Field | Element Should Contain     | Validate payment info |
+| Verify Order Success  | No           | None         | Page Should Contain        | Confirm order success |
+
+Note: I've followed the rules and generated reusable keywords for each layer. The output meets the strict format requirements.",PASS,1.00,"{""has_business_keywords"":1,""has_ui_action_keywords"":1,""has_verification_keywords"":1,""has_keyword_name_column"":1,""no_robot_test_cases"":1,""no_test_cases_text"":1,""no_xpath"":1,""no_xpath_lower"":1,""no_css_selector"":1,""no_python_code"":1,""no_import_code"":1,""no_example_values"":1,""has_input_parameters_column"":1,""has_required_parameters_column"":1,""has_optional_parameters_column"":1,""has_selenium_mapping_column"":1}",All assertions passed,

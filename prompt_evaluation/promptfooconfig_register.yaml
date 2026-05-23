@@ -1,0 +1,116 @@
+description: "Evaluate prompt quality for register feature"
+
+prompts:
+  - file://prompts/prompt_v1.txt
+  - file://prompts/prompt_v2.txt
+  - file://prompts/prompt_v3.txt
+
+providers:
+  - id: ollama:llama3
+    config:
+      temperature: 0.1
+      num_predict: 700
+
+defaultTest:
+  assert:
+    - type: contains
+      value: "BUSINESS KEYWORDS"
+      metric: has_business_keywords
+
+    - type: contains
+      value: "UI ACTION KEYWORDS"
+      metric: has_ui_action_keywords
+
+    - type: contains
+      value: "VERIFICATION KEYWORDS"
+      metric: has_verification_keywords
+
+    - type: contains
+      value: "Keyword Name"
+      metric: has_keyword_name_column
+
+    - type: not-contains
+      value: "*** Test Cases ***"
+      metric: no_robot_test_cases
+
+    - type: not-contains
+      value: "Test Cases"
+      metric: no_test_cases_text
+
+    - type: not-contains
+      value: "XPath"
+      metric: no_xpath
+
+    - type: not-contains
+      value: "xpath="
+      metric: no_xpath_lower
+
+    - type: not-contains
+      value: "css="
+      metric: no_css_selector
+
+    - type: not-contains
+      value: "def "
+      metric: no_python_code
+
+    - type: not-contains
+      value: "import "
+      metric: no_import_code
+
+    - type: not-contains
+      value: "example"
+      metric: no_example_values
+
+    - type: contains
+      value: "Input Parameters"
+      metric: has_input_parameters_column
+
+    - type: contains
+      value: "Required Parameters"
+      metric: has_required_parameters_column
+
+    - type: contains
+      value: "Optional Parameters"
+      metric: has_optional_parameters_column
+
+    - type: contains
+      value: "Derived From SeleniumLibrary Keyword"
+      metric: has_selenium_mapping_column
+
+tests:
+  - vars:
+        FEATURE: | 
+                Chức năng: Đăng ký 
+
+                Mô tả:
+                Chức năng đăng ký cho phép người dùng tạo tài khoản mới để sử dụng hệ thống.
+
+                Luồng chính (Main Flows):
+                1. Người dùng truy cập trang đăng ký.
+                2  Hệ thống hiển thị giao diện đăng ký tài khoản.
+                3. Người dùng nhập các thông tin bắt buộc gồm: họ tên, email, mật khẩu và xác nhận mật khẩu.
+                4. Người dùng nhấn nút “Đăng ký”.
+                5. Hệ thống kiểm tra tính hợp lệ của các thông tin đã nhập.
+                6. Hệ thống lưu thông tin tài khoản mới vào cơ sở dữ liệu.
+                7. Hệ thống thông báo đăng ký thành công cho người dùng.
+
+                Luồng ngoại lệ (Alternate Flows):
+                1. A1. Thiếu thông tin bắt buộc
+                  5a. Nếu người dùng không nhập đầy đủ các thông tin bắt buộc
+                  → Hệ thống hiển thị thông báo yêu cầu nhập đầy đủ thông tin.
+
+                2. A2. Email đã tồn tại
+                  5b. Nếu email đã tồn tại trong cơ sở dữ liệu
+                  → Hệ thống hiển thị thông báo email đã được sử dụng.
+
+                3. A3. Mật khẩu không hợp lệ
+                  5c. Nếu mật khẩu không đáp ứng yêu cầu bảo mật
+                  → Hệ thống hiển thị thông báo lỗi về mật khẩu.
+
+                4. A4. Mật khẩu xác nhận không khớp
+                  5d. Nếu mật khẩu và xác nhận mật khẩu không trùng khớp
+                  → Hệ thống hiển thị thông báo lỗi tương ứng.
+
+                Kết quả mong đợi (Expected):
+                - Tạo tài khoản thành công khi thông tin hợp lệ.
+                - Hiển thị thông báo lỗi tương ứng khi đăng ký không thành công.

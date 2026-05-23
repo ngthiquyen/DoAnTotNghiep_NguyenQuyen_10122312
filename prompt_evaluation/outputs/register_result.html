@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Evaluate prompt quality for register feature</title>
+    <style>
+      body {
+        font-family:
+          -apple-system,
+          BlinkMacSystemFont,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: left;
+        word-break: break-all;
+      }
+      th,
+      td {
+        padding: 5px;
+        min-width: 200px;
+        white-space: pre-wrap;
+        vertical-align: top;
+      }
+
+      tr > td[data-content^='[PASS]'] {
+        color: green;
+      }
+      tr > td[data-content^='[FAIL]'] {
+        color: #ad0000;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        
+        <th>FEATURE</th>
+        
+        <th>[ollama:llama3] prompts&#92;prompt_v1.txt: You are a QA automation engineer.
+
+Generate reusable Robot Framework keywords for the given feature.
+
+Organize the keywords into three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in table format.
+
+Each table should include the keyword name and a short description of its purpose.
+
+The keywords should be suitable for a Keyword-Driven Testing framework.
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}</th>
+        
+        <th>[ollama:llama3] prompts&#92;prompt_v2.txt: You are a Senior QA Automation Engineer.
+
+Generate reusable Robot Framework keywords for the given feature using three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in markdown tables.
+
+Do not generate:
+- test cases
+- automation code
+- locators
+- example values
+
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Business Keywords:
+- Represent user actions or business workflows.
+
+UI Action Keywords:
+- Represent UI operations.
+
+Verification Keywords:
+- Represent validation actions.
+
+Each table should include:
+- Keyword Name
+- Input Parameters
+- Parameters
+- Description
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}</th>
+        
+        <th>[ollama:llama3] prompts&#92;prompt_v3.txt: You are a Senior Automation Architect designing a reusable Keyword-Driven Testing architecture using Robot Framework.
+
+Your task is to generate reusable keywords for the given feature using exactly three layers.
+
+Do not provide explanations. Output tables only.
+
+--------------------------------------------------
+
+ARCHITECTURE
+
+Use exactly these layers:
+1. Business Layer
+2. UI Action Layer
+3. Verification Layer
+
+--------------------------------------------------
+
+GLOBAL RULES
+
+Do NOT generate:
+- test cases
+- automation code
+- locators
+- example values
+
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Keywords must be reusable, generic, and data-independent.
+
+--------------------------------------------------
+
+LAYER DESIGN
+
+BUSINESS
+    - Represent user actions or business workflows
+    - May orchestrate UI and Verification keywords
+    - Must NOT contain UI verbs (Click, Input, Select, Wait)
+    - Must NOT contain validation logic
+
+    BUSINESS KEYWORD PATTERN: &lt;Action&gt; &lt;Business Goal&gt;
+
+UI ACTION
+    - Generic UI operations only
+    - Must NOT contain feature-specific words
+    - Must map to SeleniumLibrary keywords
+
+    UI KEYWORD PATTERN: &lt;Action&gt; &lt;Generic UI Target&gt;
+
+    Allowed SeleniumLibrary Keywords:
+        - Input Text
+        - Click Element
+        - Wait Until Element Is Visible
+        - Element Should Be Visible
+        - Element Should Contain
+        - Page Should Contain
+        - Get WebElements
+        - Scroll Element Into View
+
+        Derived From SeleniumLibrary Keyword MUST be chosen from the list above.
+        Do NOT invent Selenium keywords.
+
+VERIFICATION
+    - Generic validation keywords
+    - Validate text, element state, navigation, or page content
+    - Must map to SeleniumLibrary built-in keywords
+    - Avoid words derived from the feature description
+    - Use abstract validation naming
+
+    VERIFICATION KEYWORD PATTERN: Verify &lt;Generic Condition&gt;
+
+    Good: Verify Element Is Visible, Verify Text Is Present
+
+    Bad: Verify Login Success, Verify Search Result 
+
+--------------------------------------------------
+
+OUTPUT FORMAT (STRICT)
+
+[BUSINESS KEYWORDS]
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| ... | Yes/No | parameter names or None | Yes/No | short purpose |
+
+Rules: business actions only, no UI verbs, no validation terms.
+
+
+[UI ACTION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | generic UI action |
+
+Rules: Must be generic UI operations such as Input Text Into Field, Click On Element, eg.
+
+
+[VERIFICATION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | validation purpose |
+
+Rules: generic validation such as Verify Element Is Visible or Verify Text Is Present, eg.
+
+--------------------------------------------------
+
+SELF VALIDATION (MANDATORY)
+
+Before output:
+- No UI verbs in Business
+- No verification logic in Business
+- No feature words in UI
+- No feature words in Verification
+- Selenium keyword must be from allowed list
+- All UI and Verification keywords map to real SeleniumLibrary built-in keywords.
+- Return maximum 5 keywords for each layer.
+
+If any rule is violated → regenerate the keyword list.
+
+--------------------------------------------------
+
+FEATURE DESCRIPTION
+{{FEATURE}}</th>
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <td data-content="Chức năng: Đăng ký 
+
+Mô tả:
+Chức năng đăng ký cho phép người dùng tạo tài khoản mới để sử dụng hệ thống.
+
+Luồng chính (Main Flows):
+1. Người dùng truy cập trang đăng ký.
+2  Hệ thống hiển thị giao diện đăng ký tài khoản.
+3. Người dùng nhập các thông tin bắt buộc gồm: họ tên, email, mật khẩu và xác nhận mật khẩu.
+4. Người dùng nhấn nút “Đăng ký”.
+5. Hệ thống kiểm tra tính hợp lệ của các thông tin đã nhập.
+6. Hệ thống lưu thông tin tài khoản mới vào cơ sở dữ liệu.
+7. Hệ thống thông báo đăng ký thành công cho người dùng.
+
+Luồng ngoại lệ (Alternate Flows):
+1. A1. Thiếu thông tin bắt buộc
+  5a. Nếu người dùng không nhập đầy đủ các thông tin bắt buộc
+  → Hệ thống hiển thị thông báo yêu cầu nhập đầy đủ thông tin.
+
+2. A2. Email đã tồn tại
+  5b. Nếu email đã tồn tại trong cơ sở dữ liệu
+  → Hệ thống hiển thị thông báo email đã được sử dụng.
+
+3. A3. Mật khẩu không hợp lệ
+  5c. Nếu mật khẩu không đáp ứng yêu cầu bảo mật
+  → Hệ thống hiển thị thông báo lỗi về mật khẩu.
+
+4. A4. Mật khẩu xác nhận không khớp
+  5d. Nếu mật khẩu và xác nhận mật khẩu không trùng khớp
+  → Hệ thống hiển thị thông báo lỗi tương ứng.
+
+Kết quả mong đợi (Expected):
+- Tạo tài khoản thành công khi thông tin hợp lệ.
+- Hiển thị thông báo lỗi tương ứng khi đăng ký không thành công.
+">Chức năng: Đăng ký 
+
+Mô tả:
+Chức năng đăng ký cho phép người dùng tạo tài khoản mới để sử dụng hệ thống.
+
+Luồng chính (Main Flows):
+1. Người dùng truy cập trang đăng ký.
+2  Hệ thống hiển thị giao diện đăng ký tài khoản.
+3. Người dùng nhập các thông tin bắt buộc gồm: họ tên, email, mật khẩu và xác nhận mật khẩu.
+4. Người dùng nhấn nút “Đăng ký”.
+5. Hệ thống kiểm tra tính hợp lệ của các thông tin đã nhập.
+6. Hệ thống lưu thông tin tài khoản mới vào cơ sở dữ liệu.
+7. Hệ thống thông báo đăng ký thành công cho người dùng.
+
+Luồng ngoại lệ (Alternate Flows):
+1. A1. Thiếu thông tin bắt buộc
+  5a. Nếu người dùng không nhập đầy đủ các thông tin bắt buộc
+  → Hệ thống hiển thị thông báo yêu cầu nhập đầy đủ thông tin.
+
+2. A2. Email đã tồn tại
+  5b. Nếu email đã tồn tại trong cơ sở dữ liệu
+  → Hệ thống hiển thị thông báo email đã được sử dụng.
+
+3. A3. Mật khẩu không hợp lệ
+  5c. Nếu mật khẩu không đáp ứng yêu cầu bảo mật
+  → Hệ thống hiển thị thông báo lỗi về mật khẩu.
+
+4. A4. Mật khẩu xác nhận không khớp
+  5d. Nếu mật khẩu và xác nhận mật khẩu không trùng khớp
+  → Hệ thống hiển thị thông báo lỗi tương ứng.
+
+Kết quả mong đợi (Expected):
+- Tạo tài khoản thành công khi thông tin hợp lệ.
+- Hiển thị thông báo lỗi tương ứng khi đăng ký không thành công.
+</td>
+          
+          <td data-content="[FAIL] (0.75, has_business_keywords: 1.00, has_ui_action_keywords: 1.00, has_verification_keywords: 1.00, has_keyword_name_column: 1.00, no_robot_test_cases: 1.00, no_test_cases_text: 1.00, no_xpath: 1.00, no_xpath_lower: 1.00, no_css_selector: 1.00, no_python_code: 1.00, no_import_code: 1.00, no_example_values: 1.00, has_input_parameters_column: 0.00, has_required_parameters_column: 0.00, has_optional_parameters_column: 0.00, has_selenium_mapping_column: 0.00)
+
+Here are the reusable Robot Framework keywords for the &quot;Đăng ký&quot; feature, organized into three layers:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Register User | Create a new user account with valid information. |
+| Verify Registration Success | Check if registration is successful and user account is created. |
+| Handle Missing Information Error | Handle the error when required information is missing. |
+| Handle Existing Email Error | Handle the error when email already exists in the database. |
+| Handle Invalid Password Error | Handle the error when password does not meet security requirements. |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Go To Registration Page | Navigate to the registration page. |
+| Fill In Required Information | Enter required information (name, email, password, and confirm password). |
+| Click Register Button | Click the &quot;Register&quot; button. |
+| Wait For Registration Process | Wait for the registration process to complete. |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Check Registration Success Message | Verify that a success message is displayed after successful registration. |
+| Check Error Message Displayed | Verify that an error message is displayed when required information is missing, email already exists, or password does not meet security requirements. |
+| Check User Account Created | Verify that the user account is created and available in the database. |
+
+These keywords can be used to create test cases for the &quot;Đăng ký&quot; feature using a Keyword-Driven Testing framework like Robot Framework.
+
+Fail Reason: Expected output to contain &quot;Derived From SeleniumLibrary Keyword&quot;">[FAIL] (0.75, has_business_keywords: 1.00, has_ui_action_keywords: 1.00, has_verification_keywords: 1.00, has_keyword_name_column: 1.00, no_robot_test_cases: 1.00, no_test_cases_text: 1.00, no_xpath: 1.00, no_xpath_lower: 1.00, no_css_selector: 1.00, no_python_code: 1.00, no_import_code: 1.00, no_example_values: 1.00, has_input_parameters_column: 0.00, has_required_parameters_column: 0.00, has_optional_parameters_column: 0.00, has_selenium_mapping_column: 0.00)
+
+Here are the reusable Robot Framework keywords for the &quot;Đăng ký&quot; feature, organized into three layers:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Register User | Create a new user account with valid information. |
+| Verify Registration Success | Check if registration is successful and user account is created. |
+| Handle Missing Information Error | Handle the error when required information is missing. |
+| Handle Existing Email Error | Handle the error when email already exists in the database. |
+| Handle Invalid Password Error | Handle the error when password does not meet security requirements. |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Go To Registration Page | Navigate to the registration page. |
+| Fill In Required Information | Enter required information (name, email, password, and confirm password). |
+| Click Register Button | Click the &quot;Register&quot; button. |
+| Wait For Registration Process | Wait for the registration process to complete. |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Check Registration Success Message | Verify that a success message is displayed after successful registration. |
+| Check Error Message Displayed | Verify that an error message is displayed when required information is missing, email already exists, or password does not meet security requirements. |
+| Check User Account Created | Verify that the user account is created and available in the database. |
+
+These keywords can be used to create test cases for the &quot;Đăng ký&quot; feature using a Keyword-Driven Testing framework like Robot Framework.
+
+Fail Reason: Expected output to contain &quot;Derived From SeleniumLibrary Keyword&quot;</td>
+          
+          <td data-content="[FAIL] (0.63, has_business_keywords: 0.00, has_ui_action_keywords: 0.00, has_verification_keywords: 0.00, has_keyword_name_column: 1.00, no_robot_test_cases: 1.00, no_test_cases_text: 1.00, no_xpath: 1.00, no_xpath_lower: 1.00, no_css_selector: 1.00, no_python_code: 1.00, no_import_code: 1.00, no_example_values: 1.00, has_input_parameters_column: 1.00, has_required_parameters_column: 0.00, has_optional_parameters_column: 0.00, has_selenium_mapping_column: 0.00)
+
+Here are the reusable Robot Framework keywords for the &quot;Đăng ký&quot; feature, organized into three layers: Business Keywords, UI Action Keywords, and Verification Keywords.
+
+**Business Keywords**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Register User | username, email, password | None | Perform user registration with given credentials. |
+| Validate Registration | username, email | None | Verify that the user has been successfully registered. |
+| Handle Missing Information | None | None | Handle the scenario where required information is missing. |
+| Handle Existing Email | None | None | Handle the scenario where the email address already exists. |
+| Handle Invalid Password | None | None | Handle the scenario where the password does not meet security requirements. |
+
+**UI Action Keywords**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Go To Registration Page | None | None | Navigate to the registration page. |
+| Fill In Required Information | username, email, password | None | Enter required information (username, email, password) into the form. |
+| Submit Registration Form | None | None | Submit the registration form. |
+| Display Error Message | error_message | None | Display an error message with the given text. |
+
+**Verification Keywords**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Page Should Contain Registration Form | None | None | Verify that the registration page contains a form. |
+| Error Message Should Be Displayed | error_message | None | Verify that an error message with the given text is displayed. |
+| User Should Be Registered Successfully | username, email | None | Verify that the user has been successfully registered. |
+| Registration Form Should Not Be Visible | None | None | Verify that the registration form is not visible after successful registration. |
+
+Note: These keywords are designed to be reusable and can be combined to create more complex test cases.
+
+Fail Reason: Expected output to contain &quot;Derived From SeleniumLibrary Keyword&quot;">[FAIL] (0.63, has_business_keywords: 0.00, has_ui_action_keywords: 0.00, has_verification_keywords: 0.00, has_keyword_name_column: 1.00, no_robot_test_cases: 1.00, no_test_cases_text: 1.00, no_xpath: 1.00, no_xpath_lower: 1.00, no_css_selector: 1.00, no_python_code: 1.00, no_import_code: 1.00, no_example_values: 1.00, has_input_parameters_column: 1.00, has_required_parameters_column: 0.00, has_optional_parameters_column: 0.00, has_selenium_mapping_column: 0.00)
+
+Here are the reusable Robot Framework keywords for the &quot;Đăng ký&quot; feature, organized into three layers: Business Keywords, UI Action Keywords, and Verification Keywords.
+
+**Business Keywords**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Register User | username, email, password | None | Perform user registration with given credentials. |
+| Validate Registration | username, email | None | Verify that the user has been successfully registered. |
+| Handle Missing Information | None | None | Handle the scenario where required information is missing. |
+| Handle Existing Email | None | None | Handle the scenario where the email address already exists. |
+| Handle Invalid Password | None | None | Handle the scenario where the password does not meet security requirements. |
+
+**UI Action Keywords**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Go To Registration Page | None | None | Navigate to the registration page. |
+| Fill In Required Information | username, email, password | None | Enter required information (username, email, password) into the form. |
+| Submit Registration Form | None | None | Submit the registration form. |
+| Display Error Message | error_message | None | Display an error message with the given text. |
+
+**Verification Keywords**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Page Should Contain Registration Form | None | None | Verify that the registration page contains a form. |
+| Error Message Should Be Displayed | error_message | None | Verify that an error message with the given text is displayed. |
+| User Should Be Registered Successfully | username, email | None | Verify that the user has been successfully registered. |
+| Registration Form Should Not Be Visible | None | None | Verify that the registration form is not visible after successful registration. |
+
+Note: These keywords are designed to be reusable and can be combined to create more complex test cases.
+
+Fail Reason: Expected output to contain &quot;Derived From SeleniumLibrary Keyword&quot;</td>
+          
+          <td data-content="[PASS] (1.00, has_business_keywords: 1.00, has_ui_action_keywords: 1.00, has_verification_keywords: 1.00, has_keyword_name_column: 1.00, no_robot_test_cases: 1.00, no_test_cases_text: 1.00, no_xpath: 1.00, no_xpath_lower: 1.00, no_css_selector: 1.00, no_python_code: 1.00, no_import_code: 1.00, no_example_values: 1.00, has_input_parameters_column: 1.00, has_required_parameters_column: 1.00, has_optional_parameters_column: 1.00, has_selenium_mapping_column: 1.00)
+
+Here is the output:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Create Account | Yes | username, password | None | Creates a new account with given credentials |
+| Verify Registration | No | None | None | Verifies the registration process |
+| Update Profile | Yes | profile information | None | Updates user&#39;s profile information |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Input Username | Yes | username | Input Text Into Field | Inputs the given username into the field |
+| Click On Register Button | No | None | Click Element | Clicks on the register button |
+| Fill Out Profile Information | Yes | profile information | Get WebElements | Fills out the user&#39;s profile information |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Account Created | No | None | Element Should Contain | Verifies that a new account is created |
+| Verify Error Message | Yes | error message | Page Should Contain | Verifies the error message displayed |
+
+Note: I&#39;ve followed the rules and generated reusable keywords for each layer. The output meets the strict format requirements.
+
+Pass Reason: All assertions passed">[PASS] (1.00, has_business_keywords: 1.00, has_ui_action_keywords: 1.00, has_verification_keywords: 1.00, has_keyword_name_column: 1.00, no_robot_test_cases: 1.00, no_test_cases_text: 1.00, no_xpath: 1.00, no_xpath_lower: 1.00, no_css_selector: 1.00, no_python_code: 1.00, no_import_code: 1.00, no_example_values: 1.00, has_input_parameters_column: 1.00, has_required_parameters_column: 1.00, has_optional_parameters_column: 1.00, has_selenium_mapping_column: 1.00)
+
+Here is the output:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Create Account | Yes | username, password | None | Creates a new account with given credentials |
+| Verify Registration | No | None | None | Verifies the registration process |
+| Update Profile | Yes | profile information | None | Updates user&#39;s profile information |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Input Username | Yes | username | Input Text Into Field | Inputs the given username into the field |
+| Click On Register Button | No | None | Click Element | Clicks on the register button |
+| Fill Out Profile Information | Yes | profile information | Get WebElements | Fills out the user&#39;s profile information |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Account Created | No | None | Element Should Contain | Verifies that a new account is created |
+| Verify Error Message | Yes | error message | Page Should Contain | Verifies the error message displayed |
+
+Note: I&#39;ve followed the rules and generated reusable keywords for each layer. The output meets the strict format requirements.
+
+Pass Reason: All assertions passed</td>
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>

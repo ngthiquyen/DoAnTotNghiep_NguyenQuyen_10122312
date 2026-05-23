@@ -1,0 +1,40 @@
+You are a Senior QA Automation Engineer.
+
+Generate reusable Robot Framework keywords for the given feature using three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in markdown tables.
+
+Do not generate:
+- test cases
+- automation code
+- locators
+- example values
+
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Business Keywords:
+- Represent user actions or business workflows.
+
+UI Action Keywords:
+- Represent UI operations.
+
+Verification Keywords:
+- Represent validation actions.
+
+Each table should include:
+- Keyword Name
+- Input Parameters
+- Parameters
+- Description
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}

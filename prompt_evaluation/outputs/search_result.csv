@@ -1,0 +1,283 @@
+FEATURE,"[ollama:llama3] prompts\prompt_v1.txt: You are a QA automation engineer.
+
+Generate reusable Robot Framework keywords for the given feature.
+
+Organize the keywords into three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in table format.
+
+Each table should include the keyword name and a short description of its purpose.
+
+The keywords should be suitable for a Keyword-Driven Testing framework.
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}",Status,Score,Named Scores,Grader Reason,Comment,"[ollama:llama3] prompts\prompt_v2.txt: You are a Senior QA Automation Engineer.
+
+Generate reusable Robot Framework keywords for the given feature using three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in markdown tables.
+
+Do not generate:
+- test cases
+- automation code
+- locators
+- example values
+
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Business Keywords:
+- Represent user actions or business workflows.
+
+UI Action Keywords:
+- Represent UI operations.
+
+Verification Keywords:
+- Represent validation actions.
+
+Each table should include:
+- Keyword Name
+- Input Parameters
+- Parameters
+- Description
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}",Status,Score,Named Scores,Grader Reason,Comment,"[ollama:llama3] prompts\prompt_v3.txt: You are a Senior Automation Architect designing a reusable Keyword-Driven Testing architecture using Robot Framework.
+
+Your task is to generate reusable keywords for the given feature using exactly three layers.
+
+Do not provide explanations. Output tables only.
+
+--------------------------------------------------
+
+ARCHITECTURE
+
+Use exactly these layers:
+1. Business Layer
+2. UI Action Layer
+3. Verification Layer
+
+--------------------------------------------------
+
+GLOBAL RULES
+
+Do NOT generate:
+- test cases
+- automation code
+- locators
+- example values
+
+Robot Framework naming convention:
+- Capitalize Each Word
+- Words separated by spaces
+- No underscores
+- No camelCase
+
+Keywords must be reusable, generic, and data-independent.
+
+--------------------------------------------------
+
+LAYER DESIGN
+
+BUSINESS
+    - Represent user actions or business workflows
+    - May orchestrate UI and Verification keywords
+    - Must NOT contain UI verbs (Click, Input, Select, Wait)
+    - Must NOT contain validation logic
+
+    BUSINESS KEYWORD PATTERN: <Action> <Business Goal>
+
+UI ACTION
+    - Generic UI operations only
+    - Must NOT contain feature-specific words
+    - Must map to SeleniumLibrary keywords
+
+    UI KEYWORD PATTERN: <Action> <Generic UI Target>
+
+    Allowed SeleniumLibrary Keywords:
+        - Input Text
+        - Click Element
+        - Wait Until Element Is Visible
+        - Element Should Be Visible
+        - Element Should Contain
+        - Page Should Contain
+        - Get WebElements
+        - Scroll Element Into View
+
+        Derived From SeleniumLibrary Keyword MUST be chosen from the list above.
+        Do NOT invent Selenium keywords.
+
+VERIFICATION
+    - Generic validation keywords
+    - Validate text, element state, navigation, or page content
+    - Must map to SeleniumLibrary built-in keywords
+    - Avoid words derived from the feature description
+    - Use abstract validation naming
+
+    VERIFICATION KEYWORD PATTERN: Verify <Generic Condition>
+
+    Good: Verify Element Is Visible, Verify Text Is Present
+
+    Bad: Verify Login Success, Verify Search Result 
+
+--------------------------------------------------
+
+OUTPUT FORMAT (STRICT)
+
+[BUSINESS KEYWORDS]
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| ... | Yes/No | parameter names or None | Yes/No | short purpose |
+
+Rules: business actions only, no UI verbs, no validation terms.
+
+
+[UI ACTION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | generic UI action |
+
+Rules: Must be generic UI operations such as Input Text Into Field, Click On Element, eg.
+
+
+[VERIFICATION KEYWORDS]
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| ... | Yes/No | parameter names | Selenium keyword | validation purpose |
+
+Rules: generic validation such as Verify Element Is Visible or Verify Text Is Present, eg.
+
+--------------------------------------------------
+
+SELF VALIDATION (MANDATORY)
+
+Before output:
+- No UI verbs in Business
+- No verification logic in Business
+- No feature words in UI
+- No feature words in Verification
+- Selenium keyword must be from allowed list
+- All UI and Verification keywords map to real SeleniumLibrary built-in keywords.
+- Return maximum 5 keywords for each layer.
+
+If any rule is violated → regenerate the keyword list.
+
+--------------------------------------------------
+
+FEATURE DESCRIPTION
+{{FEATURE}}",Status,Score,Named Scores,Grader Reason,Comment
+"Chức năng: Tìm kiếm sản phẩm
+
+Mô tả:
+Chức năng tìm kiếm cho phép người dùng tìm sản phẩm trong hệ thống dựa trên từ khóa.
+
+Luồng chính (Main Flows):
+1. Người dùng nhập từ khóa vào ô tìm kiếm.
+2. Người dùng nhấn nút tìm kiếm.
+3. Hệ thống xử lý từ khóa.
+4. Hệ thống thực hiện tìm kiếm các sản phẩm có thông tin phù hợp với từ khóa.
+5. Hệ thống hiển thị danh sách sản phẩm thỏa mãn với từ khóa tìm kiếm.
+
+Luồng ngoại lệ (Alternate Flows):
+1.  A1. Người dùng không nhập từ khóa
+    - Hệ thống không thực hiện tìm kiếm.
+    - Hệ thống hiển thị thông báo yêu cầu người dùng nhập từ khóa tìm kiếm.
+
+2.  A2. Không tồn tại sản phẩm phù hợp
+    - Hệ thống thực hiện tìm kiếm với từ khóa đã nhập.
+    - Không có sản phẩm nào thỏa mãn điều kiện.
+    - Hệ thống hiển thị thông báo không tìm thấy kết quả phù hợp.
+
+Kết quả mong đợi (Expected):
+- Khi từ khóa hợp lệ và tồn tại sản phẩm phù hợp: Danh sách sản phẩm tương ứng được hiển thị chính xác.
+
+- Khi không có kết quả hoặc dữ liệu không hợp lệ: Thông báo phù hợp được hiển thị cho người dùng.
+","Here are the reusable Robot Framework keywords organized into three layers:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Search Product | Initiates a product search with the given keyword. |
+| Validate Search Result | Verifies that the search result is as expected (i.e., products matching the keyword are displayed). |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Input Search Keyword | Enters a search keyword into the search input field. |
+| Click Search Button | Clicks the search button to initiate the product search. |
+| Handle No Result Found | Handles the scenario where no products are found matching the search keyword (e.g., displays an error message). |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Description |
+| --- | --- |
+| Check Product List Displayed | Verifies that a list of products is displayed as expected. |
+| Check No Result Found Message | Verifies that an error message indicating no results found is displayed. |
+| Check Search Input Field Empty | Verifies that the search input field is empty after searching. |
+
+These keywords can be used to automate tests for the ""Search Product"" feature, covering both main flows and alternate flows.",FAIL,0.75,"{""has_business_keywords"":1,""has_ui_action_keywords"":1,""has_verification_keywords"":1,""has_keyword_name_column"":1,""no_robot_test_cases"":1,""no_test_cases_text"":1,""no_xpath"":1,""no_xpath_lower"":1,""no_css_selector"":1,""no_python_code"":1,""no_import_code"":1,""no_example_values"":1,""has_input_parameters_column"":0,""has_required_parameters_column"":0,""has_optional_parameters_column"":0,""has_selenium_mapping_column"":0}","Expected output to contain ""Derived From SeleniumLibrary Keyword""",,"Here are the reusable Robot Framework keywords for the given feature, organized into three layers:
+
+**BUSINESS KEYWORDS**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Search Product | product_name | ${product_name} | Perform a search for products based on the provided name. |
+| Enter Search Criteria |  |  | Enter the search criteria into the search input field. |
+| Submit Search Request |  |  | Submit the search request to initiate the search process. |
+
+**UI ACTION KEYWORDS**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Click Search Button |  |  | Click the search button to initiate the search process. |
+| Enter Text Into Search Field | text | ${text} | Enter the provided text into the search input field. |
+| Submit Form |  |  | Submit the form to initiate the search request. |
+
+**VERIFICATION KEYWORDS**
+| Keyword Name | Input Parameters | Parameters | Description |
+| --- | --- | --- | --- |
+| Verify Search Results | product_list | ${product_list} | Verify that the search results contain the expected products. |
+| Verify No Results Found | message | ${message} | Verify that a message indicating no results found is displayed. |
+| Verify Error Message | error_message | ${error_message} | Verify that an error message is displayed when the search request fails. |
+
+Note: The input parameters and parameters columns are intentionally left blank, as these will be filled in with actual values during automation testing.",FAIL,0.81,"{""has_business_keywords"":1,""has_ui_action_keywords"":1,""has_verification_keywords"":1,""has_keyword_name_column"":1,""no_robot_test_cases"":1,""no_test_cases_text"":1,""no_xpath"":1,""no_xpath_lower"":1,""no_css_selector"":1,""no_python_code"":1,""no_import_code"":1,""no_example_values"":1,""has_input_parameters_column"":1,""has_required_parameters_column"":0,""has_optional_parameters_column"":0,""has_selenium_mapping_column"":0}","Expected output to contain ""Derived From SeleniumLibrary Keyword""",,"Here is the output:
+
+**BUSINESS KEYWORDS**
+
+| Keyword Name | Input Parameters | Required Parameters | Optional Parameters | Description |
+|--------------|-----------------|---------------------|---------------------|-------------|
+| Search Product | Yes | product_name |  | Perform search for a product with given name |
+| Enter Search Term | Yes | search_term |  | Enter the search term in the search box |
+| Submit Search | Yes |  |  | Submit the search form to start searching |
+
+**UI ACTION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Input Text Into Field | Yes | field_locator, text_to_input | Input Text | Enter text into a specific field |
+| Click On Element | Yes | element_locator | Click Element | Click on an element |
+| Wait Until Search Results Are Visible | No |  | Wait Until Element Is Visible | Wait until search results are visible |
+
+**VERIFICATION KEYWORDS**
+
+| Keyword Name | Input Parameters | Parameters | Derived From SeleniumLibrary Keyword | Description |
+|--------------|-----------------|-----------|--------------------------------------|-------------|
+| Verify Product List Is Present | Yes | product_list_locator | Page Should Contain | Verify that the product list is present on the page |
+| Verify No Results Found Message | Yes | message_locator | Element Should Be Visible | Verify that the ""No results found"" message is visible |
+| Verify Search Results Are Correct | Yes |  | Get WebElements | Verify that the search results are correct and match the expected products |",PASS,1.00,"{""has_business_keywords"":1,""has_ui_action_keywords"":1,""has_verification_keywords"":1,""has_keyword_name_column"":1,""no_robot_test_cases"":1,""no_test_cases_text"":1,""no_xpath"":1,""no_xpath_lower"":1,""no_css_selector"":1,""no_python_code"":1,""no_import_code"":1,""no_example_values"":1,""has_input_parameters_column"":1,""has_required_parameters_column"":1,""has_optional_parameters_column"":1,""has_selenium_mapping_column"":1}",All assertions passed,

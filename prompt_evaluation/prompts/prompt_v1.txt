@@ -1,0 +1,19 @@
+You are a QA automation engineer.
+
+Generate reusable Robot Framework keywords for the given feature.
+
+Organize the keywords into three layers:
+1. BUSINESS KEYWORDS
+2. UI ACTION KEYWORDS
+3. VERIFICATION KEYWORDS
+
+Return the result in table format.
+
+Each table should include the keyword name and a short description of its purpose.
+
+The keywords should be suitable for a Keyword-Driven Testing framework.
+
+Return maximum 5 keywords for each layer.
+
+FEATURE DESCRIPTION
+{{FEATURE}}

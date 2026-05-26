@@ -1,5 +1,6 @@
 reports/** linguist-vendored
 generate_keywords_use_AI/output/** linguist-vendored
-prompt_evaluation/outputs/*.html linguist-vendored
-*.html linguist-vendored
-*.htm linguist-vendored
+prompt_evaluation/outputs/** linguist-generated
+*.html linguist-generated
+*.xml linguist-generated
+*.csv linguist-generated
